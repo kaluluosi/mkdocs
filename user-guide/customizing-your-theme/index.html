@@ -226,8 +226,7 @@
   custom_dir: custom_theme/</code></pre>
 <p>要覆盖 404 错误页面（"文件未找到"），请将名为 <code>404.html</code> 的新模板文件添加到 <code>custom_theme</code> 目录中。有关可以包含在模板中的信息，请查看 <a href="../../dev-guide/themes/">主题开发人员指南</a>。要覆盖标签图标，可以在 <code>custom_theme/img/favicon.ico</code> 中添加新的图标文件。要包括 JavaScript 库，请将该库复制到 <code>custom_theme/js/</code> 目录下。</p>
 <p>现在，您的目录结构应如下所示：</p>
-<p>```nohighlight
-- docs/
+<pre class="highlight"><code class="language-nohighlight">- docs/
   - index.html
 - custom_theme/
   - img/
@@ -235,22 +234,16 @@
   - js/
     - somelib.js
   - 404.html
-- config.yml
-<pre class="highlight"><code>
-注意：
-
-父主题中包括的任何文件（在 `name` 中定义）但未包含在 `custom_dir` 中的文件仍将被使用。`custom_dir` 将仅覆盖/替换父级主题中的文件。如果您想要删除文件或从头开始构建主题，则应查看[主题开发人员指南][custom theme]。
-
-### 覆盖模板块
-
-内置主题在模板块中实现了其许多部分，这些模板块可以单独覆盖在 `main.html` 模板中定义。只需要在您的 `custom_dir` 中创建一个 `main.html` 模板文件，在该文件中定义替换块。只需确保 `main.html` 扩展了 `base.html`。例如，要更改 MkDocs 主题的标题，您的替换的 `main.html` 模板将包含以下内容：
-
-```django
-{% extends "base.html" %}
+- config.yml</code></pre>
+<p>注意：</p>
+<p>父主题中包括的任何文件（在 <code>name</code> 中定义）但未包含在 <code>custom_dir</code> 中的文件仍将被使用。<code>custom_dir</code> 将仅覆盖/替换父级主题中的文件。如果您想要删除文件或从头开始构建主题，则应查看<a href="../../dev-guide/themes/">主题开发人员指南</a>。</p>
+<h3 id="_2">覆盖模板块<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
+<p>内置主题在模板块中实现了其许多部分，这些模板块可以单独覆盖在 <code>main.html</code> 模板中定义。只需要在您的 <code>custom_dir</code> 中创建一个 <code>main.html</code> 模板文件，在该文件中定义替换块。只需确保 <code>main.html</code> 扩展了 <code>base.html</code>。例如，要更改 MkDocs 主题的标题，您的替换的 <code>main.html</code> 模板将包含以下内容：</p>
+<pre class="highlight"><code class="language-django">{% extends "base.html" %}
 
 {% block htmltitle %}
 &lt;title&gt;修改后的标题&lt;/title&gt;
-{% endblock %}</code></pre></p>
+{% endblock %}</code></pre>
 <p>在上面的示例中，您自定义的 <code>main.html</code> 文件中定义的 <code>htmltitle</code> 块将用于替换父级主题中默认定义的 <code>htmltitle</code> 块。只要这些块在父级中定义，您可以重新定义尽可能多的块。例如，您可以将 Google Analytics 脚本替换为其他服务的脚本，或者将搜索功能替换为您自己的功能。您需要查阅您正在使用的父主题，以确定可用于覆盖的块。MkDocs 和 ReadTheDocs 主题提供以下块：</p>
 <ul>
 <li><code>site_meta</code>：包含文档头中的元标记。</li>

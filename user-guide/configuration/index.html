@@ -257,20 +257,26 @@ edit_uri_template: 'blob/main/docs/{path}'</code></pre>
 <li><code>{path!q}</code>，例如'foo%2Fbar.md'</li>
 </ul>
 <blockquote>
-<p>? 注意：<strong>建议使用的有用配置：</strong>
-- GitHub Wiki：
+<p>? 注意:  <strong>建议使用的有用配置：</strong></p>
+<ul>
+<li>
+<p>GitHub Wiki：
 （例如。<code>https://github.com/project/repo/wiki/foo/bar/_edit</code>）
 <pre class="highlight"><code class="language-yaml">repo_url: 'https://github.com/project/repo/wiki'
-edit_uri_template: '{path_noext}/_edit'</code></pre>
-- BitBucket 编辑器：
+edit_uri_template: '{path_noext}/_edit'</code></pre></p>
+</li>
+<li>
+<p>BitBucket 编辑器：
 （例如。<code>https://bitbucket.org/project/repo/src/master/docs/foo/bar.md?mode=edit</code>）
 <pre class="highlight"><code class="language-yaml">repo_url: 'https://bitbucket.org/project/repo/'
 edit_uri_template: 'src/master/docs/{path}?mode=edit'</code></pre></p>
-<ul>
-<li>GitLab 静态站点编辑器：
+</li>
+<li>
+<p>GitLab 静态站点编辑器：
 （例如。<code>https://gitlab.com/project/repo/-/sse/master/docs%2Ffoo%2bar.md</code>）
 <pre class="highlight"><code class="language-yaml">repo_url: 'https://gitlab.com/project/repo'
-edit_uri_template: '-/sse/master/docs%2F{path!q}'</code></pre></li>
+edit_uri_template: '-/sse/master/docs%2F{path!q}'</code></pre></p>
+</li>
 <li>GitLab Web IDE：
 （例如。https://gitlab.com/-/ide/project/repo/edit/master/-/docs/foo/bar.md）
 <pre class="highlight"><code class="language-yaml">edit_uri_template: 'https://gitlab.com/-/ide/project/repo/edit/master/-/docs/{path}'</code></pre></li>
@@ -338,13 +344,13 @@ not_in_nav: |
 <p>与上一个选项一样，这遵循了 .gitignore 模式格式。注意：将给定文件添加到 <a href="#exclude_docs"><code>exclude_docs</code></a> 排除优先于并暗示 <code>not_in_nav</code>。</p>
 <h3 id="_6">验证<a class="headerlink" href="#_6" title="Permanent link"></a></h3>
 <p>新 ： <strong>在 1.5 版中推出。</strong></p>
-<p>在验证链接到文档时，配置 MkDocs 的诊断消息的严格程度。这是一个配置树，对于每个配置，值可以是以下三个之一：<code>warn</code>，<code>info</code>，<code>ignore</code>。这些级别分别对应于在发生相应事件时生成相应严重性的记录消息。显然，'warn' 级别旨在在持续测试中使用 <code>mkdocs build --strict</code>（其中它将成为错误）。&gt; 示例：<strong>MkDocs 1.5 中此配置的默认值：</strong></p>
+<p>在验证链接到文档时，配置 MkDocs 的诊断消息的严格程度。这是一个配置树，对于每个配置，值可以是以下三个之一：<code>warn</code>，<code>info</code>，<code>ignore</code>。这些级别分别对应于在发生相应事件时生成相应严重性的记录消息。显然，'warn' 级别旨在在持续测试中使用 <code>mkdocs build --strict</code>（其中它将成为错误）。</p>
 <blockquote>
-<p>```yaml
-validation:
+<p>示例：<strong>MkDocs 1.5 中此配置的默认值：</strong></p>
+<pre class="highlight"><code class="language-yaml">validation:
   nav:
     omitted_files: info
-    not_found### extra_templates</p>
+    not_found### extra_templates</code></pre>
 </blockquote>
 <p>在<code>docs_dir</code>中设置一个模板列表，以便MkDocs构建。要了解有关编写MkDocs模板的更多信息，请阅读有关[自定义主题]的文档，特别是有关[可用变量]的部分和<a href="#extra_css">extra_css</a>中的用法示例。<strong>默认值</strong>：<code>[]</code>（空列表）。</p>
 <h3 id="extra">extra<a class="headerlink" href="#extra" title="Permanent link"></a></h3>

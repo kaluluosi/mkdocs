@@ -196,11 +196,15 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">部署</a>
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">其他命令和选项</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">获取帮助</a>
+            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">部署</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_8" class="nav-link">获取帮助</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -266,22 +270,17 @@ theme: readthedocs</code></pre>
 <pre class="highlight"><code class="language-console">$ ls site
 about  fonts  index.html  license  search.html
 css    img    js          mkdocs   sitemap.xml</code></pre>
-<p>请注意，您的源文档已输出为两个名为 <code>index.html</code> 和 <code>about/index.html</code> 的 HTML 文件。您还有各种其他媒体作为文档主题的一部分复制到了 <code>site</code> 目录。您甚至有一个 <code>sitemap.xml</code> 文件和 <code>mkdocs/search_index.json</code>。如果使用源代码控制，如 <code>git</code>，则可能不希望将文档构建检入存储库。向您的 <code>.gitignore</code> 文件添加包含 <code>site/</code> 的行。```bash
-echo "site/" &gt;&gt; .gitignore
-<pre class="highlight"><code>
-如果您使用另一个源代码控制工具，您将需要检查其文档，以了解如何忽略特定目录。
-
-## 其他命令和选项
-
-有各种其他命令和选项可用。要查看完整的命令列表，请使用 `--help` 标志：
-
-```bash
-mkdocs --help</code></pre></p>
+<p>请注意，您的源文档已输出为两个名为 <code>index.html</code> 和 <code>about/index.html</code> 的 HTML 文件。您还有各种其他媒体作为文档主题的一部分复制到了 <code>site</code> 目录。您甚至有一个 <code>sitemap.xml</code> 文件和 <code>mkdocs/search_index.json</code>。如果使用源代码控制，如 <code>git</code>，则可能不希望将文档构建检入存储库。向您的 <code>.gitignore</code> 文件添加包含 <code>site/</code> 的行。</p>
+<pre class="highlight"><code class="language-bash">echo "site/" &gt;&gt; .gitignore</code></pre>
+<p>如果您使用另一个源代码控制工具，您将需要检查其文档，以了解如何忽略特定目录。</p>
+<h2 id="_6">其他命令和选项<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>有各种其他命令和选项可用。要查看完整的命令列表，请使用 <code>--help</code> 标志：</p>
+<pre class="highlight"><code class="language-bash">mkdocs --help</code></pre>
 <p>要查看给定命令上可用的选项列表，请使用该命令的 <code>--help</code> 标志。例如，要获取在我们运行以下命令列出的“build”命令上可用的所有选项的列表：</p>
 <pre class="highlight"><code class="language-bash">mkdocs build --help</code></pre>
-<h2 id="_6">部署<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<h2 id="_7">部署<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <p>你刚刚构建的文档网站只使用静态文件，所以你可以在几乎任何地方托管它。只需上传整个 <code>site</code> 目录的内容到您托管网站的任何位置，完成。有关一些常见主机的具体说明，请参阅 <a href="../user-guide/deploying-your-docs/">部署您的文档</a> 页面。</p>
-<h2 id="_7">获取帮助<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<h2 id="_8">获取帮助<a class="headerlink" href="#_8" title="Permanent link"></a></h2>
 <p>请参考<a href="../user-guide/">用户指南</a>以获取MkDocs所有功能的更完整的文档。如果需要MkDocs的帮助，请使用 <a href="https://github.com/mkdocs/mkdocs/discussions">GitHub讨论</a> 或<a href="https://github.com/mkdocs/mkdocs/issues">GitHub问题</a>。</p></div>
             </div>
         </div>

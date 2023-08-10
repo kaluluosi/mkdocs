@@ -192,7 +192,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#_12" class="nav-link">支持主题本地化/翻译</a>
+            <li class="nav-item" data-level="2"><a href="#_12" class="nav-link">打包主题</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_14" class="nav-link">支持主题本地化/翻译</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -401,30 +405,6 @@ foo/.ignored/file.txt</code></pre>
 </div><p>请注意，这个列表并不一定是所有站点页面的完整列表，因为它不包含未在导航中包含的页面。此列表与用于所有“下一页”和“上一页”链接的页面列表和顺序相匹配。要列出所有页面，请使用 <a href="#pages">pages</a> 模板变量。</p>
 <h5 id="nav_1">Nav 示例<a class="headerlink" href="#nav_1" title="Permanent link"></a></h5>
 <p>以下示例显示前两个层次的目录结构。</p>
-<pre class="highlight"><code class="language-django">{% if nav|length &gt; 1 %}
-    &lt;ul&gt;
-    {% for nav_item in nav %}
-        {% if nav_item.children %}
-            &lt;li&gt;{{ nav_item.title }}
-                &lt;ul&gt;
-                {% for nav_item in nav_item.children %}
-                    &lt;li class="{% if nav_item.active %}current{% endif %}"&gt;
-                        &lt;a href="{{ nav_item.url|url }}"&gt;{{ nav_item.title }}&lt;/a&gt;
-                    &lt;/li&gt;
-                {% endfor %}
-                &lt;/ul&gt;
-            &lt;/li&gt;
-        {% else %}
-            &lt;li class="{% if nav_item.active %}current{% endif %}"&gt;
-                &lt;a href="{{ nav_item.url|url }}"&gt;{{ nav绝对地址被原样传递。如果URL是相对的，而模板上下文包括一个页面对象，那么URL将相对于页面对象返回。否则，URL将附带[base_url]({#base_url})前缀返回。
-
-```django
-&lt;a href="{{ page.url|url }}"&gt;{{ page.title }}&lt;/a&gt;</code></pre>
-<h3 id="tojson">tojson<a class="headerlink" href="#tojson" title="Permanent link"></a></h3>
-<p>安全地将Python对象转换为JavaScript脚本中的值。</p>
-<pre class="highlight"><code class="language-django">&lt;script&gt;
-    var mkdocs_page_name = {{ page.title|tojson|safe }};
-&lt;/script&gt;</code></pre>
 <h3 id="script_tag">script_tag<a class="headerlink" href="#script_tag" title="Permanent link"></a></h3>
 <p>新功能：自1.5版本起使用。</p>
 <p>将<a href="../../user-guide/configuration/#extra_javascript">extra_javascript</a>中的项目转换为<code>&lt;script&gt;</code>标签，其中考虑了所有[此配置的自定义]，并内置了<a href="{#url}"><code>|url</code></a>行为的等效项。请参阅[基本主题]中如何使用它。</p>
@@ -433,7 +413,7 @@ foo/.ignored/file.txt</code></pre>
 <pre class="highlight"><code class="language-django">{% if 'search' in config.plugins %}
     search stuff here...
 {% endif %}</code></pre>
-<p>在其最基本的功能中，搜索插件将简单地提供一个索引文件，该文件不超过包含所有页面内容的JSON文件。主题需要在客户端执行自己的搜索功能。然而，通过一些设置和必要的模板，该插件可以提供基于[lunr.js]的完整功能的客户端搜索工具。下面的HTML需要添加到该主题中，以使提供的JavaScript能够正确加载搜索脚本，并从当前页中的搜索结果创建相对链接。</p>
+<p>在其最基本的功能中，搜索插件将简单地提供一个索引文件，该文件不超过包含所有页面内容的JSON文件。主题需要在客户端执行自己的搜索功能。然而，通过一些设置和必要的模板，该插件可以提供基于<a href="https://lunrjs.com/">lunr.js</a>的完整功能的客户端搜索工具。下面的HTML需要添加到该主题中，以使提供的JavaScript能够正确加载搜索脚本，并从当前页中的搜索结果创建相对链接。</p>
 <pre class="highlight"><code class="language-django">&lt;script&gt;var base_url = {{ base_url|tojson }};&lt;/script&gt;</code></pre>
 <p>使用正确配置的设置，模板中的以下HTML将向您的主题添加完整的搜索实现。</p>
 <pre class="highlight"><code class="language-django">&lt;h1 id="search"&gt;Search Results&lt;/h1&gt;
@@ -447,41 +427,25 @@ foo/.ignored/file.txt</code></pre>
 <p>插件中的JavaScript通过查找上述HTML中使用的特定ID来工作。用户为用户键入搜索查询的表单输入必须使用<code>id="mkdocs-search-query"</code>进行标识，并且将结果放置的div必须使用<code>id="mkdocs-search-results"</code>进行标识。插件支持在<a href="mkdocs_theme.yml">主题的配置文件</a>中设置以下选项:</p>
 <h3 id="include_search_page">include_search_page<a class="headerlink" href="#include_search_page" title="Permanent link"></a></h3>
 <p>确定搜索插件是否希望主题通过位于<code>search/search.html</code>的模板提供专用搜索页面。当<code>include_search_page</code>设置为<code>true</code>时，将构建并在<code>search/search.html</code>中提供搜索模板。该方法由<code>readthedocs</code>主题使用。当<code>include_search_page</code>设置为<code>false</code>或未定义时，期望该主题提供其他显示搜索结果的机制。例如，<code>mkdocs</code>主题通过模态方式在任何页面上显示结果。### search_index_only</p>
-<p>确定搜索插件是否应仅生成搜索索引还是完整的搜索解决方案。当<code>search_index_only</code>设置为<code>false</code>时，搜索插件通过添加具有较低优先级的自己的<code>templates</code>目录（比主题低）并向<code>extra_javascript</code>配置设置添加其脚本来修改Jinja环境。当<code>search_index_only</code>设置为<code>true</code>或未定义时，搜索插件不会对Jinja环境进行任何修改。使用提供的索引文件的完整解决方案是主题的责任。搜索索引写入[site_dir]中的JSON文件<code>search/search_index.json</code>。文件中包含的JSON对象可以包含最多三个对象。```json
-{
+<p>确定搜索插件是否应仅生成搜索索引还是完整的搜索解决方案。当<code>search_index_only</code>设置为<code>false</code>时，搜索插件通过添加具有较低优先级的自己的<code>templates</code>目录（比主题低）并向<code>extra_javascript</code>配置设置添加其脚本来修改Jinja环境。当<code>search_index_only</code>设置为<code>true</code>或未定义时，搜索插件不会对Jinja环境进行任何修改。使用提供的索引文件的完整解决方案是主题的责任。搜索索引写入<a href="../../user-guide/configuration/#site_dir">site_dir</a>中的JSON文件<code>search/search_index.json</code>。文件中包含的JSON对象可以包含最多三个对象。</p>
+<pre class="highlight"><code class="language-json">{
     config: {...},
     docs: [...],
     index: {...}
-}
-<pre class="highlight"><code>
-如果存在，则`config`对象包含在用户的`mkdocs.yml`配置文件中为插件定义的配置选项的键/值对。`config`对象是MkDocs版本*1.0*的新功能。`docs`对象包含文档对象列表。每个文档对象由`location`（URL）、`title`和可以用于创建搜索索引和/或显示搜索结果的`text`组成。如果存在，则`index`对象包含预构建索引，可为较大站点提供性能改进。请注意，只有当用户显式启用了[prebuild_index]配置选项时，才会创建预构建的索引。主题应该预计索引不存在，但可以选择在可用时使用索引。`index`对象是MkDocs版本*1.0*的新功能。[Jinja2 template]: https://jinja.palletsprojects.com/
-[built-in themes]: https://github.com/mkdocs/mkdocs/tree/master/mkdocs/themes
-[主题的配置文件]: #主题配置
-[lunr.js]: https://lunrjs.com/
-[site_dir]: ../user-guide/configuration.md#site_dir
-[prebuild_index]: ../user-guide/configuration.md#prebuild_index
-[Jinja's default filters]: https://jinja.palletsprojects.com/en/latest/templates/#builtin-filters
-
-## 打包主题
-
-MkDocs使用[Python packaging]来分发主题，其中有一些要求。有关包含一个主题的包的示例，请参见[MkDocs Bootstrap主题]，有关包含许多主题的包的示例，请参见[MkDocs Bootswatch主题]。
-
-注意:不必严格打包主题，因为整个主题可以包含在`custom_dir`中。如果您创建了“一次性主题”。但是，如果您打算分发您的主题供他人使用，则打包主题具有某些优点。通过打包您的主题，您的用户可以更轻松地安装它，他们可以依赖于定义的默认[configuration]，然后他们可以利用[custom_dir]来调整您的主题以更好地符合其需求。[Python packaging]: https://packaging.python.org/en/latest/
-[MkDocs Bootstrap theme]: https://mkdocs.github.io/mkdocs-bootstrap/
-[MkDocs Bootswatch theme]: https://mkdocs.github.io/mkdocs-bootswatch/
-
-### 包装布局
-
-以下布局建议用于主题。该目录处于顶层目录中，称为`MANIFEST.in`和`setup.py`旁边的主题目录，其包含一个空的`__init__.py`文件，一个主题配置文件（`mkdocs_theme.yml`）以及您的模板和媒体文件。
-
-```text
-.|-- MANIFEST.in
+}</code></pre>
+<p>如果存在，则<code>config</code>对象包含在用户的<code>mkdocs.yml</code>配置文件中为插件定义的配置选项的键/值对。<code>config</code>对象是MkDocs版本<em>1.0</em>的新功能。<code>docs</code>对象包含文档对象列表。每个文档对象由<code>location</code>（URL）、<code>title</code>和可以用于创建搜索索引和/或显示搜索结果的<code>text</code>组成。如果存在，则<code>index</code>对象包含预构建索引，可为较大站点提供性能改进。请注意，只有当用户显式启用了<a href="../../user-guide/configuration/#prebuild_index">prebuild_index</a>配置选项时，才会创建预构建的索引。主题应该预计索引不存在，但可以选择在可用时使用索引。<code>index</code>对象是MkDocs版本<em>1.0</em>的新功能。[Jinja2 template]: https://jinja.palletsprojects.com/</p>
+<h2 id="_12">打包主题<a class="headerlink" href="#_12" title="Permanent link"></a></h2>
+<p>MkDocs使用[Python packaging]来分发主题，其中有一些要求。有关包含一个主题的包的示例，请参见[MkDocs Bootstrap主题]，有关包含许多主题的包的示例，请参见[MkDocs Bootswatch主题]。</p>
+<p>注意:不必严格打包主题，因为整个主题可以包含在<code>custom_dir</code>中。如果您创建了“一次性主题”。但是，如果您打算分发您的主题供他人使用，则打包主题具有某些优点。通过打包您的主题，您的用户可以更轻松地安装它，他们可以依赖于定义的默认<a href="#theme-configuration">configuration</a>，然后他们可以利用<a href="../../user-guide/configuration/#custom_dir">custom_dir</a>来调整您的主题以更好地符合其需求。[Python packaging]: https://packaging.python.org/en/latest/</p>
+<h3 id="_13">包装布局<a class="headerlink" href="#_13" title="Permanent link"></a></h3>
+<p>以下布局建议用于主题。该目录处于顶层目录中，称为<code>MANIFEST.in</code>和<code>setup.py</code>旁边的主题目录，其包含一个空的<code>__init__.py</code>文件，一个主题配置文件（<code>mkdocs_theme.yml</code>）以及您的模板和媒体文件。</p>
+<pre class="highlight"><code class="language-text">.|-- MANIFEST.in
 |-- theme_name
 |   |-- __init__.py
 |   |-- mkdocs_theme.yml
 |   |-- main.html
 |   |-- styles.css
-`-- setup.py</code></pre></p>
+`-- setup.py</code></pre>
 <p>在<code>MANIFEST.in</code>文件中，应包含以下内容，但应将<code>theme_name</code>更新为包括任何额外文件扩展名的内容。</p>
 <pre class="highlight"><code class="language-text">recursive-include theme_name *.ico *.js *.css *.png *.html *.eot *.svg *.ttf *.woff
 recursive-exclude * __pycache__
@@ -541,14 +505,14 @@ locale<a class="headerlink" href="#locale" title="Permanent link"></a></h4>
 <p>按照上述更改，您的主题现在应该准备安装了。这可以使用pip完成，如果仍在setup.py所在目录中，则可以使用<code>pip install .</code>。大多数Python软件包，包括MkDocs，在PyPI上分发。为此，您应该运行以下命令。</p>
 <pre class="highlight"><code class="language-bash">python setup.py register</code></pre>
 <p>如果您还没有设置帐户，则会提示您创建一个。有关详细信息，请参见官方Python打包文档[Packaging and Distributing Projects]。[Packaging and Distributing Projects]: https://packaging.python.org/en/latest/distributing/</p>
-<h2 id="_12">支持主题本地化/翻译<a class="headerlink" href="#_12" title="Permanent link"></a></h2>
+<h2 id="_14">支持主题本地化/翻译<a class="headerlink" href="#_14" title="Permanent link"></a></h2>
 <p>虽然内置主题提供了在模板中<a href="../../user-guide/localizing-your-theme/">本地化/翻译</a>的支持，但自定义主题和第三方主题可能选择不支持。无论如何，<code>theme</code>配置选项中的<a href="#locale"><code>locale</code></a>设置始终存在，其他部分依赖于它。因此，建议所有第三方主题使用相同的设置来指定语言，而不考虑它们用于翻译的系统。以这种方式，无论用户选择哪个主题，都将体验到一致的行为。</p>
 <p>翻译管理方法由主题的开发人员决定。然而，如果主题开发人员选择使用内置主题使用的机制，则以下各节概述如何启用和使用MkDocs使用的相同命令。</p>
-<h3 id="_13">使用本地化/翻译命令<a class="headerlink" href="#_13" title="Permanent link"></a></h3>
+<h3 id="_15">使用本地化/翻译命令<a class="headerlink" href="#_15" title="Permanent link"></a></h3>
 <p>警告:
 由于默认情况下<a href="https://babel.pocoo.org/en/latest/setup.html">pybabel</a>未安装，并且大多数用户不会安装pybabel，请确保已安装必要的依赖项（使用<code>pip install mkdocs[i18n]</code>）。否则，主题开发人员和/或翻译人员应确保已安装必要的依赖项。</p>
 <p>翻译命令应从主题的工作树的根目录中调用。有关MkDocs用于翻译内置主题的工作流程的概述，请参见Contributing Guide的相应<a href="../../about/contributing/#submitting-changes-to-the-builtin-themes">部分</a>和<a href="../translations/">Translation Guide</a>。</p>
-<h3 id="_14">示例自定义主题的本地化/翻译工作流程<a class="headerlink" href="#_14" title="Permanent link"></a></h3>
+<h3 id="_16">示例自定义主题的本地化/翻译工作流程<a class="headerlink" href="#_16" title="Permanent link"></a></h3>
 <p>请按照<a href="https://github.com/mkdocs/mkdocs-basic-theme">MkDocs基本主题</a>的示例，随时添加任何翻译。通过在HTML源中使用<code>{% trans %}</code>和<code>{% endtrans %}</code>包装文本来编辑模板，如下所示：</p>
 <pre class="highlight"><code class="language-diff">--- a/basic_theme/base.html
 +++ b/basic_theme/base.html
