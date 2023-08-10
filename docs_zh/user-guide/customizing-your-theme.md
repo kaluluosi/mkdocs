@@ -70,7 +70,7 @@ theme:
 
 现在，您的目录结构应如下所示：
 
- ```nohighlight
+```nohighlight
 - docs/
   - index.html
 - custom_theme/

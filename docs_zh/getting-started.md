@@ -108,7 +108,9 @@ about  fonts  index.html  license  search.html
 css    img    js          mkdocs   sitemap.xml
 ```
 
-请注意，您的源文档已输出为两个名为 `index.html` 和 `about/index.html` 的 HTML 文件。您还有各种其他媒体作为文档主题的一部分复制到了 `site` 目录。您甚至有一个 `sitemap.xml` 文件和 `mkdocs/search_index.json`。如果使用源代码控制，如 `git`，则可能不希望将文档构建检入存储库。向您的 `.gitignore` 文件添加包含 `site/` 的行。```bash
+请注意，您的源文档已输出为两个名为 `index.html` 和 `about/index.html` 的 HTML 文件。您还有各种其他媒体作为文档主题的一部分复制到了 `site` 目录。您甚至有一个 `sitemap.xml` 文件和 `mkdocs/search_index.json`。如果使用源代码控制，如 `git`，则可能不希望将文档构建检入存储库。向您的 `.gitignore` 文件添加包含 `site/` 的行。
+
+```bash
 echo "site/" >> .gitignore
 ```
 

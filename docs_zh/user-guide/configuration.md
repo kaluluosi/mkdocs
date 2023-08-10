@@ -101,13 +101,15 @@ edit_uri_template: 'blob/main/docs/{path}'
 - 可用转换标志 `!q`，以对字段进行百分比编码：
 - `{path!q}`，例如'foo%2Fbar.md'
 
->? 注意：**建议使用的有用配置：**
+> ? 注意:  **建议使用的有用配置：**
+> 
 > - GitHub Wiki：
 > （例如。`https://github.com/project/repo/wiki/foo/bar/_edit`）
 > ```yaml
 > repo_url: 'https://github.com/project/repo/wiki'
 > edit_uri_template: '{path_noext}/_edit'
 > ```
+> 
 > - BitBucket 编辑器：
 > （例如。`https://bitbucket.org/project/repo/src/master/docs/foo/bar.md?mode=edit`）
 > ```yaml
@@ -242,13 +244,15 @@ not_in_nav: |
 
 新 ： **在 1.5 版中推出。**
 
-在验证链接到文档时，配置 MkDocs 的诊断消息的严格程度。这是一个配置树，对于每个配置，值可以是以下三个之一：`warn`，`info`，`ignore`。这些级别分别对应于在发生相应事件时生成相应严重性的记录消息。显然，'warn' 级别旨在在持续测试中使用 `mkdocs build --strict`（其中它将成为错误）。> 示例：**MkDocs 1.5 中此配置的默认值：**
+在验证链接到文档时，配置 MkDocs 的诊断消息的严格程度。这是一个配置树，对于每个配置，值可以是以下三个之一：`warn`，`info`，`ignore`。这些级别分别对应于在发生相应事件时生成相应严重性的记录消息。显然，'warn' 级别旨在在持续测试中使用 `mkdocs build --strict`（其中它将成为错误）。
+> 示例：**MkDocs 1.5 中此配置的默认值：**
 >
 > ```yaml
 > validation:
 >   nav:
 >     omitted_files: info
 >     not_found### extra_templates
+> ```
 
 在`docs_dir`中设置一个模板列表，以便MkDocs构建。要了解有关编写MkDocs模板的更多信息，请阅读有关[自定义主题]的文档，特别是有关[可用变量]的部分和[extra_css]中的用法示例。**默认值**：`[]`（空列表）。
 

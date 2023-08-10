@@ -220,38 +220,6 @@ foo/.ignored/file.txt
 
 以下示例显示前两个层次的目录结构。
 
-```django
-{% if nav|length > 1 %}
-    <ul>
-    {% for nav_item in nav %}
-        {% if nav_item.children %}
-            <li>{{ nav_item.title }}
-                <ul>
-                {% for nav_item in nav_item.children %}
-                    <li class="{% if nav_item.active %}current{% endif %}">
-                        <a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
-            </li>
-        {% else %}
-            <li class="{% if nav_item.active %}current{% endif %}">
-                <a href="{{ nav_item.url|url }}">{{ nav绝对地址被原样传递。如果URL是相对的，而模板上下文包括一个页面对象，那么URL将相对于页面对象返回。否则，URL将附带[base_url]({#base_url})前缀返回。
-
-```django
-<a href="{{ page.url|url }}">{{ page.title }}</a>
-```
-
-### tojson
-
-安全地将Python对象转换为JavaScript脚本中的值。
-
-```django
-<script>
-    var mkdocs_page_name = {{ page.title|tojson|safe }};
-</script>
-```
-
 ### script_tag
 
 新功能：自1.5版本起使用。
@@ -293,7 +261,9 @@ foo/.ignored/file.txt
 
 确定搜索插件是否希望主题通过位于`search/search.html`的模板提供专用搜索页面。当`include_search_page`设置为`true`时，将构建并在`search/search.html`中提供搜索模板。该方法由`readthedocs`主题使用。当`include_search_page`设置为`false`或未定义时，期望该主题提供其他显示搜索结果的机制。例如，`mkdocs`主题通过模态方式在任何页面上显示结果。### search_index_only
 
-确定搜索插件是否应仅生成搜索索引还是完整的搜索解决方案。当`search_index_only`设置为`false`时，搜索插件通过添加具有较低优先级的自己的`templates`目录（比主题低）并向`extra_javascript`配置设置添加其脚本来修改Jinja环境。当`search_index_only`设置为`true`或未定义时，搜索插件不会对Jinja环境进行任何修改。使用提供的索引文件的完整解决方案是主题的责任。搜索索引写入[site_dir]中的JSON文件`search/search_index.json`。文件中包含的JSON对象可以包含最多三个对象。```json
+确定搜索插件是否应仅生成搜索索引还是完整的搜索解决方案。当`search_index_only`设置为`false`时，搜索插件通过添加具有较低优先级的自己的`templates`目录（比主题低）并向`extra_javascript`配置设置添加其脚本来修改Jinja环境。当`search_index_only`设置为`true`或未定义时，搜索插件不会对Jinja环境进行任何修改。使用提供的索引文件的完整解决方案是主题的责任。搜索索引写入[site_dir]中的JSON文件`search/search_index.json`。文件中包含的JSON对象可以包含最多三个对象。
+
+```json
 {
     config: {...},
     docs: [...],
