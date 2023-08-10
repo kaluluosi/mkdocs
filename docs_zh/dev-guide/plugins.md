@@ -14,12 +14,14 @@ pip install mkdocs-foo-plugin
 
 插件成功安装后，它就可以使用了。只需要在配置文件中[启用](#使用插件)即可。[Catalog]存储库中有一个大型的插件排名列表，您可以安装并使用。## 使用插件
 
-[`plugins`] [config]配置选项应该包含一个要在构建网站时使用的插件列表。每个“插件”都必须是分配给插件的字符串名称（请参阅给定插件的文档以确定其“名称”）。列出的插件必须已经[安装](#安装插件)。```yaml
+[`plugins`] [config]配置选项应该包含一个要在构建网站时使用的插件列表。每个“插件”都必须是分配给插件的字符串名称（请参阅给定插件的文档以确定其“名称”）。列出的插件必须已经[安装](#安装插件)。
+```yaml
 plugins:
   - search
 ```
 
-某些插件可能提供自己的配置选项。如果要设置任何配置选项，则可以嵌套一个键/值映射(`option_name: option value`)，其中包含给定插件支持的任何选项。请注意，冒号(`:`)必须跟随插件名称，然后在新行上缩进并用冒号分隔选项名称和值。如果要为单个插件定义多个选项，则每个选项都必须在单独的行上定义。```yaml
+某些插件可能提供自己的配置选项。如果要设置任何配置选项，则可以嵌套一个键/值映射(`option_name: option value`)，其中包含给定插件支持的任何选项。请注意，冒号(`:`)必须跟随插件名称，然后在新行上缩进并用冒号分隔选项名称和值。如果要为单个插件定义多个选项，则每个选项都必须在单独的行上定义。
+```yaml
 plugins:
   - search:
       lang: en
@@ -34,7 +36,8 @@ plugins:
 
 #### config_scheme
 
-配置验证实例的元组。每个项目必须由一个元组组成，其中第一个项目是配置选项的字符串名称，第二个项目是`mkdocs.config.config_options.BaseConfigOption`或其任何子类的实例。例如，以下`config_scheme`定义了三个配置选项：`foo`，它接受字符串;“bar”，它接受整数;和“baz”，它接受布尔值。```python
+配置验证实例的元组。每个项目必须由一个元组组成，其中第一个项目是配置选项的字符串名称，第二个项目是`mkdocs.config.config_options.BaseConfigOption`或其任何子类的实例。例如，以下`config_scheme`定义了三个配置选项：`foo`，它接受字符串;“bar”，它接受整数;和“baz”，它接受布尔值。
+```python
 class MyPlugin(mkdocs.plugins.BasePlugin):
     config_scheme = (
         ('foo', mkdocs.config.config_options.Type(str, default='a default value')),
@@ -43,22 +46,21 @@ class MyPlugin(mkdocs.plugins.BasePlugin):
     )
 ```
 
-> NEW：**版本1.4中新增：**
->
-> ##### 子类Config以指定配置模式
->
-> 为了获得类型安全性的益处，如果您只针对MkDocs 1.4+，则应将配置模式定义为类：
->
-> ```python
-> class MyPluginConfig(mkdocs.config.base.Config):
->     foo = mkdocs.config.config_options.Type(str, default='a default value')
->     bar = mkdocs.config.config_options.Type(int, default=0)
->     baz = mkdocs.config.config_options.Type(bool, default=True)
->
-> class MyPlugin(mkdocs.plugins.BasePlugin[MyPluginConfig]):
->     ...
-> ```
+NEW：**版本1.4中新增：**
 
+##### 子类Config以指定配置模式
+
+为了获得类型安全性的益处，如果您只针对MkDocs 1.4+，则应将配置模式定义为类：
+
+```python
+class MyPluginConfig(mkdocs.config.base.Config):
+    foo = mkdocs.config.config_options.Type(str, default='a default value')
+    bar = mkdocs.config.config_options.Type(int, default=0)
+    baz = mkdocs.config.config_options.Type(bool, default=True)
+
+class MyPlugin(mkdocs.plugins.BasePlugin[MyPluginConfig]):
+    ...
+```
 ##### 配置定义示例
 
 >！例子：
@@ -120,7 +122,8 @@ class MyPlugin(mkdocs.plugins.BasePlugin):
 
 加载用户配置时，上述方案将用于验证配置并为未提供用户的设置填充任何默认值。验证类可以是`mkdocs.config.config_options`中提供的任何类或插件中定义的第三方子类。由用户提供的任何设置都将在验证失败或未在`config_scheme`中定义的情况下引发`mkdocs.config.base.ValidationError`。#### 配置
 
-一个字典，包含插件的配置选项，在`load_config`方法完成配置验证后会填充该属性。使用此属性访问用户提供的选项。```python
+一个字典，包含插件的配置选项，在`load_config`方法完成配置验证后会填充该属性。使用此属性访问用户提供的选项。
+```python
 def on_pre_build(self, config, **kwargs):
     if self.config['baz']:
         # 在此实现“baz”功能...
@@ -184,7 +187,9 @@ class MyPlugin(BasePlugin):
 
 #### 一次性事件
 
-一次性事件每次mkdocs调用时只运行一次。它们与[全局事件]的区别仅适用于`mkdocs serve`：与这些事件不同，全局事件将多次运行-每次*build*一次。##### on_startup
+一次性事件每次mkdocs调用时只运行一次。它们与[全局事件]的区别仅适用于`mkdocs serve`：与这些事件不同，全局事件将多次运行-每次*build*一次。
+
+##### on_startup
 
 ::: mkdocs.plugins.BasePlugin.on_startup
     options:
