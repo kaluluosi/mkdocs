@@ -5,6 +5,7 @@ import openai
 import nltk
 from tqdm import trange
 import logging
+import os
 from contextlib import contextmanager
 
 nltk.download("punkt")
@@ -13,10 +14,10 @@ logging.basicConfig(filename="translate.log", filemode='w', level=logging.INFO)
 log = logging.getLogger("translate")
 
 
-openai.api_key = "f6438b715aa8473f917b5fe5968db5c3"
-openai.api_base = "https://dxgpt.openai.azure.com/"
-openai.api_type = "azure"
-openai.api_version = "2023-05-15"
+openai.api_key = os.environ['API_KEY']
+openai.api_base = os.environ['API_BASE']
+openai.api_type = os.environ['API_TYPE']
+openai.api_version = os.environ['API_VERSION']
 
 DOCS_PATH = "docs"
 DOCS_BAK_PATH = "docs_bak"
