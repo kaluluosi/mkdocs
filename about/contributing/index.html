@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="MkDocs Team">
+        <link rel="canonical" href="https://www.mkdocs.org/about/contributing/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Contributing - MkDocs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/django.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-274394082"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', "G-274394082");
+        </script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">MkDocs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../getting-started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../user-guide/" class="dropdown-item">用户指南</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/writing-your-docs/" class="dropdown-item">编写文档</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/choosing-your-theme/" class="dropdown-item">选择主题</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/customizing-your-theme/" class="dropdown-item">自定义主题</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/localizing-your-theme/" class="dropdown-item">本地化主题</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/configuration/" class="dropdown-item">配置</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/cli/" class="dropdown-item">命令行界面</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/deploying-your-docs/" class="dropdown-item">部署文档</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../dev-guide/" class="dropdown-item">开发者指南</a>
+</li>
+                                    
+<li>
+    <a href="../../dev-guide/themes/" class="dropdown-item">主题</a>
+</li>
+                                    
+<li>
+    <a href="../../dev-guide/translations/" class="dropdown-item">翻译</a>
+</li>
+                                    
+<li>
+    <a href="../../dev-guide/plugins/" class="dropdown-item">插件</a>
+</li>
+                                    
+<li>
+    <a href="../../dev-guide/api/" class="dropdown-item">API 参考</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../release-notes/" class="dropdown-item">Release Notes</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Contributing</a>
+</li>
+                                    
+<li>
+    <a href="../license/" class="dropdown-item">License</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../release-notes/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../license/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/mkdocs/mkdocs/blob/master/docs/about/contributing.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#mkdocs" class="nav-link">MkDocs的贡献</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">行为准则</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">报告问题</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">测试开发版本</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">安装开发版本</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">运行测试</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">代码格式化</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">翻译主题</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pull" class="nav-link">提交Pull请求</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="mkdocs">MkDocs的贡献<a class="headerlink" href="#mkdocs" title="Permanent link"></a></h1>
+<p>本文介绍如何为MkDocs项目做出贡献。MkDocs项目期待并依赖于开源社区的贡献，包括开发者和用户。以下是一些贡献方式的示例：</p>
+<ul>
+<li>提交代码修复、改进拉取请求</li>
+<li>优化文档</li>
+<li>报告缺陷和审核代码</li>
+</ul>
+<p>有关可用的沟通渠道的详细信息，请参阅我们GitHub存储库中的<a href="https://github.com/mkdocs/mkdocs/blob/master/README.md">README</a>文件。</p>
+<h2 id="_1">行为准则<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>与MkDocs项目的代码库、问题跟踪、聊天室和邮件列表进行互动的每个人都应该遵循<a href="https://www.pypa.io/en/latest/code-of-conduct/">PyPA行为准则</a>。</p>
+<h2 id="_2">报告问题<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>请尽量提供尽可能多的信息，让我们知道您的平台和MkDocs版本。如果问题是视觉上的（例如主题或设计问题），请添加屏幕截图。如果出现错误，请提供完整的错误和堆栈跟踪。</p>
+<h2 id="_3">测试开发版本<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>如果您想安装并尝试最新的MkDocs开发版本，可以使用以下命令进行安装。如果您想要提供新功能的反馈或者想要确认一个错误是否被修复，请使用此命令。强烈建议在<a href="https://virtualenv.pypa.io/en/latest/user_guide.html">virtualenv</a>中执行此操作。</p>
+<pre class="highlight"><code class="language-bash">pip install https://github.com/mkdocs/mkdocs/archive/master.tar.gz</code></pre>
+<h2 id="_4">安装开发版本<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>首先，您需要fork并克隆库。一旦你拥有了一个本地副本，请运行以下命令。强烈建议在 <a href="https://virtualenv.pypa.io/en/latest/user_guide.html">virtualenv</a> 中执行此操作。</p>
+<pre class="highlight"><code class="language-bash">pip install --editable .</code></pre>
+<p>这将以开发模式安装MkDocs，该模式将 <code>mkdocs</code> 命令绑定到git repository。</p>
+<h2 id="_5">运行测试<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>为了运行测试，建议使用<a href="https://hatch.pypa.io/">Hatch</a>。使用<a href="https://pip.pypa.io/en/stable/">pip</a>安装Hatch，运行<code>pip install hatch</code>。然后，在MkDocs存储库的根目录下，可以通过运行命令 <code>hatch run all</code> 来运行MkDocs的测试套件。它会尝试对我们支持的所有Python版本进行测试。所以如果您缺少一些版本不用担心。其余版本将在您提交拉取请求时由<a href="https://docs.github.com/actions">GitHub Actions</a>进行验证。</p>
+<h2 id="_6">代码格式化<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>MkDocs代码库内部的Python代码使用<a href="https://pypi.org/project/black/">Black</a>和<a href="https://pypi.org/project/isort/">Isort</a>进行格式化。您可以使用 <code>hatch run style:format</code>根据这些工具自动格式化代码。</p>
+<h2 id="_7">翻译主题<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p>请根据指南<a href="../../dev-guide/translations/">翻译主题</a>将主题本地化为您希望的语言，我们欢迎翻译pull requests！</p>
+<h2 id="pull">提交Pull请求<a class="headerlink" href="#pull" title="Permanent link"></a></h2>
+<p>如果您打算为MkDocs做出大型代码贡献，请首先打开问题以获得早期反馈。一旦您认为代码准备就绪，请将其提交到您的分支并发送pull request。如果是新功能，它很可能需要测试和文档。改动要被接受，您应该遵守这些建议。 </p>
+<h3 id="_8">提交内置主题的更改<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
+<p>当使用i18n支持（<code>pip install mkdocs [i18n]</code>）安装MkDocs时，主题可以支持被翻译成各种语言（称为语言环境）的翻译，只要它们尊重 <a href="https://jinja.palletsprojects.com/en/latest/extensions/#i18n-extension">Jinja的i18n扩展</a>，即将文本占位符包装在 <code>{% trans %}</code> 和 <code>{% endtrans %}</code>标记中。每次添加、删除或更改主题模板中的可翻译文本占位符，主题的可移植对象模板(pot)文件都需要通过运行<code>extract_messages</code>命令进行更新。为了更新两个内置主题的<code>pot</code>文件，请运行以下命令：</p>
+<pre class="highlight"><code class="language-bash">pybabel extract --project=MkDocs --copyright-holder=MkDocs --msgid-bugs-address=</code></pre>
+<p><code>https://github.com/mkdocs/mkdocs/issues</code> --no-wrap --version="$(hatch version)" --mapping-file mkdocs/themes/babel.cfg --output-file mkdocs/themes/mkdocs/messages.pot mkdocs/themes/mkdocs
+pybabel extract --project=MkDocs --copyright-holder=MkDocs --msgid-bugs-address=</p>
+<p><code>https://github.com/mkdocs/mkdocs/issues</code> --no-wrap --version="$(hatch version)" --mapping-file mkdocs/themes/babel.cfg --output-file mkdocs/themes/readthedocs/messages.pot mkdocs/themes/readthedocs
+```</p>
+<p>完成后应将更新的<code>pot</code>文件包含在PR中。更新的 <code>pot</code>文件将允许翻译贡献者提出所需语言的翻译。详细信息请参阅关于<a href="../../dev-guide/translations/">翻译主题</a>的指南。</p>
+<p>注意：贡献者在更改主题模板时不必提供翻译，但是，他们应该包含一个更新的<code>pot</code>文件，以便翻译者做好准备。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2014 <a href="https://twitter.com/starletdreaming">Tom Christie</a>, Maintained by the <a href="/about/release-notes/#maintenance-team">MkDocs Team</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

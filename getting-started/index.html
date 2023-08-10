@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="MkDocs Team">
+        <link rel="canonical" href="https://www.mkdocs.org/getting-started/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Getting Started - MkDocs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+        <link href="../css/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/django.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-274394082"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', "G-274394082");
+        </script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">MkDocs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../user-guide/" class="dropdown-item">用户指南</a>
+</li>
+                                    
+<li>
+    <a href="../user-guide/installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../user-guide/writing-your-docs/" class="dropdown-item">编写文档</a>
+</li>
+                                    
+<li>
+    <a href="../user-guide/choosing-your-theme/" class="dropdown-item">选择主题</a>
+</li>
+                                    
+<li>
+    <a href="../user-guide/customizing-your-theme/" class="dropdown-item">自定义主题</a>
+</li>
+                                    
+<li>
+    <a href="../user-guide/localizing-your-theme/" class="dropdown-item">本地化主题</a>
+</li>
+                                    
+<li>
+    <a href="../user-guide/configuration/" class="dropdown-item">配置</a>
+</li>
+                                    
+<li>
+    <a href="../user-guide/cli/" class="dropdown-item">命令行界面</a>
+</li>
+                                    
+<li>
+    <a href="../user-guide/deploying-your-docs/" class="dropdown-item">部署文档</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../dev-guide/" class="dropdown-item">开发者指南</a>
+</li>
+                                    
+<li>
+    <a href="../dev-guide/themes/" class="dropdown-item">主题</a>
+</li>
+                                    
+<li>
+    <a href="../dev-guide/translations/" class="dropdown-item">翻译</a>
+</li>
+                                    
+<li>
+    <a href="../dev-guide/plugins/" class="dropdown-item">插件</a>
+</li>
+                                    
+<li>
+    <a href="../dev-guide/api/" class="dropdown-item">API 参考</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../about/release-notes/" class="dropdown-item">Release Notes</a>
+</li>
+                                    
+<li>
+    <a href="../about/contributing/" class="dropdown-item">Contributing</a>
+</li>
+                                    
+<li>
+    <a href="../about/license/" class="dropdown-item">License</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../user-guide/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/mkdocs/mkdocs/blob/master/docs/getting-started.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#mkdocs" class="nav-link">开始使用 MkDocs</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">安装</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">创建一个新项目</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">添加页面</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">主题化我们的文档</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#favicon" class="nav-link">更改 Favicon 图标</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">构建站点</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">部署</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">获取帮助</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="mkdocs">开始使用 MkDocs<a class="headerlink" href="#mkdocs" title="Permanent link"></a></h1>
+<p>一个入门级教程！</p>
+<h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>在命令行中运行以下命令安装 MkDocs：</p>
+<pre class="highlight"><code class="language-bash">pip install mkdocs</code></pre>
+<p>更多详情请参考<a href="../user-guide/installation/">安装指南</a>。</p>
+<h2 id="_2">创建一个新项目<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>创建一个新项目超级简单。可以在命令行中运行以下命令：</p>
+<pre class="highlight"><code class="language-bash">mkdocs new my-project
+cd my-project</code></pre>
+<p>浏览你所创建的初始项目。<img alt="初始 MkDocs 布局" src="../img/initial-layout.png" /></p>
+<p>有一个名为<code>mkdocs.yml</code>的配置文件以及一个名为<code>docs</code>的文件夹，该文件夹将包含文档源文件(<code>docs</code>是 <a href="../user-guide/configuration/#docs_dir">docs_dir</a> 配置设置的默认值)。现在，<code>docs</code>文件夹只包含一个名为 <code>index.md</code> 的文档页面。MkDocs 附带了一个内置的 dev-server，让您在工作时预览文档。确保在与 <code>mkdocs.yml</code> 配置文件相同的目录中，并运行 <code>mkdocs serve</code> 命令来启动服务器：</p>
+<pre class="highlight"><code class="language-console">$ mkdocs serve
+INFO    -  Building documentation...
+INFO    -  Cleaning site directory
+INFO    -  Documentation built in 0.22 seconds
+INFO    -  [15:50:43] Watching paths for changes: 'docs', 'mkdocs.yml'
+INFO    -  [15:50:43] Serving on http://127.0.0.1:8000/</code></pre>
+<p>在浏览器中打开<a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>，您将看到默认的主页面显示：</p>
+<p><img alt="MkDocs live 服务器" src="../img/screenshot.png" /></p>
+<p>dev-server 还支持自动重载，并将在配置文件、文档目录或主题目录中发生任何更改时重建文档。在您选择的文本编辑器中打开 <code>docs/index.md</code> 文档，将初始标题更改为“MkLorum”并保存更改。浏览器将自动重新加载，您应该立即看到已更新的文档。现在尝试编辑配置文件：<code>mkdocs.yml</code> 将 <a href="../user-guide/configuration/#site_name"><code>site_name</code></a> 设置更改为 <code>MkLorum</code> 并保存文件。</p>
+<pre class="highlight"><code class="language-yaml">site_name: MkLorum
+site_url: https://example.com/</code></pre>
+<p>你的浏览器应该会立即重新加载，你会看到你的新的网站名起作用。<img alt="site_name 设置" src="../img/site-name.png" /></p>
+<p>提示：</p>
+<p><a href="../user-guide/configuration/#site_name"><code>site_name</code></a> 和 <a href="../user-guide/configuration/#site_url"><code>site_url</code></a> 配置选项是配置文件中唯一必需的选项。 当您创建新项目时，<code>site_url</code> 选项被分配为占位符值：<code>https://example.com</code>。 如果已知最终位置，则现在可以更改设置以指向它。或者您可以选择暂时不要更改它。只需确保在将您的站点部署到生产服务器之前编辑它。</p>
+<h2 id="_3">添加页面<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>现在将第二个页面添加到您的文档：</p>
+<pre class="highlight"><code class="language-bash">curl 'https://jaspervdj.be/lorem-markdownum/markdown.txt' &gt; docs/about.md</code></pre>
+<p>由于我们的文档站点将包括一些导航标题，因此您可能希望编辑配置文件并添加有关导航标头中每个页面的顺序、标题和嵌套的一些信息。例如，添加一个 <a href="../user-guide/configuration/#nav"><code>nav</code></a> 设置：</p>
+<pre class="highlight"><code class="language-yaml">site_name: MkLorum
+site_url: https://example.com/
+nav:
+  - Home: index.md
+  - About: about.md</code></pre>
+<p>保存更改，您现在将在左侧看到具有 “主页” 和 “关于”的导航栏项以及右侧的“搜索”、“上一篇”和“下一篇”。<img alt="屏幕截图" src="../img/multipage.png" /></p>
+<p>尝试菜单项并在页面之间来回导航。然后点击“搜索”。一个搜索对话框将出现，允许您搜索任何页面上的任何文本。请注意，搜索结果包括站点上搜索词的每个出现并直接链接到搜索词出现的页面部分。您可以在不花费任何精力或配置的情况下获得所有这些功能。<img alt="屏幕截图" src="../img/search.png" /></p>
+<h2 id="_4">主题化我们的文档<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>现在，通过更改主题，更改配置文件以更改文档的显示方式。编辑 <code>mkdocs.yml</code> 文件并添加一个 <a href="../user-guide/configuration/#theme"><code>theme</code></a> 设置：</p>
+<pre class="highlight"><code class="language-yaml">site_name: MkLorum
+site_url: https://example.com/
+nav:
+  - Home: index.md
+  - About: about.md
+theme: readthedocs</code></pre>
+<p>保存更改，您将看到使用 ReadTheDocs 主题。<img alt="屏幕截图" src="../img/readthedocs.png" /></p>
+<h2 id="favicon">更改 Favicon 图标<a class="headerlink" href="#favicon" title="Permanent link"></a></h2>
+<p>默认情况下，MkDocs 使用 <a href="../img/favicon.ico">MkDocs Favicon</a> 图标。要使用不同的图标，请在 <code>docs</code> 目录中创建一个 <code>img</code> 子目录，并将自定义的 <code>favicon.ico</code> 文件复制到该目录中。MkDocs 将自动检测并使用该文件作为您的 Favicon 图标。<a href="../img/favicon.ico">MkDocs Favicon</a>: img/favicon.ico</p>
+<h2 id="_5">构建站点<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>现在看起来很好。你可以部署 <code>MkLorum</code> 文档的第一遍了。首先构建文档：</p>
+<pre class="highlight"><code class="language-bash">mkdocs build</code></pre>
+<p>这将创建一个名为 <code>site</code> 的新目录。查看目录：</p>
+<pre class="highlight"><code class="language-console">$ ls site
+about  fonts  index.html  license  search.html
+css    img    js          mkdocs   sitemap.xml</code></pre>
+<p>请注意，您的源文档已输出为两个名为 <code>index.html</code> 和 <code>about/index.html</code> 的 HTML 文件。您还有各种其他媒体作为文档主题的一部分复制到了 <code>site</code> 目录。您甚至有一个 <code>sitemap.xml</code> 文件和 <code>mkdocs/search_index.json</code>。如果使用源代码控制，如 <code>git</code>，则可能不希望将文档构建检入存储库。向您的 <code>.gitignore</code> 文件添加包含 <code>site/</code> 的行。```bash
+echo "site/" &gt;&gt; .gitignore
+<pre class="highlight"><code>
+如果您使用另一个源代码控制工具，您将需要检查其文档，以了解如何忽略特定目录。
+
+## 其他命令和选项
+
+有各种其他命令和选项可用。要查看完整的命令列表，请使用 `--help` 标志：
+
+```bash
+mkdocs --help</code></pre></p>
+<p>要查看给定命令上可用的选项列表，请使用该命令的 <code>--help</code> 标志。例如，要获取在我们运行以下命令列出的“build”命令上可用的所有选项的列表：</p>
+<pre class="highlight"><code class="language-bash">mkdocs build --help</code></pre>
+<h2 id="_6">部署<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>你刚刚构建的文档网站只使用静态文件，所以你可以在几乎任何地方托管它。只需上传整个 <code>site</code> 目录的内容到您托管网站的任何位置，完成。有关一些常见主机的具体说明，请参阅 <a href="../user-guide/deploying-your-docs/">部署您的文档</a> 页面。</p>
+<h2 id="_7">获取帮助<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<p>请参考<a href="../user-guide/">用户指南</a>以获取MkDocs所有功能的更完整的文档。如果需要MkDocs的帮助，请使用 <a href="https://github.com/mkdocs/mkdocs/discussions">GitHub讨论</a> 或<a href="https://github.com/mkdocs/mkdocs/issues">GitHub问题</a>。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2014 <a href="https://twitter.com/starletdreaming">Tom Christie</a>, Maintained by the <a href="/about/release-notes/#maintenance-team">MkDocs Team</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

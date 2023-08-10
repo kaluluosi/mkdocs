@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="MkDocs Team">
+        <link rel="canonical" href="https://www.mkdocs.org/user-guide/choosing-your-theme/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>选择主题 - MkDocs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/django.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-274394082"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', "G-274394082");
+        </script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">MkDocs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../getting-started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">用户指南</a>
+</li>
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../writing-your-docs/" class="dropdown-item">编写文档</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">选择主题</a>
+</li>
+                                    
+<li>
+    <a href="../customizing-your-theme/" class="dropdown-item">自定义主题</a>
+</li>
+                                    
+<li>
+    <a href="../localizing-your-theme/" class="dropdown-item">本地化主题</a>
+</li>
+                                    
+<li>
+    <a href="../configuration/" class="dropdown-item">配置</a>
+</li>
+                                    
+<li>
+    <a href="../cli/" class="dropdown-item">命令行界面</a>
+</li>
+                                    
+<li>
+    <a href="../deploying-your-docs/" class="dropdown-item">部署文档</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../dev-guide/" class="dropdown-item">开发者指南</a>
+</li>
+                                    
+<li>
+    <a href="../../dev-guide/themes/" class="dropdown-item">主题</a>
+</li>
+                                    
+<li>
+    <a href="../../dev-guide/translations/" class="dropdown-item">翻译</a>
+</li>
+                                    
+<li>
+    <a href="../../dev-guide/plugins/" class="dropdown-item">插件</a>
+</li>
+                                    
+<li>
+    <a href="../../dev-guide/api/" class="dropdown-item">API 参考</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/release-notes/" class="dropdown-item">Release Notes</a>
+</li>
+                                    
+<li>
+    <a href="../../about/contributing/" class="dropdown-item">Contributing</a>
+</li>
+                                    
+<li>
+    <a href="../../about/license/" class="dropdown-item">License</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../writing-your-docs/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../customizing-your-theme/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/mkdocs/mkdocs/blob/master/docs/user-guide/choosing-your-theme.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">选择你的主题</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#mkdocs" class="nav-link">mkdocs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#readthedocs" class="nav-link">readthedocs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">第三方主题</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">选择你的主题<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p>选择和配置一个主题。---</p>
+<p>MkDocs 包含两种内置主题 (<a href="#mkdocs">mkdocs</a> 和 <a href="#readthedocs">readthedocs</a>)，下面将进行文档记录。然而，也有许多 [第三方主题] 可供选择。为选择主题，在你的 <code>mkdocs.yml</code> 配置文件中设置 <a href="../configuration/#theme">theme</a> 配置选项。</p>
+<pre class="highlight"><code class="language-yaml">theme:
+  name: readthedocs</code></pre>
+<h2 id="mkdocs">mkdocs<a class="headerlink" href="#mkdocs" title="Permanent link"></a></h2>
+<p>默认主题，它是一个自定义 <a href="https://getbootstrap.com/">Bootstrap</a> 主题，支持MkDocs的几乎所有功能。<img alt="mkdocs" src="../../img/mkdocs.png" /></p>
+<p>除了默认的<a href="../configuration/#theme">主题配置选项</a>外，<code>mkdocs</code>主题还支持以下选项：</p>
+<ul>
+<li><strong><code>highlightjs</code></strong>: 使用 <a href="https://highlightjs.org/">highlight.js</a> JavaScript 库在代码块中启用源代码的高亮显示。默认值为 <code>True</code> 。</li>
+<li><strong><code>hljs_style</code></strong>: highlight.js 库提供了79种不同的 [样式]（颜色变化），用于突出显示代码块中的源代码。将其设置为所需样式的名称。默认值为 <code>github</code> 。</li>
+<li><strong><code>hljs_languages</code></strong>: 默认情况下，highlight.js 仅支持23种常见语言。在此处列出其他语言，以包含对它们的支持。</li>
+</ul>
+<pre class="highlight"><code class="language-yaml">theme:
+  name: mkdocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust</code></pre>
+<ul>
+<li><strong><code>analytics</code></strong>: 定义分析服务的配置选项。目前，仅通过 <code>gtag</code> 选项支持 Google Analytics v4。</li>
+<li><strong><code>gtag</code></strong>: 要启用 Google Analytics，请设置为使用 <code>G-</code> 格式的 Google Analytics v4 跟踪 ID。请参阅 Google 的文档，了解如何<a href="https://support.google.com/analytics/answer/9304153?hl=en&amp;ref_topic=9303319">为网站和/或应用设置分析(GA4)</a>或<a href="https://support.google.com/analytics/answer/9744165?hl=en&amp;ref_topic=9303319">升级到 Google Analytics 4 属性</a>。</li>
+</ul>
+<p><pre class="highlight"><code class="language-yaml">    theme:
+      name: mkdocs
+      analytics:
+        gtag: G-ABC123</code></pre>
+当设置为默认值（<code>null</code>）时，禁用 Google Analytics。</p>
+<ul>
+<li><strong><code>shortcuts</code></strong>: 定义键盘快捷键。</li>
+</ul>
+<pre class="highlight"><code class="language-yaml">theme:
+  name: mkdocs
+  shortcuts:
+    help: 191    # ?next: 78     # n
+    previous: 80 # p
+    search: 83   # s</code></pre>
+<p>所有值都必须是数字键代码。最好使用所有键盘都有的键。你可以使用 <a href="https://keycode.info/">https://keycode.info/</a> 来确定给定的键的键码。</p>
+<ul>
+<li><strong><code>help</code></strong>: 显示一个显示键盘快捷键的帮助弹出窗口。默认值为 <code>191</code>（<code>?</code>）。</li>
+<li><strong><code>next</code></strong>: 导航到“下一个”页面。默认值为 <code>78</code>（<code>n</code>）。</li>
+<li><strong><code>previous</code></strong>: 导航到“上一个”页面。默认值为 <code>80</code>（<code>p</code>）。</li>
+<li>
+<p><strong><code>search</code></strong>: 显示搜索弹出窗口。默认值为 <code>83</code>（<code>s</code>）。</p>
+</li>
+<li>
+<p><strong><code>navigation_depth</code></strong>: 侧边栏中导航树的最大深度。默认值为 <code>2</code>。</p>
+</li>
+<li><strong><code>nav_style</code></strong>: 这调整顶部导航栏的视觉样式；默认情况下，它设置为 <code>primary</code>（默认值），但也可以设置为 <code>dark</code> 或 <code>light</code>。</li>
+</ul>
+<pre class="highlight"><code class="language-yaml">theme:
+  name: mkdocs
+  nav_style: dark</code></pre>
+<ul>
+<li>
+<p><strong id="mkdocs-locale"><code>locale</code></strong>: 用于构建主题的区域设置（语言/位置）。如果你的语言环境还没有得到支持，它将返回到默认值。此主题支持以下位置设置：</p>
+<ul>
+<li><code>en</code> : 英语（默认值）</li>
+<li>(查看现有目录 <code>mkdocs/themes/mkdocs/locales/*/</code> 的列表)</li>
+</ul>
+<p>更多信息请参见<a href="../localizing-your-theme/">主题本地化</a>指南。</p>
+</li>
+</ul>
+<h2 id="readthedocs">readthedocs<a class="headerlink" href="#readthedocs" title="Permanent link"></a></h2>
+<p>与<a href="https://readthedocs.org/">Read the Docs</a>服务使用的默认主题的克隆版，提供与其父主题相同的受限功能集。与其父主题一样，仅支持两个层级的导航。<img alt="ReadTheDocs" src="../../img/readthedocs.png" /></p>
+<p>除了默认的<a href="../configuration/#theme">主题配置选项</a>外，<code>readthedocs</code> 主题还支持以下选项：</p>
+<ul>
+<li><strong><code>highlightjs</code></strong>: 使用 <a href="https://highlightjs.org/">highlight.js</a> JavaScript 库在代码块中启用源代码的高亮显示。默认值为 <code>True</code>。</li>
+<li><strong><code>hljs_languages</code></strong>: 默认情况下，highlight.js 仅支持23种常见语言。在此处列出其他语言，以包含对它们的支持。 </li>
+</ul>
+<pre class="highlight"><code class="language-yaml">theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust</code></pre>
+<ul>
+<li><strong><code>analytics</code></strong>: 定义分析服务的配置选项。</li>
+<li><strong><code>gtag</code></strong>: 要启用 Google Analytics，请设置为使用 <code>G-</code> 格式的 Google Analytics v4 跟踪 ID。请参阅 Google 的文档，了解如何<a href="https://support.google.com/analytics/answer/9304153?hl=en&amp;ref_topic=9303319">为网站和/或应用设置分析(GA4)</a>或<a href="https://support.google.com/analytics/answer/9744165?hl=en&amp;ref_topic=9303319">升级到 Google Analytics 4 属性</a>。</li>
+</ul>
+<pre class="highlight"><code class="language-yaml">    theme:
+      name: readthedocs
+      analytics:
+        gtag: G-ABC123</code></pre>
+<p>当设置为默认值（<code>null</code>）时，禁用 Google Analytics。</p>
+<ul>
+<li><strong><code>anonymize_ip</code></strong>：要为 Google Analytics 启用匿名 IP 地址，请设置为 <code>True</code>。默认值为 <code>False</code>。</li>
+<li><strong><code>include_homepage_in_sidebar</code></strong>：在侧边栏菜单中列出主页。由于 MkDocs 要求主页列在 <code>nav</code> 配置选项中，因此此设置允许在侧边栏中包含或排除主页。请注意，网站名称/标志始终链接到主页。默认值为 <code>True</code>。</li>
+<li><strong><code>prev_next_buttons_location</code></strong>：一个值为 <code>bottom</code>、<code>top</code>、<code>both</code> 或 <code>none</code> 的设置，相应地显示“下一页”和“上一页”按钮。默认值时 <code>bottom</code>。 </li>
+<li><strong><code>navigation_depth</code></strong>：侧边栏中导航树的最大深度。默认值为 <code>4</code>。</li>
+<li><strong><code>collapse_navigation</code></strong>：仅在当前页面的侧栏中包含该页面的名称部分标题。默认值为 <code>True</code>。</li>
+<li><strong><code>titles_only</code></strong>：仅在侧栏中包括页面标题，不包括所有页面的名称部分标题。默认值为 <code>False</code>。</li>
+<li><strong><code>sticky_navigation</code></strong>：如果为 True，则使侧栏随着页面内容的滚动而滚动。默认值为 <code>True</code>。</li>
+<li>
+<p><strong id="readthedocs-locale"><code>locale</code></strong>: 使用于构建主题的区域设置（语言/位置）。如果你的语言环境还没有得到支持，它将返回到默认值。此主题支持以下位置设置：</p>
+<ul>
+<li><code>en</code> : 英语（默认值）</li>
+<li>(查看现有目录 <code>mkdocs/themes/readthedocs/locales/*/</code> 的列表)</li>
+</ul>
+<p>更多信息请参见<a href="../localizing-your-theme/">主题本地化</a>指南。</p>
+</li>
+<li>
+<p><strong><code>logo</code></strong>：要在项目上设置标识而不是纯文本 <code>site_name</code>，请将此变量设置为图像的位置。默认值为 <code>null</code>。</p>
+</li>
+</ul>
+<h2 id="_2">第三方主题<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>第三方主题列表，可以在社区维基页面和 <a href="https://github.com/mkdocs/catalog#-theming">排名目录</a> 上找到。如果你已经创建了自己的主题，请将它们添加到那里。[第三方主题]: #第三方主题</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2014 <a href="https://twitter.com/starletdreaming">Tom Christie</a>, Maintained by the <a href="/about/release-notes/#maintenance-team">MkDocs Team</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

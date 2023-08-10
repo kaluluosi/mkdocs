@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="MkDocs Team">
+        <link rel="canonical" href="https://www.mkdocs.org/dev-guide/plugins/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>插件 - MkDocs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/django.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-274394082"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', "G-274394082");
+        </script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">MkDocs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../getting-started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../user-guide/" class="dropdown-item">用户指南</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/installation/" class="dropdown-item">安装</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/writing-your-docs/" class="dropdown-item">编写文档</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/choosing-your-theme/" class="dropdown-item">选择主题</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/customizing-your-theme/" class="dropdown-item">自定义主题</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/localizing-your-theme/" class="dropdown-item">本地化主题</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/configuration/" class="dropdown-item">配置</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/cli/" class="dropdown-item">命令行界面</a>
+</li>
+                                    
+<li>
+    <a href="../../user-guide/deploying-your-docs/" class="dropdown-item">部署文档</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Developer Guide <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../" class="dropdown-item">开发者指南</a>
+</li>
+                                    
+<li>
+    <a href="../themes/" class="dropdown-item">主题</a>
+</li>
+                                    
+<li>
+    <a href="../translations/" class="dropdown-item">翻译</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">插件</a>
+</li>
+                                    
+<li>
+    <a href="../api/" class="dropdown-item">API 参考</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/release-notes/" class="dropdown-item">Release Notes</a>
+</li>
+                                    
+<li>
+    <a href="../../about/contributing/" class="dropdown-item">Contributing</a>
+</li>
+                                    
+<li>
+    <a href="../../about/license/" class="dropdown-item">License</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../translations/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../api/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/mkdocs/mkdocs/blob/master/docs/dev-guide/plugins.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#mkdocs" class="nav-link">MkDocs插件</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">安装插件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="mkdocs">MkDocs插件<a class="headerlink" href="#mkdocs" title="Permanent link"></a></h1>
+<p>安装、使用和创建MkDocs插件的指南。</p>
+<hr />
+<h2 id="_1">安装插件<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>在使用插件之前，必须先在系统上安装插件。如果您使用的是MkDocs带有的插件，则在安装MkDocs时已安装该插件。但是，要安装第三方插件，需要确定适当的包名称并使用<code>pip</code>进行安装：</p>
+<pre class="highlight"><code class="language-bash">pip install mkdocs-foo-plugin</code></pre>
+<p>插件成功安装后，它就可以使用了。只需要在配置文件中<a href="#使用插件">启用</a>即可。[Catalog]存储库中有一个大型的插件排名列表，您可以安装并使用。## 使用插件</p>
+<p><a class="autorefs autorefs-internal" href="../themes/#config"><code>plugins</code></a>配置选项应该包含一个要在构建网站时使用的插件列表。每个“插件”都必须是分配给插件的字符串名称（请参阅给定插件的文档以确定其“名称”）。列出的插件必须已经<a href="#安装插件">安装</a>。```yaml
+plugins:
+  - search
+<pre class="highlight"><code>
+某些插件可能提供自己的配置选项。如果要设置任何配置选项，则可以嵌套一个键/值映射(`option_name: option value`)，其中包含给定插件支持的任何选项。请注意，冒号(`:`)必须跟随插件名称，然后在新行上缩进并用冒号分隔选项名称和值。如果要为单个插件定义多个选项，则每个选项都必须在单独的行上定义。```yaml
+plugins:
+  - search:
+      lang: en
+      foo: bar</code></pre></p>
+<p>有关给定插件可用的配置选项的信息，请参阅该插件的文档。有关默认插件的列表以及如何覆盖它们，请参阅<a class="autorefs autorefs-internal" href="../themes/#config">配置</a>文档。## 开发插件</p>
+<p>与MkDocs一样，插件必须用Python编写。通常期望每个插件都作为单独的Python模块分发，尽管可以在同一模块中定义多个插件。至少，MkDocs插件必须包括[BasePlugin]子类和指向它的[入口点]。### BasePlugin</p>
+<p><code>mkdocs.plugins.BasePlugin</code>的子类应该定义插件的行为。该类通常由构建过程中特定事件的操作以及插件的配置方案组成。所有<code>BasePlugin</code>子类都包含以下属性：</p>
+<h4 id="config_scheme">config_scheme<a class="headerlink" href="#config_scheme" title="Permanent link"></a></h4>
+<p>配置验证实例的元组。每个项目必须由一个元组组成，其中第一个项目是配置选项的字符串名称，第二个项目是<code>mkdocs.config.config_options.BaseConfigOption</code>或其任何子类的实例。例如，以下<code>config_scheme</code>定义了三个配置选项：<code>foo</code>，它接受字符串;“bar”，它接受整数;和“baz”，它接受布尔值。```python
+class MyPlugin(mkdocs.plugins.BasePlugin):
+    config_scheme = (
+        ('foo', mkdocs.config.config_options.Type(str, default='a default value')),
+        ('bar', mkdocs.config.config_options.Type(int, default=0)),
+        ('baz', mkdocs.config.config_options.Type(bool, default=True))
+    )
+<pre class="highlight"><code>
+&gt; NEW：**版本1.4中新增：**
+&gt;
+&gt; ##### 子类Config以指定配置模式
+&gt;
+&gt; 为了获得类型安全性的益处，如果您只针对MkDocs 1.4+，则应将配置模式定义为类：
+&gt;
+&gt; ```python
+&gt; class MyPluginConfig(mkdocs.config.base.Config):
+&gt;     foo = mkdocs.config.config_options.Type(str, default='a default value')
+&gt;     bar = mkdocs.config.config_options.Type(int, default=0)
+&gt;     baz = mkdocs.config.config_options.Type(bool, default=True)
+&gt;
+&gt; class MyPlugin(mkdocs.plugins.BasePlugin[MyPluginConfig]):
+&gt;     ...
+&gt; ```
+
+##### 配置定义示例
+
+&gt;！例子：
+&gt;
+&gt; ```python
+&gt; from mkdocs.config import base, config_options as c
+&gt;
+&gt; class _ValidationOptions(base.Config):
+&gt;     enabled = c.Type(bool, default=True)
+&gt;     verbose = c.Type(bool, default=False)
+&gt;     skip_checks = c.ListOfItems(c.Choice(('foo', 'bar', 'baz')), default=[])
+&gt;
+&gt; class MyPluginConfig(base.Config):
+&gt;     definition_file = c.File(exists=True)  # required
+&gt;     checksum_file = c.Optional(c.File(exists=True))  # can be None but must exist if specified
+&gt;     validation = c.SubConfig(_ValidationOptions)
+&gt; ```
+&gt;
+&gt; 从用户的角度来看，`SubConfig`类似于`Type(dict)`，只是它还保留了完整的验证能力：您定义了所有有效的键以及每个值应遵循的约束。&gt;
+&gt; 而`ListOfItems`类似于`Type(list)`，但我们再次定义了每个值必须遵循的约束。&gt;
+&gt; 这将接受以下配置：
+&gt;
+&gt; ```yaml
+&gt; my_plugin:
+&gt;   definition_file: configs/test.ini  # 相对于mkdocs.yml
+&gt;   validation:
+&gt;     enabled: !ENV [CI, false]
+&gt;     verbose: true
+&gt;     skip_checks:
+&gt;       - foo
+&gt;       - baz
+&gt; ```
+&lt;!--  --&gt;
+&gt;？例子：
+&gt;
+&gt; ```python
+&gt; import numbers
+&gt; from mkdocs.config import base, config_options as c
+&gt;
+&gt; class _Rectangle(base.Config):
+&gt;     width = c.Type(numbers.Real)  # 必须
+&gt;     height = c.Type(numbers.Real)   # 必须
+&gt;
+&gt; class MyPluginConfig(base.Config):
+&gt;     add_rectangles = c.ListOfItems(c.SubConfig(_Rectangle))  # 必须
+&gt; ```
+&gt;
+&gt; 在此示例中，我们定义了一个复杂项列表，方法是通过将具体的`SubConfig`传递给`ListOfItems`来实现的。&gt;
+&gt; 这将接受以下配置：
+&gt;
+&gt; ```yaml
+&gt; my_plugin:
+&gt;   add_rectangles:
+&gt;     - width: 5
+&gt;       height: 7
+&gt;     - width: 12
+&gt;       height: 2
+&gt; ```
+
+加载用户配置时，上述方案将用于验证配置并为未提供用户的设置填充任何默认值。验证类可以是`mkdocs.config.config_options`中提供的任何类或插件中定义的第三方子类。由用户提供的任何设置都将在验证失败或未在`config_scheme`中定义的情况下引发`mkdocs.config.base.ValidationError`。#### 配置
+
+一个字典，包含插件的配置选项，在`load_config`方法完成配置验证后会填充该属性。使用此属性访问用户提供的选项。```python
+def on_pre_build(self, config, **kwargs):
+    if self.config['baz']:
+        # 在此实现“baz”功能...</code></pre></p>
+<blockquote>
+<p>NEW：<strong>版本1.4中新增：</strong></p>
+<h5 id="_2">安全属性访问<a class="headerlink" href="#_2" title="Permanent link"></a></h5>
+<p>为了获得类型安全性的益处，如果您只针对MkDocs 1.4+，请使用属性访问访问配置选项：</p>
+<pre class="highlight"><code class="language-python">def on_pre_build(self, config: MkDocsConfig, **kwargs):
+    if self.config.baz:
+        print(self.config.bar ** 2)  # OK，“int**2”有效。</code></pre>
+</blockquote>
+<p>所有<code>BasePlugin</code>子类都包含以下方法：</p>
+<h4 id="load_configoptions">load_config(options)<a class="headerlink" href="#load_configoptions" title="Permanent link"></a></h4>
+<p>从选项字典中加载配置。返回一个元组<code>(errors，warnings)</code>。MkDocs在配置验证期间调用此方法，插件不应需要调用它。#### on_&lt;event_name&gt;()</p>
+<p>定义特定[事件]的行为的可选方法。插件应在这些方法中定义其行为。使用实际事件名称替换<code>&lt;event_name&gt;</code>。例如，<code>pre_build</code>事件将在<code>on_pre_build</code>方法中定义。大多数事件接受一个位置参数和各种关键字参数。通常，位置参数将被修改（或替换）by插件并返回。如果不返回任何内容（方法返回<code>None</code>），则使用原始的未修改对象。关键字参数仅用于提供上下文和/或提供可能用于确定应如何修改位置参数的数据。接受关键字参数作为<code>**kwargs</code>通常是良好的做法。如果在将来版本的MkDocs中向事件提供其他关键字，则无需更改插件。例如，以下事件将向主题配置中添加其他的static_template：</p>
+<pre class="highlight"><code class="language-python">class MyPlugin(BasePlugin):
+    def on_config(self, config, **kwargs):
+        config['theme'].static_templates.add('my_template.html')
+        return config</code></pre>
+<blockquote>
+<p>NEW：<strong>版本1.4中新增：</strong></p>
+<p>为了获得类型安全性的好处，如果您只针对MkDocs 1.4+，请将配置选项作为属性而不是字典中的键访问：</p>
+<pre class="highlight"><code class="language-python">def on_config(self, config: MkDocsConfig, **kwargs):
+    config.theme.static_templates.add('my_template.html')
+    return config</code></pre>
+</blockquote>
+<h3 id="_3">事件<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
+<p>有三种类型的事件：[全局事件]，[页面事件]和[模板事件]。<details class ="card"></p>
+<summary>
+    查看一个事件与所有插件事件之间的关系的图表
+</summary>
+<div class ="card-body">
+    <ul>
+        <li>事件本身显示为黄色，带有其参数。箭头显示每个事件的参数和输出的流。也有时省略。</li>
+        <li>事件在时间轴上从上到下按时间顺序排序。</li>
+        <li>虚线出现在全局事件到每个页面事件的拆分处。</li>
+        <li>单击事件的标题以跳转到其描述。</li>
+    </ul>
+    <!-- -->
+！--图：插件事件-->
+</div>
+<!--详情-->
+<p><br></p>
+<h4 id="_4">一次性事件<a class="headerlink" href="#_4" title="Permanent link"></a></h4>
+<p>一次性事件每次mkdocs调用时只运行一次。它们与[全局事件]的区别仅适用于<code>mkdocs serve</code>：与这些事件不同，全局事件将多次运行-每次<em>build</em>一次。##### on_startup</p>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>startup</code> event runs once at the very beginning of an <code>mkdocs</code> invocation.</p>
+<p>New in MkDocs 1.4.</p>
+<p>The presence of an <code>on_startup</code> method (even if empty) migrates the plugin to the new
+system where the plugin object is kept across builds within one <code>mkdocs serve</code>.</p>
+<p>Note that for initializing variables, the <code>__init__</code> method is still preferred.
+For initializing per-build variables (and whenever in doubt), use the <code>on_config</code> event.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>command</b>
+            (<code><span title="typing_extensions.Literal">Literal</span>[&#39;build&#39;, &#39;gh-deploy&#39;, &#39;serve&#39;]</code>)
+        –
+        <div class="doc-md-description">
+          <p>the command that MkDocs was invoked with, e.g. "serve" for <code>mkdocs serve</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>dirty</b>
+            (<code>bool</code>)
+        –
+        <div class="doc-md-description">
+          <p>whether <code>--dirty</code> flag was passed.</p>
+        </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_shutdown">on_shutdown<a class="headerlink" href="#on_shutdown" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>shutdown</code> event runs once at the very end of an <code>mkdocs</code> invocation, before exiting.</p>
+<p>This event is relevant only for support of <code>mkdocs serve</code>, otherwise within a
+single build it's undistinguishable from <code>on_post_build</code>.</p>
+<p>New in MkDocs 1.4.</p>
+<p>The presence of an <code>on_shutdown</code> method (even if empty) migrates the plugin to the new
+system where the plugin object is kept across builds within one <code>mkdocs serve</code>.</p>
+<p>Note the <code>on_post_build</code> method is still preferred for cleanups, when possible, as it has
+a much higher chance of actually triggering. <code>on_shutdown</code> is "best effort" because it
+relies on detecting a graceful shutdown of MkDocs.</p>
+
+  </div>
+
+</div><h5 id="on_serve">on_serve<a class="headerlink" href="#on_serve" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>serve</code> event is only called when the <code>serve</code> command is used during
+development. It runs only once, after the first build finishes.
+It is passed the <code>Server</code> instance which can be modified before
+it is activated. For example, additional files or directories could be added
+to the list of "watched" files for auto-reloading.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>server</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.livereload.LiveReloadServer" href="../api/#mkdocs.livereload.LiveReloadServer">LiveReloadServer</a></code>)
+        –
+        <div class="doc-md-description">
+          <p><code>livereload.Server</code> instance</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>builder</b>
+            (<code><span title="typing.Callable">Callable</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>a callable which gets passed to each call to <code>server.watch</code></p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-internal" title="mkdocs.livereload.LiveReloadServer" href="../api/#mkdocs.livereload.LiveReloadServer">LiveReloadServer</a> | None</code>
+        –
+        <div class="doc-md-description">
+          <p><code>livereload.Server</code> instance</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h4 id="_5">全局事件<a class="headerlink" href="#_5" title="Permanent link"></a></h4>
+<p>全局事件在构建过程的开始或结束时每个构建仅调用一次。在这些事件中所做的任何更改都将对整个站点产生全局影响。##### on_config</p>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>config</code> event is the first event called on build and is run immediately
+after the user configuration is loaded and validated. Any alterations to the
+config should be made here.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span> | None</code>
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_pre_build">on_pre_build<a class="headerlink" href="#on_pre_build" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>pre_build</code> event does not alter any variables. Use this event to call
+pre-build scripts.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_files">on_files<a class="headerlink" href="#on_files" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>files</code> event is called after the files collection is populated from the
+<code>docs_dir</code>. Use this event to add, remove, or alter files in the
+collection. Note that Page objects have not yet been associated with the
+file objects in the collection. Use <a href="./#page-events">Page Events</a> to manipulate page
+specific data.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>files</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.structure.files.Files" href="../api/#mkdocs.structure.files.Files">Files</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>global files collection</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-internal" title="mkdocs.structure.files.Files" href="../api/#mkdocs.structure.files.Files">Files</a> | None</code>
+        –
+        <div class="doc-md-description">
+          <p>global files collection</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_nav">on_nav<a class="headerlink" href="#on_nav" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>nav</code> event is called after the site navigation is created and can
+be used to alter the site navigation.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>nav</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.structure.nav.Navigation" href="../themes/#mkdocs.structure.nav.Navigation">Navigation</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>global navigation object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>files</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.structure.files.Files" href="../api/#mkdocs.structure.files.Files">Files</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>global files collection</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-internal" title="mkdocs.structure.nav.Navigation" href="../themes/#mkdocs.structure.nav.Navigation">Navigation</a> | None</code>
+        –
+        <div class="doc-md-description">
+          <p>global navigation object</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_env">on_env<a class="headerlink" href="#on_env" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>env</code> event is called after the Jinja template environment is created
+and can be used to alter the
+<a href="https://jinja.palletsprojects.com/en/latest/api/#jinja2.Environment">Jinja environment</a>.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>env</b>
+            (<code>jinja2.<span title="jinja2.Environment">Environment</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global Jinja environment</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>files</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.structure.files.Files" href="../api/#mkdocs.structure.files.Files">Files</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>global files collection</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>jinja2.<span title="jinja2.Environment">Environment</span> | None</code>
+        –
+        <div class="doc-md-description">
+          <p>global Jinja Environment</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_post_build">on_post_build<a class="headerlink" href="#on_post_build" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>post_build</code> event does not alter any variables. Use this event to call
+post-build scripts.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_build_error">on_build_error<a class="headerlink" href="#on_build_error" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>build_error</code> event is called after an exception of any kind
+is caught by MkDocs during the build process.
+Use this event to clean things up before MkDocs terminates. Note that any other
+events which were scheduled to run after the error will have been skipped. See
+<a href="./#handling-errors">Handling Errors</a> for more details.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>error</b>
+            (<code>Exception</code>)
+        –
+        <div class="doc-md-description">
+          <p>exception raised</p>
+        </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h4 id="_6">模板事件<a class="headerlink" href="#_6" title="Permanent link"></a></h4>
+<p>模板事件为每个非页面模板调用一次。每个模板事件将为[extra_templates]配置设置中定义的每个模板以及主题中定义的任何[static_templates]都调用。所有模板事件都是在[env]事件之后和任何[页面事件]之前调用的。##### on_pre_template</p>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>pre_template</code> event is called immediately after the subject template is
+loaded and can be used to alter the template.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>template</b>
+            (<code>jinja2.<span title="jinja2.Template">Template</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>a Jinja2 <a href="https://jinja.palletsprojects.com/en/latest/api/#jinja2.Template">Template</a> object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>template_name</b>
+            (<code>str</code>)
+        –
+        <div class="doc-md-description">
+          <p>string filename of template</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>jinja2.<span title="jinja2.Template">Template</span> | None</code>
+        –
+        <div class="doc-md-description">
+          <p>a Jinja2 <a href="https://jinja.palletsprojects.com/en/latest/api/#jinja2.Template">Template</a> object</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_template_context">on_template_context<a class="headerlink" href="#on_template_context" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>template_context</code> event is called immediately after the context is created
+for the subject template and can be used to alter the context for that specific
+template only.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>context</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.utils.templates.TemplateContext" href="../api/#mkdocs.utils.templates.TemplateContext">TemplateContext</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>dict of template context variables</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>template_name</b>
+            (<code>str</code>)
+        –
+        <div class="doc-md-description">
+          <p>string filename of template</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-internal" title="mkdocs.utils.templates.TemplateContext" href="../api/#mkdocs.utils.templates.TemplateContext">TemplateContext</a> | None</code>
+        –
+        <div class="doc-md-description">
+          <p>dict of template context variables</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_post_template">on_post_template<a class="headerlink" href="#on_post_template" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>post_template</code> event is called after the template is rendered, but before
+it is written to disc and can be used to alter the output of the template.
+If an empty string is returned, the template is skipped and nothing is is
+written to disc.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>output_content</b>
+            (<code>str</code>)
+        –
+        <div class="doc-md-description">
+          <p>output of rendered template as string</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>template_name</b>
+            (<code>str</code>)
+        –
+        <div class="doc-md-description">
+          <p>string filename of template</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>str | None</code>
+        –
+        <div class="doc-md-description">
+          <p>output of rendered template as string</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h4 id="_7">页面事件<a class="headerlink" href="#_7" title="Permanent link"></a></h4>
+<p>页面事件为包括在站点中的每个Markdown页面每次调用一次。所有页面事件都是在[post_template]事件之后和[post_build]事件之前调用的。##### on_pre_page</p>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>pre_page</code> event is called before any actions are taken on the subject
+page and can be used to alter the <code>Page</code> instance.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>page</b>
+            (<code><span title="mkdocs.structure.pages.Page">Page</span></code>)
+        –
+        <div class="doc-md-description">
+          <p><code>mkdocs.structure.pages.Page</code> instance</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>files</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.structure.files.Files" href="../api/#mkdocs.structure.files.Files">Files</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>global files collection</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><span title="mkdocs.structure.pages.Page">Page</span> | None</code>
+        –
+        <div class="doc-md-description">
+          <p><code>mkdocs.structure.pages.Page</code> instance</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_page_read_source">on_page_read_source<a class="headerlink" href="#on_page_read_source" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>on_page_read_source</code> event can replace the default mechanism to read
+the contents of a page's source from the filesystem.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>page</b>
+            (<code><span title="mkdocs.structure.pages.Page">Page</span></code>)
+        –
+        <div class="doc-md-description">
+          <p><code>mkdocs.structure.pages.Page</code> instance</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>str | None</code>
+        –
+        <div class="doc-md-description">
+          <p>The raw source for a page as unicode string. If <code>None</code> is returned, the
+default loading from a file will be performed.</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_page_markdown">on_page_markdown<a class="headerlink" href="#on_page_markdown" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>page_markdown</code> event is called after the page's markdown is loaded
+from file and can be used to alter the Markdown source text. The meta-
+data has been stripped off and is available as <code>page.meta</code> at this point.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>markdown</b>
+            (<code>str</code>)
+        –
+        <div class="doc-md-description">
+          <p>Markdown source text of page as string</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>page</b>
+            (<code><span title="mkdocs.structure.pages.Page">Page</span></code>)
+        –
+        <div class="doc-md-description">
+          <p><code>mkdocs.structure.pages.Page</code> instance</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>files</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.structure.files.Files" href="../api/#mkdocs.structure.files.Files">Files</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>global files collection</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>str | None</code>
+        –
+        <div class="doc-md-description">
+          <p>Markdown source text of page as string</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_page_content">on_page_content<a class="headerlink" href="#on_page_content" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>page_content</code> event is called after the Markdown text is rendered to
+HTML (but before being passed to a template) and can be used to alter the
+HTML body of the page.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>html</b>
+            (<code>str</code>)
+        –
+        <div class="doc-md-description">
+          <p>HTML rendered from Markdown source as string</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>page</b>
+            (<code><span title="mkdocs.structure.pages.Page">Page</span></code>)
+        –
+        <div class="doc-md-description">
+          <p><code>mkdocs.structure.pages.Page</code> instance</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>files</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.structure.files.Files" href="../api/#mkdocs.structure.files.Files">Files</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>global files collection</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>str | None</code>
+        –
+        <div class="doc-md-description">
+          <p>HTML rendered from Markdown source as string</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_page_context">on_page_context<a class="headerlink" href="#on_page_context" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>page_context</code> event is called after the context for a page is created
+and can be used to alter the context for that specific page only.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>context</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.utils.templates.TemplateContext" href="../api/#mkdocs.utils.templates.TemplateContext">TemplateContext</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>dict of template context variables</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>page</b>
+            (<code><span title="mkdocs.structure.pages.Page">Page</span></code>)
+        –
+        <div class="doc-md-description">
+          <p><code>mkdocs.structure.pages.Page</code> instance</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>nav</b>
+            (<code><a class="autorefs autorefs-internal" title="mkdocs.structure.nav.Navigation" href="../themes/#mkdocs.structure.nav.Navigation">Navigation</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>global navigation object</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-internal" title="mkdocs.utils.templates.TemplateContext" href="../api/#mkdocs.utils.templates.TemplateContext">TemplateContext</a> | None</code>
+        –
+        <div class="doc-md-description">
+          <p>dict of template context variables</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h5 id="on_post_page">on_post_page<a class="headerlink" href="#on_post_page" title="Permanent link"></a></h5>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+  <div class="doc doc-contents first">
+  
+      <p>The <code>post_page</code> event is called after the template is rendered, but
+before it is written to disc and can be used to alter the output of the
+page. If an empty string is returned, the page is skipped and nothing is
+written to disc.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>output</b>
+            (<code>str</code>)
+        –
+        <div class="doc-md-description">
+          <p>output of rendered template as string</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>page</b>
+            (<code><span title="mkdocs.structure.pages.Page">Page</span></code>)
+        –
+        <div class="doc-md-description">
+          <p><code>mkdocs.structure.pages.Page</code> instance</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>config</b>
+            (<code><span title="mkdocs.config.defaults.MkDocsConfig">MkDocsConfig</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>global configuration object</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>str | None</code>
+        –
+        <div class="doc-md-description">
+          <p>output of rendered template as string</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div><h3 id="_8">事件优先级<a class="headerlink" href="#_8" title="Permanent link"></a></h3>
+<p>对于每种事件类型，插件的相应方法按照插件出现在<code>plugins</code><a class="autorefs autorefs-internal" href="../themes/#config">config</a>中的顺序进行调用。自MkDocs 1.4以来，插件可以选择为其事件设置优先值。具有更高优先级的事件将首先被调用。没有选择优先级的事件会得到默认值0。优先级相同的事件按它们在配置中出现的顺序排序。</p>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="mkdocs.plugins.event_priority" class="doc doc-heading">
+<code class="highlight language-python">mkdocs.plugins.event_priority(priority: float) -&gt; Callable[[T], T]</code>
+
+<a href="#mkdocs.plugins.event_priority" class="headerlink" title="Permanent link"></a></h4>
+
+
+  <div class="doc doc-contents first">
+  
+      <p>A decorator to set an event priority for an event handler method.</p>
+<p>Recommended priority values:
+<code>100</code> "first", <code>50</code> "early", <code>0</code> "default", <code>-50</code> "late", <code>-100</code> "last".
+As different plugins discover more precise relations to each other, the values should be further tweaked.</p>
+<pre class="highlight"><code class="language-python">@plugins.event_priority(-100)  # Wishing to run this after all other plugins' `on_files` events.
+def on_files(self, files, config, **kwargs):
+    ...</code></pre>
+<p>New in MkDocs 1.4.
+Recommended shim for backwards compatibility:</p>
+<pre class="highlight"><code class="language-python">try:
+    from mkdocs.plugins import event_priority
+except ImportError:
+    event_priority = lambda priority: lambda f: f  # No-op fallback</code></pre>
+
+  </div>
+
+</div><h3 id="_9">处理错误<a class="headerlink" href="#_9" title="Permanent link"></a></h3>
+<p>MkDocs定义了四个错误类型：</p>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="mkdocs.exceptions.MkDocsException" class="doc doc-heading">
+          <code>mkdocs.exceptions.MkDocsException</code>
+
+
+<a href="#mkdocs.exceptions.MkDocsException" class="headerlink" title="Permanent link"></a></h4>
+
+
+  <div class="doc doc-contents first">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="click.ClickException">ClickException</span></code></p>
+
+  
+      <p>The base class which all MkDocs exceptions inherit from. This should
+not be raised directly. One of the subclasses should be raised instead.</p>
+
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="mkdocs.exceptions.ConfigurationError" class="doc doc-heading">
+          <code>mkdocs.exceptions.ConfigurationError</code>
+
+
+<a href="#mkdocs.exceptions.ConfigurationError" class="headerlink" title="Permanent link"></a></h4>
+
+
+  <div class="doc doc-contents first">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="mkdocs.exceptions.MkDocsException" href="#mkdocs.exceptions.MkDocsException">MkDocsException</a></code></p>
+
+  
+      <p>This error is raised by configuration validation when a validation error
+is encountered. This error should be raised by any configuration options
+defined in a plugin's <a class="autorefs autorefs-internal" href="#config_scheme">config_scheme</a>.</p>
+
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="mkdocs.exceptions.BuildError" class="doc doc-heading">
+          <code>mkdocs.exceptions.BuildError</code>
+
+
+<a href="#mkdocs.exceptions.BuildError" class="headerlink" title="Permanent link"></a></h4>
+
+
+  <div class="doc doc-contents first">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="mkdocs.exceptions.MkDocsException" href="#mkdocs.exceptions.MkDocsException">MkDocsException</a></code></p>
+
+  
+      <p>This error may be raised by MkDocs during the build process. Plugins should
+not raise this error.</p>
+
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="mkdocs.exceptions.PluginError" class="doc doc-heading">
+          <code>mkdocs.exceptions.PluginError</code>
+
+
+<a href="#mkdocs.exceptions.PluginError" class="headerlink" title="Permanent link"></a></h4>
+
+
+  <div class="doc doc-contents first">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="mkdocs.exceptions.BuildError" href="#mkdocs.exceptions.BuildError">BuildError</a></code></p>
+
+  
+      <p>A subclass of <a class="autorefs autorefs-internal" href="#mkdocs.exceptions.BuildError"><code>mkdocs.exceptions.BuildError</code></a> which can be raised by plugin
+events.</p>
+
+
+  </div>
+
+</div><p>意外和未捕获的异常将中断构建过程并生成典型的Python回溯，这对于调试代码很有用。但是，用户通常发现回溯令人不知所措，并且经常错过有用的错误消息。因此，MkDocs将捕获上述任何错误，检索错误消息并立即退出，只显示有用的消息。因此，您可能希望在插件中捕获任何异常并提出一个<code>PluginError</code>，传递自己的自定义消息，以使构建过程中断并显示有用的消息。对于任何异常，[on_build_error]事件都将被触发。例如：</p>
+<pre class="highlight"><code class="language-python">from mkdocs.exceptions import PluginError
+from mkdocs.plugins import BasePlugin
+
+
+class MyPlugin(BasePlugin):
+    def on_post_page(self, output, page, config, **kwargs):
+        try:
+            # 抛出一个KeyError的一些代码
+            ...
+        except KeyError as error:
+            raise PluginError(str(error))
+
+    def on_build_error(self, error, **kwargs):
+        # 一些代码清理
+        ...</code></pre>
+<h3 id="_10">插件日志记录<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
+<p>MkDocs提供了一个<code>get_plugin_logger</code>函数，用于返回可以用于记录消息的记录器。#### ::: mkdocs.plugins.get_plugin_logger</p>
+<h3 id="_11">入口点<a class="headerlink" href="#_11" title="Permanent link"></a></h3>
+<p>插件需要打包为Python库（与MkDocs分开在PyPI上分布），并且每个插件都必须通过setuptools的<code>entry_points</code>注册为插件。将以下内容添加到您的<code>setup.py</code>脚本中：</p>
+<pre class="highlight"><code class="language-python">entry_points={
+    'mkdocs.plugins': [
+        'pluginname = path.to.some_plugin:SomePluginClass',
+    ]
+}</code></pre>
+<p>-“pluginname”将是用户使用的名称（在配置文件中），而“path.to.some_plugin：SomePluginClass”将是可导入的插件本身（<code>from path.to.some_plugin import SomePluginClass</code>），其中<code>SomePluginClass</code>是[BasePlugin]的子类，定义了插件行为。自然，多个Plugin类可能存在于同一模块中。只需将每个定义为单独的入口点。<code>python
+entry_points={
+    'mkdocs.plugins': [
+        'featureA = path.to.my_plugins:PluginA',
+        'featureB = path.to.my_plugins:PluginB'
+    ]
+}</code></p>
+<p>请注意，注册插件不会激活它。用户仍然需要告诉MkDocs使用它通过配置。### 发布插件</p>
+<p>您应该在[PyPI]上发布一个软件包，然后将其添加到[Catalog]以进行发现。强烈建议插件具有唯一的插件名称（入口点名称），以符合目录的要求。[Base</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2014 <a href="https://twitter.com/starletdreaming">Tom Christie</a>, Maintained by the <a href="/about/release-notes/#maintenance-team">MkDocs Team</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/jquery-3.6.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
