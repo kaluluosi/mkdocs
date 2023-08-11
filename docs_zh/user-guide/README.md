@@ -4,7 +4,7 @@
 
 ---
 
-MkDocs开发人员指南为MkDocs用户提供文档。请参见[入门教程]进行入门教程。你可以直接跳转到下面列出的页面，或者使用导航栏上方的*下一个*和*上一个*按钮按顺序浏览文档。
+MkDocs开发者指南为MkDocs的用户提供文档。参见[入门指南]获取入门教程。您可以直接跳转到下面列出的页面，或使用导航栏顶部的“上一个”和“下一个”按钮按顺序浏览文档。
 
 - [安装](installation.md)
 - [编写文档](writing-your-docs.md)
@@ -15,4 +15,4 @@ MkDocs开发人员指南为MkDocs用户提供文档。请参见[入门教程]进
 - [命令行界面](cli.md)
 - [部署文档](deploying-your-docs.md)
 
-[入门教程]: ../getting-started.md
+[入门指南]: ../getting-started.md

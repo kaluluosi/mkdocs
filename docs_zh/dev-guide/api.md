@@ -1,24 +1,24 @@
-# API 参考文档
+# API参考
 
-注意：API 主要通过插件接收 [事件](plugins.md#events)。这些事件的描述链接会回到本页面。
+注意：API的主要入口是通过插件接收的[Events](plugins.md＃events)。这些事件的描述链接回到此页面。
 
-::: mkdocs.structure.files.Files
-    options:
-      show_root_heading: true  # 显示根标题
+::：mkdocs.structure.files.Files
+    选项：
+      show_root_heading：true
 
-::: mkdocs.structure.files.File
-    options:
-      show_root_heading: true  # 显示根标题
+::：mkdocs.structure.files.File
+    选项：
+      show_root_heading：true
 
-::: mkdocs.config.base.Config
-    options:
-      show_root_heading: true  # 显示根标题
+::：mkdocs.config.base.Config
+    选项：
+      show_root_heading：true
 
-::: mkdocs.utils.templates.TemplateContext
-    options:
-      show_root_heading: true  # 显示根标题
-      show_if_no_docstring: true  # 如果没有文档字符串，则显示
+::：mkdocs.utils.templates.TemplateContext
+    选项：
+      show_root_heading：true
+      show_if_no_docstring：true
 
-::: mkdocs.livereload.LiveReloadServer
-    options:
-      show_root_heading: true  # 显示根标题
+::：mkdocs.livereload.LiveReloadServer
+    选项：
+      show_root_heading：true
