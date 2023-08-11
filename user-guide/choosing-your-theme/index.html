@@ -110,7 +110,7 @@
 </li>
                                     
 <li>
-    <a href="../../dev-guide/api/" class="dropdown-item">API 参考</a>
+    <a href="../../dev-guide/api/" class="dropdown-item">API参考</a>
 </li>
                                 </ul>
                             </li>
@@ -192,17 +192,26 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="_1">选择你的主题<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>选择和配置一个主题。---</p>
-<p>MkDocs 包含两种内置主题 (<a href="#mkdocs">mkdocs</a> 和 <a href="#readthedocs">readthedocs</a>)，下面将进行文档记录。然而，也有许多 [第三方主题] 可供选择。为选择主题，在你的 <code>mkdocs.yml</code> 配置文件中设置 <a href="../configuration/#theme">theme</a> 配置选项。</p>
+<p>选择并配置一个主题。</p>
+<hr />
+<p>MkDocs包括了两个内置主题(<a href="#mkdocs">mkdocs</a>和<a href="#readthedocs">readthedocs</a>)，就像下方所记录的一样。然而，也有许多[第三方主题]可供选择。</p>
+<p>要选择一个主题，在你的<code>mkdocs.yml</code>配置文件中设置<a href="../configuration/#theme">theme</a>配置选项。</p>
 <pre class="highlight"><code class="language-yaml">theme:
   name: readthedocs</code></pre>
 <h2 id="mkdocs">mkdocs<a class="headerlink" href="#mkdocs" title="Permanent link"></a></h2>
-<p>默认主题，它是一个自定义 <a href="https://getbootstrap.com/">Bootstrap</a> 主题，支持MkDocs的几乎所有功能。<img alt="mkdocs" src="../../img/mkdocs.png" /></p>
-<p>除了默认的<a href="../configuration/#theme">主题配置选项</a>外，<code>mkdocs</code>主题还支持以下选项：</p>
+<p>默认主题，构建为一个自定义Bootstrap主题，支持MkDocs的几乎所有特性。</p>
+<p><img alt="mkdocs" src="../../img/mkdocs.png" /></p>
+<p>除了默认的<a href="../configuration/#theme">theme configuration options</a>之外，<code>mkdocs</code>主题还支持以下选项：</p>
 <ul>
-<li><strong><code>highlightjs</code></strong>: 使用 <a href="https://highlightjs.org/">highlight.js</a> JavaScript 库在代码块中启用源代码的高亮显示。默认值为 <code>True</code> 。</li>
-<li><strong><code>hljs_style</code></strong>: highlight.js 库提供了79种不同的 [样式]（颜色变化），用于突出显示代码块中的源代码。将其设置为所需样式的名称。默认值为 <code>github</code> 。</li>
-<li><strong><code>hljs_languages</code></strong>: 默认情况下，highlight.js 仅支持23种常见语言。在此处列出其他语言，以包含对它们的支持。</li>
+<li>
+<p><strong><code>highlightjs</code></strong>：使用<a href="https://highlightjs.org/">highlight.js JavaScript library</a>对代码块中的源代码进行语法高亮。默认：<code>True</code>。</p>
+</li>
+<li>
+<p><strong><code>hljs_style</code></strong>：highlight.js库提供了79种不同的<a href="https://highlightjs.org/static/demo/">样式</a>（颜色变化）来高亮代码块中的源代码。将其设置为所需样式的名称。默认：<code>github</code>。</p>
+</li>
+<li>
+<p><strong><code>hljs_languages</code></strong>：默认情况下，highlight.js仅支持23种常用语言。在这里列出其他语言以支持它们。</p>
+</li>
 </ul>
 <pre class="highlight"><code class="language-yaml">theme:
   name: mkdocs
@@ -211,55 +220,72 @@
     - yaml
     - rust</code></pre>
 <ul>
-<li><strong><code>analytics</code></strong>: 定义分析服务的配置选项。目前，仅通过 <code>gtag</code> 选项支持 Google Analytics v4。</li>
-<li><strong><code>gtag</code></strong>: 要启用 Google Analytics，请设置为使用 <code>G-</code> 格式的 Google Analytics v4 跟踪 ID。请参阅 Google 的文档，了解如何<a href="https://support.google.com/analytics/answer/9304153?hl=en&amp;ref_topic=9303319">为网站和/或应用设置分析(GA4)</a>或<a href="https://support.google.com/analytics/answer/9744165?hl=en&amp;ref_topic=9303319">升级到 Google Analytics 4 属性</a>。</li>
-</ul>
-<p><pre class="highlight"><code class="language-yaml">    theme:
-      name: mkdocs
-      analytics:
-        gtag: G-ABC123</code></pre>
-当设置为默认值（<code>null</code>）时，禁用 Google Analytics。</p>
+<li>
+<p><strong><code>analytics</code></strong>：定义分析服务的配置选项。目前，仅通过<code>gtag</code>选项支持Google Analytics v4。</p>
 <ul>
-<li><strong><code>shortcuts</code></strong>: 定义键盘快捷键。</li>
+<li><strong><code>gtag</code></strong>：要启用Google Analytics，请设置为使用<code>G-</code>格式的Google Analytics v4跟踪ID。请参阅Google的文档以<a href="https://support.google.com/analytics/answer/9304153?hl=en&amp;ref_topic=9303319">设置网站和/或应用的分析(GA4)</a>或<a href="https://support.google.com/analytics/answer/9744165?hl=en&amp;ref_topic=9303319">升级到Google Analytics 4属性</a>。</li>
+</ul>
+</li>
+</ul>
+<pre class="highlight"><code class="language-yaml">theme:
+  name: mkdocs
+  analytics:
+    gtag: G-ABC123</code></pre>
+<p>当设置为默认（即 <code>null</code> ）时，将禁用网站的Google Analytics。</p>
+<ul>
+<li><strong><code>shortcuts</code></strong>：定义快捷键。</li>
 </ul>
 <pre class="highlight"><code class="language-yaml">theme:
   name: mkdocs
   shortcuts:
-    help: 191    # ?next: 78     # n
+    help: 191    # ?
+    next: 78     # n
     previous: 80 # p
     search: 83   # s</code></pre>
-<p>所有值都必须是数字键代码。最好使用所有键盘都有的键。你可以使用 <a href="https://keycode.info/">https://keycode.info/</a> 来确定给定的键的键码。</p>
+<p>所有值都必须是数字键代码。最好使用所有键盘都可用的键。您可以使用<a href="https://keycode.info/">https://keycode.info/</a>来确定给定键的键代码。</p>
 <ul>
-<li><strong><code>help</code></strong>: 显示一个显示键盘快捷键的帮助弹出窗口。默认值为 <code>191</code>（<code>?</code>）。</li>
-<li><strong><code>next</code></strong>: 导航到“下一个”页面。默认值为 <code>78</code>（<code>n</code>）。</li>
-<li><strong><code>previous</code></strong>: 导航到“上一个”页面。默认值为 <code>80</code>（<code>p</code>）。</li>
 <li>
-<p><strong><code>search</code></strong>: 显示搜索弹出窗口。默认值为 <code>83</code>（<code>s</code>）。</p>
+<p><strong><code>help</code></strong>：显示一个帮助模态框，列出快捷键。默认：<code>191</code>（&quest;）</p>
 </li>
 <li>
-<p><strong><code>navigation_depth</code></strong>: 侧边栏中导航树的最大深度。默认值为 <code>2</code>。</p>
+<p><strong><code>next</code></strong>：导航到下一页。默认：<code>78</code>（n）</p>
 </li>
-<li><strong><code>nav_style</code></strong>: 这调整顶部导航栏的视觉样式；默认情况下，它设置为 <code>primary</code>（默认值），但也可以设置为 <code>dark</code> 或 <code>light</code>。</li>
+<li>
+<p><strong><code>previous</code></strong>：导航到上一页。默认：<code>80</code>（p）</p>
+</li>
+<li>
+<p><strong><code>search</code></strong>：显示搜索模态框。默认：<code>83</code>（s）</p>
+</li>
+<li>
+<p><strong><code>navigation_depth</code></strong>：侧边栏中导航树的最大深度。默认：<code>2</code>。</p>
+</li>
+<li>
+<p><strong><code>nav_style</code></strong>：这调整了顶部导航栏的可视样式；默认情况下，它设置为<code>primary</code>（默认值），但也可以设置为<code>dark</code>或<code>light</code>。</p>
+</li>
 </ul>
 <pre class="highlight"><code class="language-yaml">theme:
   name: mkdocs
   nav_style: dark</code></pre>
 <ul>
-<li>
-<p><strong id="mkdocs-locale"><code>locale</code></strong>: 用于构建主题的区域设置（语言/位置）。如果你的语言环境还没有得到支持，它将返回到默认值。此主题支持以下位置设置：</p>
+<li><strong id="mkdocs-locale"><code>locale</code></strong>：用于构建主题的区域设置（语言/位置）。如果您的语言环境尚不受支持，则会回退到默认设置。</li>
+</ul>
+<p>此主题支持以下区域设置：</p>
 <ul>
-<li><code>en</code> : 英语（默认值）</li>
-<li>(查看现有目录 <code>mkdocs/themes/mkdocs/locales/*/</code> 的列表)</li>
+<li><code>en</code>：英文（默认）</li>
+<li>（查看现有目录的列表<code>mkdocs/themes/mkdocs/locales/*/</code>）</li>
 </ul>
-<p>更多信息请参见<a href="../localizing-your-theme/">主题本地化</a>指南。</p>
-</li>
-</ul>
+<p>有关详细信息，请参见[本地化您的主题]指南。</p>
 <h2 id="readthedocs">readthedocs<a class="headerlink" href="#readthedocs" title="Permanent link"></a></h2>
-<p>与<a href="https://readthedocs.org/">Read the Docs</a>服务使用的默认主题的克隆版，提供与其父主题相同的受限功能集。与其父主题一样，仅支持两个层级的导航。<img alt="ReadTheDocs" src="../../img/readthedocs.png" /></p>
-<p>除了默认的<a href="../configuration/#theme">主题配置选项</a>外，<code>readthedocs</code> 主题还支持以下选项：</p>
+<p>Read the Docs服务使用的默认主题的克隆版，提供与其父主题相同的受限功能集。与其父主题一样，仅支持两个级别的导航。</p>
+<p><img alt="ReadTheDocs" src="../../img/readthedocs.png" /></p>
+<p>除了默认的<a href="../configuration/#theme">theme configuration options</a>之外，<code>readthedocs</code>主题还支持以下选项：</p>
 <ul>
-<li><strong><code>highlightjs</code></strong>: 使用 <a href="https://highlightjs.org/">highlight.js</a> JavaScript 库在代码块中启用源代码的高亮显示。默认值为 <code>True</code>。</li>
-<li><strong><code>hljs_languages</code></strong>: 默认情况下，highlight.js 仅支持23种常见语言。在此处列出其他语言，以包含对它们的支持。 </li>
+<li>
+<p><strong><code>highlightjs</code></strong>：使用<a href="https://highlightjs.org/">highlight.js JavaScript library</a>对代码块中的源代码进行语法高亮。默认：<code>True</code>。</p>
+</li>
+<li>
+<p><strong><code>hljs_languages</code></strong>：默认情况下，highlight.js仅支持23种常用语言。在这里列出其他语言以支持它们。</p>
+</li>
 </ul>
 <pre class="highlight"><code class="language-yaml">theme:
   name: readthedocs
@@ -268,36 +294,52 @@
     - yaml
     - rust</code></pre>
 <ul>
-<li><strong><code>analytics</code></strong>: 定义分析服务的配置选项。</li>
-<li><strong><code>gtag</code></strong>: 要启用 Google Analytics，请设置为使用 <code>G-</code> 格式的 Google Analytics v4 跟踪 ID。请参阅 Google 的文档，了解如何<a href="https://support.google.com/analytics/answer/9304153?hl=en&amp;ref_topic=9303319">为网站和/或应用设置分析(GA4)</a>或<a href="https://support.google.com/analytics/answer/9744165?hl=en&amp;ref_topic=9303319">升级到 Google Analytics 4 属性</a>。</li>
-</ul>
-<pre class="highlight"><code class="language-yaml">    theme:
-      name: readthedocs
-      analytics:
-        gtag: G-ABC123</code></pre>
-<p>当设置为默认值（<code>null</code>）时，禁用 Google Analytics。</p>
-<ul>
-<li><strong><code>anonymize_ip</code></strong>：要为 Google Analytics 启用匿名 IP 地址，请设置为 <code>True</code>。默认值为 <code>False</code>。</li>
-<li><strong><code>include_homepage_in_sidebar</code></strong>：在侧边栏菜单中列出主页。由于 MkDocs 要求主页列在 <code>nav</code> 配置选项中，因此此设置允许在侧边栏中包含或排除主页。请注意，网站名称/标志始终链接到主页。默认值为 <code>True</code>。</li>
-<li><strong><code>prev_next_buttons_location</code></strong>：一个值为 <code>bottom</code>、<code>top</code>、<code>both</code> 或 <code>none</code> 的设置，相应地显示“下一页”和“上一页”按钮。默认值时 <code>bottom</code>。 </li>
-<li><strong><code>navigation_depth</code></strong>：侧边栏中导航树的最大深度。默认值为 <code>4</code>。</li>
-<li><strong><code>collapse_navigation</code></strong>：仅在当前页面的侧栏中包含该页面的名称部分标题。默认值为 <code>True</code>。</li>
-<li><strong><code>titles_only</code></strong>：仅在侧栏中包括页面标题，不包括所有页面的名称部分标题。默认值为 <code>False</code>。</li>
-<li><strong><code>sticky_navigation</code></strong>：如果为 True，则使侧栏随着页面内容的滚动而滚动。默认值为 <code>True</code>。</li>
 <li>
-<p><strong id="readthedocs-locale"><code>locale</code></strong>: 使用于构建主题的区域设置（语言/位置）。如果你的语言环境还没有得到支持，它将返回到默认值。此主题支持以下位置设置：</p>
+<p><strong><code>analytics</code></strong>：定义分析服务的配置选项。</p>
 <ul>
-<li><code>en</code> : 英语（默认值）</li>
-<li>(查看现有目录 <code>mkdocs/themes/readthedocs/locales/*/</code> 的列表)</li>
+<li><strong><code>gtag</code></strong>：要启用Google Analytics，请设置为使用<code>G-</code>格式的Google Analytics v4跟踪ID。请参阅Google的文档以<a href="https://support.google.com/analytics/answer/9304153?hl=en&amp;ref_topic=9303319">设置网站和/或应用的分析(GA4)</a>或<a href="https://support.google.com/analytics/answer/9744165?hl=en&amp;ref_topic=9303319">升级到Google Analytics 4属性</a>。</li>
 </ul>
-<p>更多信息请参见<a href="../localizing-your-theme/">主题本地化</a>指南。</p>
+</li>
+</ul>
+<pre class="highlight"><code class="language-yaml">theme:
+  name: readthedocs
+  analytics:
+    gtag: G-ABC123</code></pre>
+<p>当设置为默认（即 <code>null</code> ）时，将禁用网站的Google Analytics。</p>
+<ul>
+<li>
+<p><strong><code>include_homepage_in_sidebar</code></strong>：在侧边栏菜单中列出主页。由于MkDocs要求在<code>nav</code>配置选项中列出主页，因此此设置允许从侧栏中包括或排除主页。请注意，站点名称/徽标始终链接到主页。默认为：<code>True</code>。</p>
 </li>
 <li>
-<p><strong><code>logo</code></strong>：要在项目上设置标识而不是纯文本 <code>site_name</code>，请将此变量设置为图像的位置。默认值为 <code>null</code>。</p>
+<p><strong><code>prev_next_buttons_location</code></strong>： <code>bottom</code>，<code>top</code>，<code>both</code>或<code>none</code>中的一个。相应地显示“下一个”和“上一个”按钮。默认值为：<code>bottom</code>。</p>
 </li>
+<li>
+<p><strong><code>navigation_depth</code></strong>：侧边栏中导航树的最大深度。默认：<code>4</code>。</p>
+</li>
+<li>
+<p><strong><code>collapse_navigation</code></strong>：仅在当前页面的侧边栏中包括页面部分标题。默认：<code>True</code>。</p>
+</li>
+<li>
+<p><strong><code>titles_only</code></strong>：仅在侧栏中包括页面标题，而不包括所有页面的部分标题。默认：<code>False</code>。</p>
+</li>
+<li>
+<p><strong><code>sticky_navigation</code></strong>：如果为True，则导致侧栏在滚动页面时与主页面内容一起滚动。默认：<code>True</code>。</p>
+</li>
+<li>
+<p><strong id="readthedocs-locale"><code>locale</code></strong>：用于构建主题的区域设置（语言/位置）。如果您的语言环境尚不受支持，则会回退到默认设置。</p>
+</li>
+</ul>
+<p>此主题支持以下区域设置：</p>
+<ul>
+<li><code>en</code>：英文（默认）</li>
+<li>（查看现有目录的列表<code>mkdocs/themes/readthedocs/locales/*/</code>）</li>
+</ul>
+<p>有关详细信息，请参见[本地化您的主题]指南。</p>
+<ul>
+<li><strong><code>logo</code></strong>：要在项目中设置一个徽标，而不是纯文本<code>site_name</code>，请将此变量设置为图像的位置。默认值为：<code>null</code>。</li>
 </ul>
 <h2 id="_2">第三方主题<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<p>第三方主题列表，可以在社区维基页面和 <a href="https://github.com/mkdocs/catalog#-theming">排名目录</a> 上找到。如果你已经创建了自己的主题，请将它们添加到那里。[第三方主题]: #第三方主题</p></div>
+<p>第三方主题的列表可以在<a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">社区维基</a>页面和<a href="https://github.com/mkdocs/catalog#-theming">名录</a>中找到。如果您创建了自己的主题，请将它们添加到那里。</p></div>
             </div>
         </div>
 
