@@ -1,24 +1,24 @@
-# API参考
+# API 参考
 
-注意：API的主要入口是通过插件接收的[Events](plugins.md＃events)。这些事件的描述链接回到此页面。
+注意：API 的主要入口点是通过插件接收的 [事件](plugins.md#events)。这些事件的描述将链接回此页面。
 
-::：mkdocs.structure.files.Files
-    选项：
-      show_root_heading：true
+::: mkdocs.structure.files.Files
+    options:
+      show_root_heading: true
 
-::：mkdocs.structure.files.File
-    选项：
-      show_root_heading：true
+::: mkdocs.structure.files.File
+    options:
+      show_root_heading: true
 
-::：mkdocs.config.base.Config
-    选项：
-      show_root_heading：true
+::: mkdocs.config.base.Config
+    options:
+      show_root_heading: true
 
-::：mkdocs.utils.templates.TemplateContext
-    选项：
-      show_root_heading：true
-      show_if_no_docstring：true
+::: mkdocs.utils.templates.TemplateContext
+    options:
+      show_root_heading: true
+      show_if_no_docstring: true
 
-::：mkdocs.livereload.LiveReloadServer
-    选项：
-      show_root_heading：true
+::: mkdocs.livereload.LiveReloadServer
+    options:
+      show_root_heading: true

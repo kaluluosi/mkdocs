@@ -1,36 +1,36 @@
-# 部署你的文档
+# 部署文档
 
-一份关于部署到不同托管提供者的基础指南
+部署文档到各种托管提供商的基本指南
 
 ---
 
 ## GitHub Pages
 
-如果你将一个项目的源代码托管在 [GitHub] 上，你可以使用 [GitHub Pages] 轻松地为你的项目提供文档托管。GitHub Pages 网站分为两种基本类型：[项目页面] 和 [用户和组织页面]。它们几乎相同，但有一些重要的区别，因此在部署时需要不同的工作流程。
+如果你将项目的源代码托管在[GitHub]，你可以轻松利用[GitHub Pages]托管你项目的文档。GitHub Pages有两种基本的站点类型：[项目页面][Project Pages]站点和[用户和机构页面][User and Organization Pages]站点。它们几乎相同，但有一些重要的区别，需要在部署时采用不同的工作流程。
 
 ### 项目页面
 
-项目页面较为简单，因为站点文件被部署到项目存储库内的分支 (`gh-pages` 是默认值)。在你检出你维护源代码文档的 git 存储库主工作分支（通常为 `master`）之后，运行以下命令：
+项目页面站点更简单，因为站点文件部署到项目存储库的分支中（默认为“gh-pages”）。在你`checkout`该项目维护源文档的git存储库的主要工作分支（通常是`master`）之后，运行以下命令：
 
 ```sh
 mkdocs gh-deploy
 ```
 
-这就是全部！在幕后，MkDocs 将构建你的文档，并使用 [ghp-import] 工具将其提交到 `gh-pages` 分支并将 `gh-pages` 分支推送到 GitHub。
+就这样！在幕后，MkDocs将构建你的文档并使用[ghp-import]工具将它们提交到`gh-pages`分支并将`gh-pages`分支推送到GitHub。
 
-使用 `mkdocs gh-deploy --help` 来获取 `gh-deploy` 命令的所有可用选项的完整列表。
+使用`mkdocs gh-deploy --help`获得`gh-deploy`命令可用选项的完整列表。
 
-请注意，在将站点推送到 GitHub 之前，你将无法审核生成的站点。因此，你可能需要通过使用 `build` 或 `serve` 命令来验证所做的任何更改，并在本地审查生成的文件。
-
-警告：
-如果你使用 `gh-deploy` 命令，你不应手动编辑页面存储库中的文件，因为下一次运行该命令时会丢失你的工作。
+请注意，在将站点推送到GitHub之前，您将无法审核构建的站点。因此，在使用`build`或`serve`命令构建文件并在本地查看构建文件之前，您可能需要先验证对文档所做的任何更改。
 
 警告：
-如果在运行 `mkdocs gh-deploy` 的本地存储库中存在未跟踪的文件或未提交的工作，则这些文件将包含在所部署的页面中。
+如果使用`gh-deploy`命令，你不应该手动在你的页面存储库中编辑文件，否则下一次运行该命令时，你将丢失你的工作。
 
-### 用户和组织页面
+警告：
+如果在运行`mkdocs gh-deploy`的本地存储库中有未跟踪的文件或未提交的工作，则这些文件将包括在部署的页面中。
 
-用户和组织网站并不绑定到特定的项目，站点文件将部署到名为 GitHub 帐户名称的专用存储库中的 `master` 分支。因此，你需要在本地系统上拥有两个存储库的工作副本。例如，考虑以下文件结构：
+### 机构和用户页面
+
+用户和机构页面站点不与特定项目绑定，站点文件部署到名为GitHub帐户名的专用存储库的`master`分支中。因此，你需要在本地系统上有两个存储库副本。例如，考虑以下文件结构:
 
 ```text
 my-project/
@@ -39,106 +39,105 @@ my-project/
 orgname.github.io/
 ```
 
-在更新项目并验证之后，你需要更改目录到 `orgname.github.io` 存储库，并从 there 调用 `mkdocs gh-deploy` 命令：
+在对项目进行更新并验证后，你需要更改目录到`orgname.github.io`存储库并从那里调用`mkdocs gh-deploy`命令：
 
 ```sh
 cd ../orgname.github.io/
 mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
 ```
 
-请注意，你需要显式指向 `mkdocs.yml` 配置文件的位置，因为它不再位于当前工作目录中。你还需要告知部署脚本提交到 `master` 分支。你可以使用 [remote_branch] 配置设置覆盖默认配置，但是如果在运行部署脚本之前忘记更改目录，则会将其提交到项目的 `master` 分支，你可能不希望这样。
+请注意，由于配置文件不再在当前工作目录中，因此需要显式指定`mkdocs.yml`配置文件的位置。你也需要通知部署脚本提交到`master`分支。你可以使用[remote_branch]配置设置覆盖默认设置，但是如果忘记在运行部署脚本之前更改目录，它将提交到您的项目的“master”分支，这可能不是你想要的。
 
-### 自定义域
+### 自定义域名
 
-GitHub Pages 包括支持使用 [自定义域] 的站点。除了 GitHub 提供的步骤之外，你还需要执行一个附加步骤以使 MkDocs 在自定义域上运行。你需要在 [docs_dir] 的根目录下添加一个 `CNAME` 文件。该文件必须包含单个裸域名或子域名（请参阅 MkDocs 的 [CNAME 文件] 作为示例）。你可以手动创建该文件，也可以使用 GitHub 的 Web 界面设置自定义域（在“Settings / Custom Domain”下）。如果使用 Web 界面，则 GitHub 将为您创建 `CNAME` 文件并将其保存到“pages”分支的根目录中。为了避免下次部署时删除该文件，你需要将文件复制到你的 `docs_dir`。正确包含在 `docs_dir` 中的文件，MkDocs 将在每次运行 `gh-deploy` 命令时将该文件包含在生成的站点中，并将其推送到你的“pages”分支。
+GitHub Pages支持使用[Custom Domain]作为你的站点。除了GitHub记录的步骤外，你需要执行额外的一步，以使MkDocs可以与你的自定义域名一起使用。你需要在[docs_dir]的根目录下添加一个`CNAME`文件。该文件必须包含单个裸域或子域位于单个行上（以MkDocs自己的[CNAME file]为例）。你可以手动创建文件，也可以使用GitHub的Web接口设置自定义域名（在设置/自定义域中）。如果使用Web接口，GitHub将为你创建`CNAME`文件并将其保存到“pages”分支的根目录中。为了不在下一次部署时将文件删除，你需要将文件复制到你的`docs_dir`下。如果正确包含文件到你的`docs_dir`中，MkDocs将在每次运行`gh-deploy`命令时将文件包含在你的构建站点中并将其推送到你的“pages”分支。
 
-如果你在使用自定义域时遇到问题，请参阅 GitHub 关于[自定义域故障排除]的文档。
+如果你在使用自定义域名时遇到问题，请参阅GitHub的[自定义域名故障排除]文档。
 
-[GitHub]: https://github.com/
-[GitHub Pages]: https://pages.github.com/
-[项目页面]: https://help.github.com/articles/user-organization-and-project-pages/#project-pages-sites
-[用户和组织页面]: https://help.github.com/articles/user-organization-and-project-pages/#user-and-organization-pages-sites
-[ghp-import]: https://github.com/davisp/ghp-import
-[remote_branch]: ./configuration.md#remote_branch
-[自定义域]: https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site
-[docs_dir]: ./configuration.md#docs_dir
-[CNAME 文件]: https://github.com/mkdocs/mkdocs/blob/master/docs/CNAME
-[自定义域故障排除]: https://help.github.com/articles/troubleshooting-custom-domains/
+[GitHub]：https://github.com/
+[GitHub Pages]：https://pages.github.com/
+[Project Pages]：https://help.github.com/articles/user-organization-and-project-pages/#project-pages-sites
+[User and Organization Pages]：https://help.github.com/articles/user-organization-and-project-pages/#user-and-organization-pages-sites
+[ghp-import]：https://github.com/davisp/ghp-import
+[remote_branch]：./configuration.md#remote_branch
+[Custom Domain]：https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site
+[docs_dir]：./configuration.md#docs_dir
+[CNAME file]：https://github.com/mkdocs/mkdocs/blob/master/docs/CNAME
+[自定义域名故障排除]：https://help.github.com/articles/troubleshooting-custom-domains/
 
 ## Read the Docs
 
-[Read the Docs][rtd] 提供免费的文档托管。您可以使用任何主要版本控制系统导入文档，包括 Mercurial、Git、Subversion 和 Bazaar。Read the Docs 对 MkDocs 支持的非常好。请按照他们网站上的[说明]适当地排列仓库中的文件，创建一个帐户并指向你的公共托管存储库。如果配置正确，每次将提交推送到公共存储库时，你的文档将更新。
+[Read the Docs][rtd]提供免费的文档托管服务。你可以使用任何主流版本控制系统，包括Mercurial、Git、Subversion和Bazaar导入你的文档。Read the Docs支持MkDocs。按照他们网站上的[说明]正确安排您的文件，然后创建一个帐户并将其指向在公共存储库上托管的文件。如果正确配置，则每当您将提交推送到公共存储库时，您文档都会更新。
 
 注意：
-为了从 [Read the Docs] [提供的所有功能]中受益，你需要使用 [Read the Docs 主题]，这是 MkDocs 自带的。可以在 Read the Docs 文档中引用的各种主题是 Sphinx 专用的主题，无法与 MkDocs 一起使用。
+为了使Read the Docs提供的[功能]全部生效，你需要使用MkDocs附带的[Read the Docs主题][theme]。在Read the Docs文档中可能会引用到的各种主题都是Sphinx特定的主题，不能与MkDocs一起使用。
 
-[rtd]: https://readthedocs.org/
-[说明]: https://docs.readthedocs.io/en/stable/intro/getting-started-with-mkdocs.html
-[提供的所有功能]: https://docs.readthedocs.io/en/latest/features.html
-[Read the Docs 主题]: ./choosing-your-theme.md#readthedocs
+[rtd]：https://readthedocs.org/
+[说明]：https://docs.readthedocs.io/en/stable/intro/getting-started-with-mkdocs.html
+[功能]：https://docs.readthedocs.io/en/latest/features.html
+[theme]：./choosing-your-theme.md#readthedocs
 
-## 其他提供者
+## 其他提供商
 
-使用 MkDocs 生成的文档可以部署到任何可以提供静态文件的托管提供商上。虽然不可能记录如何上传文档到每个托管提供商，但以下准则应该提供一些一般性的帮助。
+任何可以提供静态文件服务的托管提供商都可以用于托管由MkDocs生成的文档。虽然不可能记录如何将文档上传到每个托管提供商，但以下准则应该提供一些一般性援助。
 
-当你构建你的站点（使用 `mkdocs build` 命令）时，所有的文件都会被写入到 [site_dir] 配置选项所分配的目录中（默认值为 `"site"`）的 `mkdocs.yaml` 配置文件中。通常，你只需要将该目录的内容复制到托管提供商服务器的根目录。根据你的托管提供者的设置，你可能需要使用图形化或命令行 [ftp]、[ssh] 或 [scp] 客户端传输文件。
+当你构建站点（使用`mkdocs build`命令）时，所有文件都被写入了[site_dir]配置选项（默认为“site”）指定的目录中。通常，你只需要将该目录的内容复制到托管提供商服务器的根目录中。根据你的托管提供商设置，你可能需要使用图形化或命令行[ftp]、[ssh]或[scp]客户端传输文件。
 
-例如，从命令行的典型命令可能如下所示：
+例如，从命令行传输文件的典型命令可能如下所示：
 
 ```sh
 mkdocs build
 scp -r ./site user@host:/path/to/server/root
 ```
 
-当然，你需要使用你的托管提供者的用户名替换 `user`，并使用适当的域名替换 `host`。此外，你需要调整 `/path/to/server/root`，以使其与你主机的文件系统配置相匹配。
+当然，你需要用你在托管提供商处使用的用户名替换`user`，并用相应的域名替换`host`。此外，你需要根据你的主机文件系统的配置调整`/path/to/server/root`。
 
-参见你的主机文档以获取具体信息。你可能需要搜索他们的文档以获取“FTP”或“上传站点”的信息。
+具体规定请见你的主机供应商文档。你可能需要搜索它们的文档以获得“ftp”或“上传站点”的相关说明。
 
 ## 本地文件
 
-与其在服务器上托管文档，你可以直接分发文件，用户可以使用 `file://` 方案在浏览器中查看文件。
+你可以直接分发文件而不是将文档托管在服务器上，文件可以使用`file://`方案在浏览器中查看。
 
-请注意，由于所有现代浏览器的安全设置，某些事情的功能与常规情况下不同，有些功能可能根本不工作。事实上，一些设置需要以非常特定的方式进行自定义。
+请注意，由于所有现代浏览器的安全设置，某些事物将不能正常工作，有些功能根本不能正常工作。实际上，一些设置需要以非常特定的方式进行自定义。
 
-- [site_url]：
+- [site_url]:
 
-​     `site_url` 必须设置为空字符串，这指示 MkDocs 建立您的网站，以便它可以与 `file://` 方案一起使用。
+    `site_url`必须设置为空字符串，这将使MkDocs构建您的站点，以便可以使用`file://`方案。
 
-```yaml
+    ```yaml
     site_url: ""
-```
+    ```
 
--   [use_directory_urls]:
+- [use_directory_urls]:
 
-​		设置 `use_directory_urls` 为 `false`。否则，页面之间的内部链接将无法正常工作。
+    将`use_directory_urls`设置为`false`。否则，页面之间的内部链接将无法正常工作。
 
-```yaml
+    ```yaml
     use_directory_urls: false
-```
+    ```
 
--   [search]:
+- [search]:
 
-​		你将需要禁用搜索插件，或使用专门设计为与 `file://` 方案一起使用的第三方搜索插件。要禁用所有插件，请将 `plugins` 设置为空列表。
+    你需要禁用搜索插件或使用专为使用`file://`方案而设计的第三方搜索插件。要禁用所有插件，请将“插件”设置为空列表。
 
-```yaml
+    ```yaml
     plugins: []
-```
+    ```
 
-​		如果启用了其他插件，请确保不包含“search”。
+    如果你启用了其他插件，只需确保`search`未包含在列表中即可。
 
-在编写文档时，使用相对 URL 来引用所有内部链接是至关重要的，如 [文档] [内部链接] 所述。请记住，每个读者的文档将使用不同的设备，并且文档文件很可能位于该设备上的不同位置。
+当编写文档时，所有内部链接必须使用相对URL，如[文档][internal links]所述。请记住，每个读者都会使用不同的设备，文件在该设备上的位置也可能不同。
 
-如果你希望你的文档在离线情况下查看，则还需要谨慎选择主题。许多主题使用 CDNs 作为各种支持文件，这需要使用现场互联网连接。你需要选择一个主题，其中所有支持文件都直接包含在主题中。
+如果预计你的文档将在离线环境下查看，则你还需要谨慎选择主题。许多主题使用CDN来获取各种支持文件，这需要一个活动的互联网连接。你需要选择一个主题，其中所有支持文件都直接包含在主题中。
 
-当你构建你的路线（使用 `mkdocs build` 命令）时，所有的文件都会被写入到 [site_dir] 配置选项所分配的目录中（默认值为 `"site"`）的 `mkdocs.yaml` 配置文件中。通常，你只需要将该目录的内容复制并分发到你的读者。或者，你可以选择使用第三方工具将 HTML 文件转换为其他文档格式。
+当你构建站点（使用`mkdocs build`命令）时，所有文件都被写入了[site_dir]配置选项（默认为“site”）指定的目录中。通常，你只需要复制该目录的内容并将其分发给你的读者。或者，你可以选择使用第三方工具将HTML文件转换为其他文档格式。
 
 ## 404 页面
 
-当 MkDocs 构建文档时，它将在 [build directory][site_dir] 中包括一个 404.html 文件。在 [GitHub]（#github-pages）上部署时，将自动使用此文件，但仅在自定义域上。其他 Web 服务器则可以配置使用它，但不一定每个服务器都支持该功能。有关详细信息，请参阅你选择的服务器的文档。
+当MkDocs构建文档时，将在[build directory][site_dir]中包括一个404.html文件。这个文件将在[GitHub](#github-pages)上自动使用，但仅在自定义域名上使用。其他Web服务器可能配置了使用它，但不一定具有该功能。有关更多信息，请参见所选服务器的文档。
 
-[site_dir]: ./configuration.md#site_dir
-[site_url]: ./configuration.md#site_url
-[use_directory_urls]: ./configuration.md#use_directory_urls
-[search]: ./configuration.md#search
-[文档]: ./writing-your-docs.md#internal-links
-[内部链接]: ./writing-your-docs.md#internal-links
+[site_dir]：./configuration.md#site_dir
+[site_url]：./configuration.md#site_url
+[use_directory_urls]：./configuration.md#use_directory_urls
+[search]：./configuration.md#search
+[internal links]：./writing-your-docs.md#internal-links

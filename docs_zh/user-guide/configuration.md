@@ -1,73 +1,73 @@
 # 配置
 
-所有可用配置设置的指南。
+指南到所有可用的配置设置。
 
 ---
 
 ## 介绍
 
-项目设置默认使用名为 `mkdocs.yml` 的项目目录中的 YAML 配置文件进行配置。您可以指定另一个路径，方法是使用 `-f`/`--config-file` 参数（参见 `mkdocs build --help`）。
+项目设置默认使用名为`mkdocs.yml`的项目目录中的YAML配置文件进行配置。您可以通过使用`-f`/`--config-file`选项指定另一个路径(参见 `mkdocs build --help`)来指定它。
 
-至少，此配置文件必须包含 `site_name`。所有其他设置都是可选的。
+作为最小要求，此配置文件必须包含`sitename`。所有其他设置都是可选的。
 
 ## 项目信息
 
-### `site_name`
+### site_name
 
-这是一个 **必需的设置**，应是一个字符串，用作项目文档的主标题。例如：
+这是一个**必需的设置**，应该是一个用作项目文档的主要标题的字符串。例如：
 
 ```yaml
 site_name: Marshmallow Generator
 ```
 
-在渲染主题时，此设置将作为 `site_name` 上下文变量传递。
+在呈现主题时，此设置将作为`site_name`上下文变量传递。
 
-### `site_url`
+### site_url
 
-设置站点的规范化URL。这将在每个HTML页面的 `head` 部分添加具有 `canonical` URL 的 `link` 标记。如果MkDocs网站的 `root` 在域的子目录中，确保在该设置中包括该子目录（例如 `https://example.com/foo/`）。
+设置站点的规范化URL。这将在每个HTML页面的`head`部分中添加具有`canonical` URL的`link`标记。如果MkDocs站点的“根”将在域的子目录内，则必须在设置中包括该子目录(`https://example.com/foo/` )。
 
-此设置还用于 `mkdocs serve`：服务器将挂载到 URL 的路径组件上，例如 `some/page.md` 将从 `http://127.0.0.1:8000/foo/some/page/` 提供，以模拟预期的远程布局。
+此设置还用于`mkdocs server`:服务器将装入从URL的路径组件中获取的路径，例如`some/page.md`将被服务于`http://127.0.0.1:8000/foo/some/page/`以模拟预期的远程布局。
 
-**默认值**：`null`
+**default**: `null`
 
-### `repo_url`
+### repo_url
 
-设置一个链接到您的存储库（GitHub、Bitbucket、GitLab 等）的URL，用于每个页面。
+当设置时，在每个页面上提供与您的存储库(GitHub、Bitbucket、GitLab等)的链接。
 
 ```yaml
 repo_url: https://github.com/example/repository/
 ```
 
-**默认值**：`null`
+**default**: `null`
 
-### `repo_name`
+### repo_name
 
-当设置时，在每个页面上为您的存储库提供链接的名称。
+当设置时，在每个页面上提供与您的存储库链接的名称。
 
-**默认值**：如果 `repo_url` 匹配这些域名，则为 “GitHub”、 “Bitbucket” 或 “GitLab”，否则为来自 `repo_url` 的主机名。
+**default**: `'GitHub'`，`'Bitbucket'`或`'GitLab'`，如果`repo_url`与这些域匹配，则为主机名，否则为`repo_url`。
 
-### `edit_uri`
+### edit_uri
 
-当直接查看页面时从基本 `repo_url` 计算的文档目录的路径，考虑存储库主机的具体情况（例如 GitHub、Bitbucket 等等）、分支和文档目录本身。MkDocs 连接 `repo_url` 和 `edit_uri`，并将页面的输入路径附加到其后。
+当直接查看页面时从基本`repo_url`到文档目录的路径，考虑到存储库主机的特殊情况(例如 GitHub、Bitbucket 等)、分支和文档目录本身。MkDocs将连接`repo_url`和`edit_uri`，并附加页面的输入路径。
 
-当设置并且如果您的主题支持它时，将为您的源存储库中的页面提供直接链接。这使查找和编辑页面的源文件变得更加容易。如果未设置 `repo_url`，则忽略此选项。在某些主题上，设置此选项可能导致在存储库链接的位置使用编辑链接。其他主题可能显示两个链接。
+当设置时，并且如果您的主题支持它，则提供直接链接到您的源存储库中的页面。这使得更容易找到和编辑页面的源。如果未设置`repo_url`，则忽略此选项。在某些主题上，设置此选项可能导致使用编辑链接而不是存储库链接。其他主题可能会同时显示两个链接。
 
-`edit_uri`支持查询 (`?`) 和片段 (`#`) 字符。对于使用查询或片段访问文件的存储库主机，可能会设置 `edit_uri` 如下（请注意URI中的 `?` 和 `#` …）。
+`edit_uri`支持查询('?' )和片段('#') 字符。对于使用查询或片段访问文件的存储库主机，`edit_uri`可以设置如下。(注意 URI 中的 `?` 和 `#`。)
 
 ```yaml
-# 查询字符串示例
+# Query string example
 edit_uri: '?query=root/path/docs/'
 ```
 
 ```yaml
-# 路径片段示例
+# Hash fragment example
 edit_uri: '#root/path/docs/'
 ```
 
-对于其他存储库主机，请简单地指定到文档目录的相对路径。
+对于其他存储库主机，只需指定到文档目录的相对路径即可。
 
 ```yaml
-# 查询字符串示例
+# Query string example
 edit_uri: root/path/docs/
 ```
 
@@ -78,579 +78,510 @@ repo_url: https://example.com/project/repo
 edit_uri: blob/main/docs/
 ```
 
-意味着名为 'foo/bar.md' 的页面的编辑链接将带到：<https://example.com/project/repo/blob/main/docs/foo/bar.md>
+意味着名为'foo/bar.md'的页面将其编辑链接导向: 
 
-`edit_uri` 实际上可以只是绝对 URL 而不一定是相对于 `repo_url` 的路径，因此可以实现相同的结果：
+<https://example.com/project/repo/blob/main/docs/foo/bar.md>
+
+`edit_uri`实际上可以是绝对 URL，而不一定是相对于`repo_url`的URL，因此可以实现同样的结果：
 
 ```yaml
 edit_uri: https://example.com/project/repo/blob/main/docs/
 ```
 
-要获得更大的灵活性，请参见下面的 [edit_uri_template](#edit_uri_template)。
+请参阅 [edit_uri_template](#edit_uri_template) 以获得更大的灵活性。
 
 > 注意：
-> 在一些已知的主机上（特别是 GitHub、Bitbucket 和 GitLab），`edit_uri`是从 'repo_url' <repo_url> 中派生出来，无需手动设置。只需定义一个 `repo_url` 将自动填充 `edit_uri` 配置设置。
 >
-> 例如，对于托管在 GitHub 或 GitLab 上的存储库，`edit_uri` 会自动设置为 `edit/master/docs/` （请注意 `edit` 路径和 `master` 分支）。
+> 在一些已知的主机(具体来说是GitHub、Bitbucket和GitLab)，`edit_uri`是从'repo_url'派生的，无需手动设置。只需定义一个`repo_url`就会自动填充`edit_uri`配置设置。
 >
-> 对于名为 Bitbucket 的存储库，等效的 `edit_uri` 将自动设置为 `src/default/docs/`（请注意 `src` 路径和 `default` 分支）。
+> 例如，对于托管在GitHub或GitLab上的存储库，`edit_uri`将自动设置为`edit/master/docs/` (注意`edit`路径和`master` 分支)。
 >
-> 要使用与默认 URI 不同的 URI（例如不同的分支），只需将 `edit_uri` 设置为所需的字符串。如果您不想在页面上显示任何 “编辑 URL 链接”，请将 `edit_uri` 设置为空字符串以禁用自动设置。
+> 对于托管在Bitbucket上的存储库，等效的`edit_uri`将自动设置为`src/default/docs/`(注意`src`路径和`default`分支)。
+>
+> 要使用与默认值(例如不同的分支)不同的URI，只需将`edit_uri`设置为您想要的字符串即可。如果不想在页面上显示任何“编辑URL链接”，则将`edit_uri`设置为空字符串以禁用自动设置。
 
-警告：在 GitHub 和 GitLab 上，使用默认的 "编辑" 路径（`edit/master/docs/`）将示例在在线编辑器中打开页面。这个功能需要用户拥有并登录到 GitHub/GitLab 账户。否则，用户将被重定向到登录/注册页面。或者，使用 "blob" 路径（`blob/master/docs# MkDocs配置文件指南
+*注意：在 GitHub 和 GitLab 上，默认的“编辑”路径(`edit/master/docs/`)会打开在线编辑器。此功能要求用户具有并登录到 GitHub/GitLab 帐户。否则，用户将被重定向到一个登录/注册页面。或者，使用“blob”路径(`blob/master/docs/`)来打开只读视# 配置选项
 
-欢迎来到MkDocs的配置文件指南。使用此指南，你可以了解与MkDocs构建文档站点有关的所有配置选项和设置。本指南作为官方文档的一部分，记录了MkDocs在处理配置文件和其他设置时所采用的标准。
+与MkDocs一起使用的配置文件是一个标准的YAML文件。他们用来控制你的站点是如何生成和呈现的。这个部分列举了可用的配置选项，并说明了它们的含义。
 
-## 标准配置选项
+大多数配置选项都可以按照默认值工作。然而，你最好至少定义 `site_name` 和 `pages` 选项，如下所述。
 
-MkDocs预定义了许多配置选项，以确保运行MkDocs时可以使用关键选项的默认值。本节中提供了完整的，预定义的配置选项清单，以及用于自定义配置选项的相关说明和建议。
+## site_name
 
-以下是MkDocs中可用的标准配置选项的清单：
-
-### `site_name`
-
-用于指定站点的名称，通常出现在每个页面的标题栏中。它可以是一个字符串，也可以是多国语言的语言文件，类似于[MkDocs主题](../dev-guide/themes.md)。以下是一个基本示例：
+类似于网站的标题。通常，它会在每个页面的标题标签中使用。除了界面之外，还用于生成站点的默认元描述标签。
 
 ```yaml
-site_name: My Docs
+site_name: 'MkLorum - A Dummy Project'
 ```
 
-以下是使用语言文件的示例：
+## site_url
+
+你的站点的网址。这将被用于生成Canonical URL标签并允许搜索引擎和其他工具正确索引站点的页面。
+
+> 注意：尽管这是强制要求的选项，但可以使用`mkdocs serve`开发服务器启动站点，而不必定义此选项。
 
 ```yaml
-site_name: !lang my_docs
+site_url: https://example.com/my-docs/
 ```
 
-在上面的示例中，`my_docs`是一个语言文件，应该放置在主题语言目录的根目录中。
+注意尾斜线的存在。使用尾部斜线保证易于维护和真正的网络路径相同。
 
-### `site_description`
+## pages
 
-用于指定站点的描述，通常会出现在页面的元描述标记中（如果定义的话）。它既可以是字符串，也可以是HTML。以下是一个基本示例：
+pages是一个有序列表，在此列表中定义的页面将被编译到您的站点中。我们建议您使用此选项指定目录树上的所有文件。如果您只编写单个文件，则该文件名可能会议出你的预期,仅适用于单页项目。
 
-```yaml
-site_description: My documentation site
-```
+`pages`支持简单的`filename`字符串语法和高度可配置选项`dict`语法。请注意，在文件名字符串特定场景下，顶层文件夹的特殊的`.`和`*`字符，但是在使用字典语法时，这些字符将被解释为普通字符。您可以将基本的文件名字符串语法与易于定制的字典语法结合使用，例如，为文件夹结构指定文件名称，并使用字典选项来指定每个页面的标题和元数据。
 
-在上面的示例中，值是一个字符串。如果你想显示有样式的富文本，可以定义HTML：
-
-```yaml
-site_description: <em>My</em> documentation site
-```
-
-### `site_author`
-
-用于指定站点的作者（或列出所有作者，以及每个页面的单个作者）。例如：
-
-```yaml
-site_author: John Doe
-```
-
-或者，对于多个作者的列表：
-
-```yaml
-site_author:
-  - John Doe
-  - Jane Smith
-```
-
-或者，对于每个页面的单个作者定义：
+`pages`中任何一个字段的标题和元数据都可以由`mkdocs.yml`中全局定义的`extra`字段中的任何内容继承。格式化的页面文档字符串必须是一个由8个空格或两个tab字符缩进的字符串。以下是`pages`的示例配置：
 
 ```yaml
 pages:
-  - Home: index.md
-  - About: about.md
-    author: John Doe
+    - 'Home': 'index.md'
+    - 'Introducing MkDocs':
+        - 'Introduction': 'intro.md'
+        - 'Features': 'features.md'
+        - 'Contribute': 'contributing.md'
+    - 'Installing MkDocs':
+        - 'Installation': 'install.md'
+        - 'Windows': 'windows.md'
+        - 'macOS': 'macos.md'
+        - 'Linux': 'linux.md'
+    - 'Commands':
+        - 'New': 'new.md'
+        - 'Build': 'build.md'
+        - 'Serve': 'serve.md'
+    - 'Customizing'
+        - 'Configuration': 'config.md'
+        - 'Custom Themes': 'custom-themes.md'
+        - 'Extensions': 'extensions.md'
+    - 'About':
+        - 'License': 'license.md'
+        - 'Release Notes': 'release-notes.md'
 ```
 
-在上面的例子中，`About`页面的作者将是`John Doe`。
+## nav
 
-### `site_url`
+`nav`是一个顶级选项，用于完全控制导航条的树结构。`nav`的值是一个有序的层次结构列表，可以通过简单的字符串语法或高度可配置的字典语法指定。
 
-用于指定站点的URL。它用于`sitemap.xml`和`robots.txt`文件中。例如：
 
-```yaml
-site_url: https://example.com
-```
-
-如果没有指定端口，则可以省略这个值的http/https前缀：
-
-```yaml
-site_url: example.com
-```
-
-并且，如果将`site_url`设为''（空字符串），则会使用MkDocs在本地服务器上访问时自动识别的值（如果已检测到），这个值不能倍用于生成`sitemap.xml`文件。
-
-当你在本地开发站点时，可以采用相对URL代替完整URL：
-
-```yaml
-site_url: ''
-```
-
-在这种情况下，MkDocs在生成的URL中使用相对URL。
-
-### `repo_url`
-
-将此设置为repo的URL。如果设置了这个选项，MkDocs将在每个页面中包含一个`Edit`链接。例如：
-
-```yaml
-repo_url: https://github.com/user/repo/
-```
-
-Edit链接将指向具有基础URL的组合：`{repo_url}/edit/{branch}/{filename}`。如果不指定仓库的分支，请将它留空。如果想链接到页面所在分支的Github Pages站点, 请添加"blob/master"作为repo_url的路径, 参见:
-
-```yaml
-repo_url: https://github.com/user/repo/blob/master
-```
-
-这将导致页面的URL修改为：`https://github.com/user/repo/blob/master/{filename}`。在GitHub的发布页面中为您的用户提供一个界面，以便贡献和提取GitHub项目。
-
-### `repo_name`
-
-用于指定库名称，将在一些主题的选项卡或页脚中使用。例如：
-
-```yaml
-repo_name: my-docs
-```
-
-### `edit_uri`
-
-用于指定页面的编辑URL模板。它被用于使用其他源管理器的用户。模板中的`{filename}`部分将被替换为当前页面的文件名。例如：
-
-```yaml
-edit_uri: "https://github.com/user/repo/edit/branch/docs/{filename}.md"
-```
-
-### `docs_dir`
-
-指定文档源文件的文件夹。如果你在文档编写时使用标准的文件夹结构，这将很有用。例如：
-
-```yaml
-docs_dir: docs
-```
-
-如果您的文档在站点同级别下，建议留空。通常MkDocs会自动发现文件夹结构。
-
-### `site_dir`
-
-用于指定存储生成文档的目标路径。默认情况下，文档将放置在`site`文件夹中。例如:
-
-```yml
-site_dir: ../build/docs
-```
-
-在上面的例子中，生成的文件放置在`../build/docs`中。
-
-### `theme`
-
-用于指定主题。此配置选项可以是字符串或字典。如果是字符串，则表示主题名称（模板网站上可用的名称）。如果是字典，它将解析为包含以下键值对的字典：
-
-* `name` (required): 主题名称。
-* `custom_dir`: 主题要求的自定义文件目录。
-* `dirs`: 自定义子目录路径。
-* `static_templates`: 如果设置为`true`，则在主题目录中首先查找静态模板。
-* `locale`: 指定选定语言主题的位置。
-
-以下是一个基本示例：
-
-```yaml
-theme: readthedocs
-```
-
-以下是字典格式的示例：
-
-```yaml
-theme:
-  name: material
-  custom_dir: mymaterial
-  dirs:
-    assets: assets
-    templates: _templates
-```
-
-如果要使用本地主题，则可以将`theme_dir`选项指向该主题的路径. 注意这里不包括主题名称。
-
-```yaml
-theme_dir: ../my-material-theme
-theme:
-  name: material
-```
-
-除了内置主题之外，你还可以创建自己的主题。[这里](../dev-guide/themes.md)提供了有关如何创建你自己的主题的详细信息。
-
-注：`default`主题不需要定义，因为它是默认的主题，这个主题可以在[选择你的主题](choosing-your-theme.md)中进一步了解。
-
-### `theme_color`
-
-的主题颜色。在移动设备上，Chrome和Firefox将在浏览器的地址栏中显示这种颜色。如果用户将站点添加到主屏幕，则可用于提供应用程序的样式。例如:
-
-```yaml
-theme_color: pink
-```
-
-### `logo`
-
-用于指定站点的标志文件或图像文件路径。默认情况下，在所有页面的左上角将始终显示站点名称。如果配置为文件路径，则使用指定的文件表示默认情况下会显示出来的站点名称。例如：
-
-```yaml
-logo: img/my_logo.png
-```
-
-上面的示例中，`my_logo.png`是存储在`/docs/img/`目录中的图像文件。
-
-### `favicon`
-
-用于指定站点的favicon文件路径。如果指定了favicon，MkDocs会自动生成`favicon.ico`，并在每个页面的页面头部覆盖默认favicon。例如：
-
-```yaml
-favicon: img/favicon.png
-```
-
-在上面的示例中，favicon的图像文件应该存储在`/docs/img/`中。
-
-### `extra_css`
-
-用于指定一个CSS文件，该文件将被注入到每个页面的页面头部中。例如：
-
-```yaml
-extra_css: css/my_custom_style.css
-```
-
-在上面的示例中，`my_custom_style.css`是一个存储在`/docs/css/`目录中的自定义CSS文件。
-
-### `extra_javascript`
-
-用于指定包含任意JavaScript代码的JavaScript文件或URL。它将被注入到每个页面的页面底部。例如：
-
-```yaml
-extra_javascript: js/my_custom_script.js
-```
-
-在上面的示例中，`my_custom_script.js`是一个存储在`/docs/js/`目录中的自定义JavaScript文件。
-
-### `markdown_extensions`
-
-用于指定Markdown扩展。除了标准的Markdown，Python Markdown提供了许多扩展，而MkDocs可以使用[常见的扩展](https://python-markdown.github.io/extensions/)和[pymdownx扩展](https://facelessuser.github.io/pymdown-extensions/)。此外，Python Markdown Wiki中还有更多[扩展](https://github.com/Python-Markdown/markdown/wiki/Third-Party-Extensions)供选择。以下是一个具有多个扩展的完整示例：
-
-```yaml
-markdown_extensions:
-  - footnote
-  - codehilite:
-      linenums: true
-  - extra
-  - smarty:
-      curly_dashes: true
-```
-
-### `plugins`
-
-用于指定[MkDocs插件](../dev-guide/plugins.md)。插件可用于添加额外的功能，如搜索，自定义选项卡和自定义CSS文件等等。在此处指定的每个插件的特定配置详细信息将取决于该插件。
-
-参见[可用插件目录](https://github.com/mkdocs/catalog)。
-
-以下是一个具有多个插件的完整示例：
-
-```yaml
-plugins:
-  - search
-  - mkdocs-minify-plugin
-```
-
-### `nav`
-
-用于定义站点的导航结构和页面。在基础形式中，这是一个页面名称和标题的字典，或者是一个页面名称和一个子字典的组合。子字典可用于表示单个页面的配置。例如：
+以下是一个使用字符串语法的示例`nav`配置示例：
 
 ```yaml
 nav:
-  - Home: index.md
-  - User Guide:
-    - Writing your docs: writing-your-docs.md
-    - Configuring pages: configuring-pages.md
-    - Customizing your theme: customizing-your-theme.md
+    - 'Home': 'index.md'
+    - 'User Guide':
+        - 'Writing your docs': 'writing-your-docs.md'
+        - 'Styling your docs': 'customizing-your-theme.md'
+        - 'MKDocs Configuration': 'mkdocs.yml'
+        - 'Commands': 'commands.md'
+    - 'About MKDocs':
+        - 'License': 'LICENSE'
+        - 'Release Notes': 'release-notes.md'
 ```
 
-在上面的例子中，`User Guide`被视为一个包含子页面的页面。子页面的下拉选项是定义该页面的字典的第二个部分。在上面的示例中，`User Guide`字典包含三个键值对，因为它定义了该页面及其子页面。在此示例中，每个页面定义为一个Markdown文件的路径。
-
-每个页面都可以有可选的元数据。支持的元数据字段是：
-
-* `title`: 页面的标题，如果未定义则使用页面的文件名。
-* `description`: 页面的描述，如果未定义则使用在页面中找到的文本的一部分。
-* `keywords`: 页面的关键字。
-* `hide`: 将页面从导航栏中隐藏。
-
-以下是一个完整的具有元数据的示例：
+以下是一个使用字典语法的示例`nav`配置示例：
 
 ```yaml
 nav:
-  - Home: index.md
-  - About: about.md
-    title: About us
-    description: Learn more about who we are and what we do.
-    keywords: [about, us]
-    hide: true
+    - Home: index.md
+    - section1:
+        - page1:
+            - "Page One - Subpage A": page1/subpage-a.md
+            - "Page One - Subpage B": page1/subpage-b.md
+        - Some Page: some-page.md
+    - section2:
+        - page2: page2.md
+        - Another Page:
+            url: another-page.md
+    - custom site name/title:
+        - page 3: page3.md
 ```
 
-如果你没有提供导航结构，则MkDocs将使用查找指定文件夹中的所有Markdown文件并在导航中包含每个文件的标题。有关自动生成的导航结构的更多信息，请参见[构建页面](building-the-site.md#building-your-pages)。
+这种例子`nav`给出了字典语法的一些方面。
 
-### `exclude`
+- 当页面只有文件名时，可以将它们用字符串语法指定
+- 当页面需要名称和url时，必须采用字典语法。
+- 如果想给列表节点指定名称而不是提取节点名称或文件名，那么必须使用字典语法。
 
-用于指定应从生成的站点中排除的文件和文件夹。例如：
+## theme
+
+您所选择的Mkdocs主题。如果主题有配置选项，提供一个字典。以下是一个具有默认值的字典`theme`配置示例。
 
 ```yaml
-exclude:
-  - SECRET_NOTE.txt
-  - secret_folder
+theme:
+    name: 'mkdocs'
+    custom_dir: null
+    css: null
+    extra:
+        google_analytics:
+            - 'UA-00000000-1'
 ```
 
-在上面的例子中，`SECRET_NOTE.txt`文件和`secret_folder`文件夹都将在构建站点时排除。
+有关如何选择和使用Mkdocs主题的详细信息，请参见 [选择您的主题](choosing-your-theme.md)。
 
-请注意，在默认情况下，与构建需要的文件数量相比，对于不属于站点内容的文件，排除不提高构建性能。如果在设置中指定了除了Markdown之外的其他文件类型，则必须将它们包含在内。
+### 快速设置
 
-默认情况下，README和index文件什么时候将被忽略。如果您想要包含一个README文件或文件名为’index’的Markdown文件，您可以使用此选项防止该文件被排除。
+有时，个别属性与基本主题风格无关。出于这个原因，每个Mkdocs主题都有一个捷径列表上的属性`theme.common`。
 
-例如，如果不想要您的README文件被排除，则可以：
+这样，一些属性可以在每个主题上简单地指定一次，以确保在（可能）使用不同的主题时拥有一致的体验。以下是一个具有默认值的字典`theme.common`配置示例：
 
 ```yaml
-exclude: ['!README.md']
+theme:
+  name: readthedocs
+  custom_dir: null
+  logo: null
+  styles:
+    - null
+  favicon: null
+  google_analytics: null
+  include_search_page: null
+  search_index_only: null
+  search_disable_footer: null
+  extra:
+    github_repo: null
+    twitter_username: null
+    canonical_url: null
+    ga_ua: null
+    donation_text: null
+    markdown_extensions:
+      - admonition
+      - codehilite
+      - pymdownx.details
 ```
 
-### `include`
+### theme_dir
 
-和排除选项的作用相反，允许您只包含明确指定要生成的文件和文件夹。在大型文档库中使用时，它可能会加速生成`.md`文件到`.html`文件形式的转换。其中一种情况是，当只有一个列表标准时，选项的排除部分可能更容易维护，而选项的包含部分则更难维护。例如：
+一个路径，指向包含自定义主题模板和静态文件的目录。您可以设置整个主题或覆盖特定'templates' / 'static' / 'custom_css' / 'custom_js'文件的路径。
 
 ```yaml
-include:
-  - api
-  - api/my_module.md
+theme_dir: null            # 无自定义主题
+theme_dir: my_theme        # 包含完整的主题的目录
+theme_dir:
+    templates: my_templates
+    static: my_static
+    custom_css: my/custom.css
+    custom_js: my/custom.js
 ```
 
-在上面的示例中，`api`文件夹和`api/my_module.md`文件将在构建站点时包含。
+### extra_css
 
-### `extra`
-
-用于添加自定义键值。这对于存储MkDocs无法或不提供的其他元数据或元数据非常有用。这可以是一个字符串或一个包含键值对的字典。例如：
+CSS文件的路径或URL，将被添加到每个页面中。在优化您的CSS之前，请务必使用[Mkdocs缓存](caching.md)以提高性能。
 
 ```yaml
-extra:
-  website: https://example.com
-  owner: John Doe
+extra_css:
+    - css/extra.css
+    - https://example.com/font.css
+    - '//cdn.domain.com/extra.css'
 ```
 
-在上面的例子中，`website`和`owner`是任意的自定义键。
+请注意，从默认主题中删除的不同导航或页脚元素可以使用来删除。
 
-### `markdown_css`
+### highlightjs
 
-用于指定用于Markdown渲染的CSS文件。默认情况下，这个选项是`markdown.css`并且是在主题目录中定义的。如果你想使用不同的CSS文件，则需要使用这个选项来指定另一个文件。例如：
+选择默认的语法高亮库。MkDocs支持使用Pygments或Highlight.js。默认情况下，选择Highlight.js，如果不能按预期运行，建议尝试它是否与Pygments一起运行。
 
 ```yaml
-markdown_css: css/my_custom_markdown.css
+highlightjs: true
 ```
 
-### `strict`
-
-用于停止在发现错误时生成站点。例如：
+pygments主题可以通过[YAML缩写名称](https://pygments.org/docs/styles/#creating-own-styles)或通过Pygments风格的CSS文件名来指定。
 
 ```yaml
-strict: true
+highlightjs:
+    style: monokai
 ```
 
-### `use_directory_urls`
-
-将这个选项设置为`true`，将使用MkDocs的高级路由功能将文件URL更改为不带.htm的目录样式。例如：
+pygments还允许指定具有额外选项的样式。
 
 ```yaml
-use_directory_urls: true
+highlightjs:
+    style:
+        name: monokai
+        background: '#f00'
 ```
 
-如果选择此选项，则将不再通过`.htm`文件扩展来访问任何文件。而是，像这样访问它们：
+### markdown_extensions
 
-```
-http://localhost:8000/about/
-```
-
-在上面的示例中，您可以通过路径`/about/`访问`about.md`文件的内容。
-
-### `use_directory_index`
-
-请开启这个选项以在使用目录URL时自动包含名为`index`的Markdown文件。例如：
-
-```yaml
-use_directory_urls: true
-use_directory_index: true
-```
-
-在上面的示例中，`about/index.md`可以通过路径`/about/`来访问。
-
-### `markdown`
-
-用于配置Python Markdown的选项。此选项使用一个字典来传递配置。下面是一些示例：
-
-```yaml
-markdown:
-  extension_configs:
-    pymdownx.magiclink:
-      repo_url_shortener: true
-```
-
-在上面的示例中，`pymdownx.magiclink`是Markdown扩展之一，`repo_url_shortener: true`是将在扩展上使用的配置。
-
-### `extra_files`
-
-指定一个不属于您文档和主题的目录（此选项用于记录`.nojekyll`文件或其他文件）或文件图标。例如，在设置IGG披露徽标：
-
-```yaml
-extra_files:
-  - igg-badge.png
-```
-
-`.nojekyll`文件将防止在您的GitHub Pages上运行站点时从另一个文件夹开头忽略文件夹或文件。
-
-```yaml
-extra_files:
-  - .nojekyll
-```
-
-注：如果你想隐藏`.nojekyll`文件，可以设置`.githubfile`并使用`.gitignore`来隐藏目录或文件。
-
-更多有关`.nojekyll`文件相关信息：
-
-- [GitHub pages下的`.nojekyll`](https://blog.csdn.net/Roteleader/article/details/105191101)
-- [让 GitHub Pages 保留文件和目录名中的下划线](https://segmentfault.com/a/1190000016684221)
-
-### `toc`
-
-如果禁用章节标题链接中的锚定，则使用该选项。通常，单击标题后将链接移到文档的特定部分。例如：
-
-```yaml
-toc:
-  toc_depth: 2
-  permalink: true
-```
-
-在上面的示例中，`toc_depth`控制到目录的级别。使用这个选项可以控制web页面上呈现的Markdown到C目录的深度。默认值为`2`。
-
-当`permalink`为`true`时，这个选项添加了一个蓝色的链接，用户可以点击它，使一个永久链接到当前标题在目录中生成。
-
-### `markdown_engine`
-
-设置使用的Markdown处理器。默认情况下，MkDocs使用Python Markdown：`pymd`。您可以设置为其他处理程序，例如CommonMark：`commonmark`或Python Markdown的扩展版：`misaka`。例如：
-
-```yaml
-markdown_engine: commonmark
-```
-
-### `markdown_extensions`
-
-你可以自定义要为站点构建的Markdown扩展。默认情况下，MkDocs已经包括了[pymdownx扩展](https://facelessuser.github.io/pymdown-extensions/)。您可以指定包含哪些扩展及其参数。以下是一个完整的示例：
+MkDocs使用Python Markdown [pymkd]和扩展[pymdk-extensions]来解析markdown，并且需要将标准Markdown语法扩展到mkdocs。
 
 ```yaml
 markdown_extensions:
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite
-  - pymdownx.superfences:
-      custom_fences:
-        - {
-            name: "console",
-            class: "console",
-            format: "!!python/name:pymdownx.superfences.fence_div_format"
-          }
+    - pymdownx.superfences
+    - pymdownx.details
+    - pymdownx.tilde
 ```
 
-### `markdown_extensions_configs`
+大多数通过[pymdk-extensions]提供，建议适量使用以避免MkDocs构建的性能下降。
 
-如果您有多个选项可以为一个Markdown扩展进行配置，则可以使用此设置为它们分别配置参数。以下是一个示例：
+使用字符串名称而不是对象。在一些情况下，对象也可以工作。有关详细信息，请参见[pymdk-extensions]。
+
+_注：更改此选项后，必须重建搜索索引_
+
+### markdown_extensions_configs
+
+这个选项允许你向markdown扩展传递从字典映射类名到配置对象的一列表。这个选项中的字典被解释为一个`{class_name: config_dict}`键值对的列表。
 
 ```yaml
-markdown_extensions:
-  - pymdownx.details
+markdown_extensions_configs:
+  - pymdownx.magiclink:
+      repo_url_shortener: True
 
-markdown_extension_configs:
-  pymdownx.details:
-    block_expander: ">"
+  - pymdownx.extra:
+      link_attrs:
+        rel: ['nofollow', 'external']
+        target: '_blank'
 ```
 
-在上面的示例中，只传递`pymdownx.details`扩展名，默认情况下没有参数。但是，通过使用`markdown_extensions_configs`，将设置该扩展内部的子选项之一：`block_expander`。
+### mdx_configs
 
-### `exclude_file`
-
-用于指定yaml文件，其中包含应该在构建站点时排除的文件和文件夹。
+此选项允许向mkdocs的Python Markdown扩展传递从扩展明细到配置映射的字典。使用此选项，可以自定义使用标准markdown库进行语法解析的私有特性。
 
 ```yaml
-exclude_file: exclude.yaml
+mdx_configs:
+    footnotes:
+        BACKLINK_LABEL: '↩'
 ```
 
-在上面的示例中，`exclude.yaml`文件包含排除的文件和文件夹清单。
+### extra
 
-### `language`
-
-用于指定语言设置。此选项表示由[iso 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)定义的语言代码字符串或语言文件。这将更改日期和时间的格式，生成正确的元HTML Lang标记，生成日期的合适格式等。例如：
+在主题模板中具有不同格式的meta选项。有关详细信息可以在主题的文档中找到。在上面的示例中，`readthedocs`主题使用该`extra`字段来提供一个值以`include_search_page`选项。
 
 ```yaml
-language: zh
+theme:
+    name: 'readthedocs'
+    custom_dir: null
+    css: null
+    extra:
+        google_analytics: 'UA-00000000-1'
 ```
 
-或：
+在上面的示例中，Google Analytics跟踪仪将在生成的页面上激活。
 
-```yaml
-language: !lang es
-```
+### search
 
-在上面的第二个例子中，使用`!lang`的例子是一个文件名为`lang/es.yaml`的文件，其中包含日历、日期等的语言设置。
-
-### `metadata`
-
-此选项可用于设置页面相关的如发布日期、修改日期、作者等元数据。数据添加到页面的元数据：`<meta>`标签和HTML注释中。通常在主题中修改和使用这些值，以及将它们添加到feed.xml中。
-
-以下是一个完整的示例，说明如何在一个页面上使用元数据：
-
-```yaml
-pages:
-- Some Section:
-  - index.md:
-      title: Some Section
-  - page.md:
-      title: A Subpage
-      published: 2014-03-17
-      modified: 2015-08-11T13:32:37+00:00
-      author: John Smith <john@example.com>
-      description: A short description of the content on the page.
-```
-
-默认情况下，元数据转换为HTML注释并放在页面的顶部。如果你想将它们作为`<meta>`标签添加到`<head>`中，你的主题应该告诉你如何这样做。例如，在使用`mkdocs-moonstone`主题时，可以在`extra.javascript`中指定名为`window.MKDOCS_METADATA`的元对象：
-
-```yaml
-extra_javascript:
-  - !javascript |
-      window.MKDOCS_METADATA = {{ metadata|tojson|safe }};
-      console.log("Metadata", window.MKDOCS_METADATA);
-```
-
-在上面的示例中，使用`!javascript`是为了防止单引号的使用。如果没有使用`!javascript`，则需要转义引号。
-
-它还被交付到一个指定的feed.xml文件中，如果存在。
-
-### `search`
-
-用于启用搜索。此选项指定了许多选项，这些选项由[Lunr.js搜索库](https://lunrjs.com/)使用。以下是一个完整的示例：
+一个包含各种选项的字典，用于控制是否启用搜索，搜索框的选项，搜索过程中每个条目要索引的内容以及用于生成搜索索引的Lunr.js包的配置。搜索选项大而强大，下面对一些高级选项进行了描述。请参见[搜索选项](#search-options)进行配置。
 
 ```yaml
 search:
-  lang: zh
-  # The minimum length of a search query.
-  min_search_length: 1
-  # A list of modes to search on (leave blank for all).
-  search_modes:
-    - Loose
-  # A list of characters that split the search query into tokens.
-  separator: '[\s\-\.]+'
-  prebuild_index: False
-  indexing: 'full'
+    index_only: false
+    lang: ['en']
+    min_search_length: 3
+    per_page: 10
+    search_title_only: false
+    separator: '[\s\-\.]+'
 ```
 
-此外还有一些其他可用选项。
+注意：在搜索中使用非默认的选择性功能如图像涉及到旧版的Lunr.js和未维护的额外插件。此执行不推荐，且很少支持。
 
-### `min_search_length`
+### security
 
-用于定义搜索查询的最小长度的整数值。默认情况下，忽略搜索长度小于3个字符的搜索结果。但是，对于一些使用情况（例如，关于消息队列的文档可能会生成对“MQ”的搜索），希望设置一个比较短的限制。例如：
+此选项为使用MkDocs留下的后门提供额外的安全配置，目前只有一个选项。默认情况下，仅允许在本地(127.0.0.1/localhost)的回送地址上运行`mkdocs serve`，以防止任何人都发现你的站点。
 
 ```yaml
+security:
+    localhost_only: true
+```
+
+> 注意：使用`0.0.0.0`或任何其他不慎放弃的IP地址启动的服务器的安全性完全由操作系统和网络架构决定。请仅在本地开发环境中使用这种方法。
+
+## 插件
+
+MkDocs插件是为MkDocs实现定义自己的自定义功能的Python包。请参见[插件](../dev-guide/plugins.md)了解有关编写自己的插件的更多信息。
+
+MkDocs包括一些使用常用功能的插件，以及所有其他插件都支持。默认插件位于名为“mkdocs_internal”的包中。以下列出并描述了MkDocs支持的所有默认插件和选项。
+
+### [搜索插件](../plugins/search/)
+
+搜索插件为MkDocs生成了一个搜索索引，允许通过站点搜索页面并在返回的结果上轻松导航。此外，一些与搜索相关的选项可以在主配置文件中进行配置。
+
+```yaml
+plugins:
+    - search
+```
+
+#### 搜索选项
+
+当启用搜索插件时，可以通过搜索配置选项来自定义搜索行为。以下是搜索选项的详细列表：
+
+##### **index_only**
+
+一个布尔选项，用于根据需要决定搜索项中包含哪些页面。
+
+如果设置了`index_only`，则只索引位于search_index目录中的页面。这个目录是通过搜索配置来定义的。
+
+```yaml
+plugins:
+  - search:
+      index_only: true
+```
+
+**default**: `True`
+
+##### **search_title_only**
+
+一个布尔选项，用于确定MkDocs搜索是否仅在页面标题中搜索内容。
+
+```yaml
+plugins:
+  - search:
+      search_title_only: true
+```
+
+默认情况下，MkDocs会在页面标题、段落和标题级别的文本中查找搜索词。在大多数情况下，将所有文本包括在搜索中会导致更佳的搜索结果。但是，在特定的用例下，搜索标题和页脚注释之类的内容可能更重要。
+
+**default**: `False`
+
+##### **separator**
+
+一个正则表达式，用于定义单词之间的分隔符。在生成搜索索引时，MkDocs使用此分隔符将单词从页面文本中提取到搜索索引中。您也可以根据需要提供一个正则表达式字符串。
+
+```yaml
+plugins:
+  - search:
+      separator: '[\s\-\.]+'
+```
+
+**default**: `'[\s\-]+'`
+
+##### **min_search_length**
+
+一个整数值，用于定义搜索查询的最小长度。默认情况下，忽略长度小于3个字符的搜索结果，因为使用较短的搜索术语的搜索结果质量较低。但是，对于某些用例（例如关于可以生成对'MQ'进行搜索的消息队列的文档），最好设置“较短”的限制。
+
+```yaml
+plugins:
+  - search:
+      min_search_length: 2
+```
+
+**default**: 3
+
+##### **lang**
+
+使用它们的[ISO 639-1]语言代码，A包含要在构建搜索索引时使用的语言列表。使用[Lunr Languages]，支持以下语言：
+
+* ar: 阿拉伯语
+* da: 丹麦语
+* nl: 荷兰语
+* en: 英语
+* fi: 芬兰语
+* fr: 法语
+* de: 德语
+* hu: 匈牙利语
+* it: 意大利语
+* ja: 日语
+* no: 挪威语
+* pt: 葡萄牙语
+* ro: 罗马尼亚语
+* ru: 俄语
+* es: 西班牙语
+* sv: 瑞典语
+* th: 泰语
+* tr: 土耳其语
+* vi: 越南语
+
+可以[贡献更多的语言]。
+
+警告：
+虽然搜索支持同时使用多种语言，但最好不要添加其他语言，除非你真的需要它们。每个附加语言都会增加带宽需求并使用更多的浏览器资源。通常，最好将每个MkDocs实例保留在单个语言上。
+
+注意：
+Lunr Languages目前不包括对汉语或其他亚洲语言的支持。但是，一些用户报告了使用Japanese所产生的不错的结果。
+
+**default**: 如果设置，则为`theme.locale`的值，否则为`[en]`。
+
+##### **prebuild_index**
+
+可选地生成所有页面的预构建索引，这提供了一些大型站点的性能改进。在启用之前，请确认您正在使用一个明确支持使用预构建索引的主题（内置主题）。设置为`true`启用。
+
+警告：
+此选项要求安装[Node.js]并且在系统路径上使用`node命令。如果`node' 的调用由于任何原因而失败，则会发出警告并且继续无中断地构建。当构建时使用`--strict`标志会导致此类失败引发错误而不是警告。
+
+请注意：
+在较小的站点上，不推荐使用预构建索引，因为它会显著增加带宽需求，对您的用户几乎没有感知到的提高性能。但是，对于较大的站点（数百页），带宽增加相对较小，您的用户将注意到搜索性能的显著提高。
+
+**default**: `False`
+
+##### **indexing**
+
+配置搜索索引器在构建索引时将使用什么策略的选项。如果您的项目规模很大且索引占用了大量磁盘空间，则此属性特别有用。
+
+```yaml
+plugins:
+  - search:
+      indexing: 'full'
+```
+
+###### 选项
+
+| 选项  | Description |
+| ----- | ----------- |
+| full  | 索引页面的标题，范围标题和完整文本。|
+| sections | 索引页面的标题和范围标题。|
+| titles | 仅索引页面的标题。  |
+
+**default**: `full`
+
+### 特殊的YAML标记
+
+### 环境变量
+
+在大多数情况下，配置选项的值是直接在配置文件中设置的。但是，作为一种选择，配置选项的值可以设置为环境变量的值，使用`!ENV`标记。例如，要将`site_name`选项的值设置为变量`SITE_NAME`的值，YAML文件可能包含以下内容：
+
+```yaml
+site_name: !ENV SITE_NAME
+```
+
+如果未定义环境变量，则会为配置设置分配一个空值（或Python中的“None”）。可以定义默认值作为列表中的最后一个值。如下所示：
+
+```yaml
+site_name: !ENV [SITE_NAME, 'My default site name']
+```
+
+也可以使用多个后备变量。注意，最后一个值不是环境变量，但必须是没有定义的默认值。
+
+```yaml
+site_name: !ENV [SITE_NAME, OTHER_NAME, 'My default site name']
+```
+
+简单类型在环境变量中定义，如字符串，布尔值，整数，浮点，日期戳和空值会像在YAML文件中定义一样解析，这意味着该值将被转换为适当的类型。但是，复杂类型（如列表和键/值对）无法在单个环境变量中定义。
+
+有关详细信息，请参见[pyyaml_env_tag]项目。
+
+### 相对于当前文件或站点的路径
+
+NEW：**1.5版中的新功能。**
+
+某些Markdown扩展程序可以从当前正在处理的Markdown文件的路径或仅限于当前站点的根路径受益。为此，可以在配置文件的大多数上下文内使用特殊标记`!relative`，尽管已知的使用案例仅在使用[markdown_extensions]中。 示例可能的值是：
+
+```yaml
+- !relative  # 相对于当前Markdown文件的目录
+- !relative $docs_dir  # docs_dir的路径
+- !relative $config_dir  # 包含主mkdocs.yml的目录的路径
+- !relative $config_dir/some/child/dir  # 子目录的一些子目录根目录
+```
+
+（在这里，`$docs_dir`和`$config_dir`目前是*唯一*认可的特殊前缀名称。）
+
+例子：
+
+```yaml
+markdown_extensions:
+  - pymdownx.snippets:
+      base_path: !relative  # 相对于当前Markdown文件
+```
+
+这允许[pymdownx.snippets]扩展从当前Markdown文件相对包括文件，否则它就不知道。
+
+> 注意：甚至对于默认情况，任何扩展的基本路径都是*当前工作目录*，尽管假设它是*mkdocs.yml*的*目录*。因此，即使您不希望这些路径间关系是相对的，以改进默认行为，也应始终使用此成语：
+> 
+> ```yaml
+> markdown_extensions:
+>   - pymdownx.snippets:
+>       base_path: !relative $config_dir  # 相对于具有mkdocs.yml的根目录
+> ```
+
+## 配置继承
+
+通常，单个文件将保存整个站点的配置。然而，一些组织可能会维护多个站点，它们在所有站点之间共享通用配置。而不是为每个站点单独维护配置，可以将通用配置选项定义为父配置文件，每个站点的主配置文件都会继承该父配置文件。
+
+要定义配置文件的父级，请将`INHERIT`（全部大写）键设置为父文件的路径。该路径必须相对于主文件
