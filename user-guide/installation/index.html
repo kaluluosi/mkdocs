@@ -61,7 +61,7 @@
 </li>
                                     
 <li>
-    <a href="../writing-your-docs/" class="dropdown-item">编写文档</a>
+    <a href="../writing-your-docs/" class="dropdown-item">编写您的文档</a>
 </li>
                                     
 <li>
@@ -69,11 +69,11 @@
 </li>
                                     
 <li>
-    <a href="../customizing-your-theme/" class="dropdown-item">自定义主题</a>
+    <a href="../customizing-your-theme/" class="dropdown-item">自定义您的主题</a>
 </li>
                                     
 <li>
-    <a href="../localizing-your-theme/" class="dropdown-item">本地化主题</a>
+    <a href="../localizing-your-theme/" class="dropdown-item">本地化您的主题</a>
 </li>
                                     
 <li>
@@ -85,7 +85,7 @@
 </li>
                                     
 <li>
-    <a href="../deploying-your-docs/" class="dropdown-item">部署文档</a>
+    <a href="../deploying-your-docs/" class="dropdown-item">发布您的文档</a>
 </li>
                                 </ul>
                             </li>
@@ -170,7 +170,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#mkdocs" class="nav-link">MkDocs安装</a>
+            <li class="nav-item" data-level="1"><a href="#mkdocs" class="nav-link">安装MkDocs</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">要求</a>
               <ul class="nav flex-column">
@@ -187,50 +187,50 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="mkdocs">MkDocs安装<a class="headerlink" href="#mkdocs" title="Permanent link"></a></h1>
-<p>一份详细的指南。</p>
+<h1 id="mkdocs">安装MkDocs<a class="headerlink" href="#mkdocs" title="Permanent link"></a></h1>
+<p>一个详细的指南。</p>
 <hr />
 <h2 id="_1">要求<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
-<p>MkDocs 要求最近版本的<a href="https://www.python.org/">Python</a>和 Python 包管理器<a href="https://pip.readthedocs.io/en/stable/installing/">pip</a> 在你的系统上已经被安装。</p>
-<p>你可以在命令行中检查是否已经安装了这些软件包：</p>
+<p>MkDocs需要在您的系统上安装最新版本的 <a href="https://www.python.org/">Python</a> 和 Python 包管理器 <a href="https://pip.readthedocs.io/en/stable/installing/">pip</a>。</p>
+<p>您可以在命令行中检查您是否已经安装了它们：</p>
 <pre class="highlight"><code class="language-console">$ python --version
 Python 3.8.2
 $ pip --version
 pip 20.0.2 from /usr/local/lib/python3.8/site-packages/pip (python 3.8)</code></pre>
-<p>如果你已经安装了这些软件包，可以跳到<a href="#installing-mkdocs">安装MkDocs</a>。</p>
+<p>如果您已经安装了这些软件包，您可以跳到<a href="#安装MkDocs">安装MkDocs</a>。</p>
 <h3 id="python">安装Python<a class="headerlink" href="#python" title="Permanent link"></a></h3>
-<p>使用你喜欢的包管理器安装<a href="https://www.python.org/">Python</a>，或从<a href="https://www.python.org/downloads/">python.org</a>下载适合你系统的安装程序并运行它。</p>
+<p>使用您选择的软件包管理器安装<a href="https://www.python.org/">Python</a>，或从<a href="https://www.python.org/downloads/">python.org</a>下载适合您系统的安装程序并运行它。</p>
 <blockquote>
 <p>注意：
-如果你正在Windows上安装Python，请确保选中将Python添加到你的PATH的框（如果安装程序提供这个选项）（通常默认关闭）。</p>
-<p><img alt="添加Python到PATH" src="../../img/win-py-install.png" /></p>
+如果您正在Windows上安装Python，请确保选中将Python添加到PATH的框（如果安装程序提供这样的选项）（默认情况下通常关闭）。</p>
+<p><img alt="将Python添加到PATH" src="../../img/win-py-install.png" /></p>
 </blockquote>
 <h3 id="pip">安装pip<a class="headerlink" href="#pip" title="Permanent link"></a></h3>
-<p>如果你使用的是最近版本的Python，则Python包管理器<a href="https://pip.readthedocs.io/en/stable/installing/">pip</a>可能已经默认安装了。但是，你可能需要升级pip到最新版本：</p>
+<p>如果您使用的是最新版本的Python，Python 包管理器 <a href="https://pip.readthedocs.io/en/stable/installing/">pip</a> 可能已经默认安装。但是，您可能需要将 pip 升级到最新版本：</p>
 <pre class="highlight"><code class="language-bash">pip install --upgrade pip</code></pre>
-<p>如果你是第一次安装pip，下载<a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a>。 然后运行以下命令安装它：</p>
+<p>如果您需要第一次安装pip，请下载<a href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a>。然后运行以下命令安装它：</p>
 <pre class="highlight"><code class="language-bash">python get-pip.py</code></pre>
 <h2 id="mkdocs_1">安装MkDocs<a class="headerlink" href="#mkdocs_1" title="Permanent link"></a></h2>
-<p>使用pip安装<code>mkdocs</code>包：</p>
+<p>使用 pip 安装 <code>mkdocs</code> 包：</p>
 <pre class="highlight"><code class="language-bash">pip install mkdocs</code></pre>
-<p>现在你应该在你的系统上安装了<code>mkdocs</code>命令。运行<code>mkdocs --version</code>检查是否一切正常工作。</p>
+<p>现在您应该在您的系统上安装了 <code>mkdocs</code> 命令。运行 <code>mkdocs --version</code> 来检查一切是否正常。</p>
 <pre class="highlight"><code class="language-console">$ mkdocs --version
 mkdocs, version 1.2.0 from /usr/local/lib/python3.8/site-packages/mkdocs (Python 3.8)</code></pre>
 <blockquote>
 <p>注意：
-如果你想要安装MkDocs的man页，<a href="https://github.com/click-contrib/click-man">click-man</a>工具可以为你生成和安装它们。只需要运行以下两个命令：</p>
+如果您希望为MkDocs安装man页，<a href="https://github.com/click-contrib/click-man">click-man</a> 工具可以为您生成并安装它们。只需运行以下两个命令：</p>
 <pre class="highlight"><code class="language-bash">pip install click-man
 click-man --target path/to/man/pages mkdocs</code></pre>
-<p>参见<a href="https://github.com/click-contrib/click-man#automatic-man-page-installation-with-setuptools-and-pip">click-man documentation</a> 解释为什么man页没有自动由pip生成和安装。</p>
+<p>有关为什么man页不会被pip自动生成和安装的解释，请参见<a href="https://github.com/click-contrib/click-man#automatic-man-page-installation-with-setuptools-and-pip">click-man文档</a>。</p>
 </blockquote>
 <!-- -->
 <blockquote>
 <p>注意：
-如果你正在使用Windows，则上述某些命令可能无法直接使用。</p>
-<p>一个快速的解决办法可能是在每个Python命令前加上<code>python -m</code>，像这样：</p>
+如果您使用的是Windows，上述某些命令可能无法立即起作用。</p>
+<p>一个快速的解决方案可能是在每个Python命令前加上 <code>python -m</code>，像这样：</p>
 <pre class="highlight"><code class="language-bash">python -m pip install mkdocs
 python -m mkdocs</code></pre>
-<p>对于一个更加永久的解决办法，你可能需要编辑你的<code>PATH</code>环境变量去包括Python安装的<code>Scripts</code>目录。最近版本的Python包括一个脚本帮助你完成这个任务。进入你的Python安装目录（例如<code>C:\Python38\</code>），打开<code>Tools</code>，然后是<code>Scripts</code>文件夹，并通过双击<code>win_add2path.py</code>文件运行。另外，你也可以下载<a href="https://github.com/python/cpython/blob/master/Tools/scripts/win_add2path.py">script</a>并运行它（<code>python win_add2path.py</code>）。</p>
+<p>对于更持久的解决方案，您可能需要编辑 <code>PATH</code> 环境变量以包括Python安装的 <code>Scripts</code> 目录。Python的最新版本包括一个脚本可为您执行此操作。导航到Python安装目录（例如 <code>C:\Python38\</code>），打开 <code>Tools</code>，然后是 <code>Scripts</code> 文件夹，并通过双击运行 <code>win_add2path.py</code> 文件。或者，您可以下载此<a href="https://github.com/python/cpython/blob/master/Tools/scripts/win_add2path.py">脚本</a>并运行它（<code>python win_add2path.py</code>）。</p>
 </blockquote></div>
             </div>
         </div>

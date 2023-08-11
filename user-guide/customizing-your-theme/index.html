@@ -8,7 +8,7 @@
         <meta name="author" content="MkDocs Team">
         <link rel="canonical" href="https://www.mkdocs.org/user-guide/customizing-your-theme/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>自定义主题 - MkDocs</title>
+        <title>自定义您的主题 - MkDocs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -61,7 +61,7 @@
 </li>
                                     
 <li>
-    <a href="../writing-your-docs/" class="dropdown-item">编写文档</a>
+    <a href="../writing-your-docs/" class="dropdown-item">编写您的文档</a>
 </li>
                                     
 <li>
@@ -69,11 +69,11 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">自定义主题</a>
+    <a href="./" class="dropdown-item active">自定义您的主题</a>
 </li>
                                     
 <li>
-    <a href="../localizing-your-theme/" class="dropdown-item">本地化主题</a>
+    <a href="../localizing-your-theme/" class="dropdown-item">本地化您的主题</a>
 </li>
                                     
 <li>
@@ -85,7 +85,7 @@
 </li>
                                     
 <li>
-    <a href="../deploying-your-docs/" class="dropdown-item">部署文档</a>
+    <a href="../deploying-your-docs/" class="dropdown-item">发布您的文档</a>
 </li>
                                 </ul>
                             </li>
@@ -172,11 +172,11 @@
             
             <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">自定义主题</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#docs_dir" class="nav-link">使用 docs_dir</a>
+            <li class="nav-item" data-level="2"><a href="#docs_dir" class="nav-link">使用docs_dir</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#custom_dir" class="nav-link">使用主题的 custom_dir</a>
+            <li class="nav-item" data-level="2"><a href="#custom_dir" class="nav-link">使用主题custom_dir</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -190,24 +190,24 @@
 <h1 id="_1">自定义主题<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p>修改主题以满足您的需求。</p>
 <hr />
-<p>如果您想对现有主题进行一些微调，则无需从头创建自己的主题。对于仅需要一些 CSS 和/或 JavaScript 的小调整，您可以使用 <a href="#using-the-docs_dir">docs_dir</a>。然而，对于更复杂的自定义，包括覆盖模板，您将需要使用主题的 <a href="#using-the-theme-custom_dir">custom_dir</a> 设置。</p>
-<h2 id="docs_dir">使用 docs_dir<a class="headerlink" href="#docs_dir" title="Permanent link"></a></h2>
-<p><a href="../configuration/#extra_css">extra_css</a> 和 <a href="../configuration/#extra_javascript">extra_javascript</a> 配置选项可用于对现有主题进行微调和自定义。要使用这些选项，您只需要在 [文档目录] 中包含 CSS 或 JavaScript 文件即可。</p>
-<p>例如，要更改文档中标题的颜色，请创建一个名为（例如）<code>style.css</code> 的文件，并将其放在与文档 Markdown 相邻的位置。在该文件中添加以下 CSS。</p>
+<p>如果您想对现有主题进行一些修改，那么无需从头创建自己的主题。对于只需要一些CSS和/或JavaScript的较小修改，您可以<a href="#using-the-docs_dir">使用docs_dir</a>。然而，对于更复杂的自定义，包括覆盖模板，则需要使用主题custom_dir设置。</p>
+<h2 id="docs_dir">使用docs_dir<a class="headerlink" href="#docs_dir" title="Permanent link"></a></h2>
+<p><code>extra_css</code>和<code>extra_javascript</code>配置选项可用于对现有主题进行微调和自定义。要使用它们，您只需在<a href="../configuration/#docs_dir">文档目录</a>中包含CSS或JavaScript文件即可。</p>
+<p>例如，要更改文档中标题的颜色，请创建一个名为（例如）<code>style.css</code>的文件，并将其放在文档Markdown旁边。在该文件中添加以下CSS。</p>
 <pre class="highlight"><code class="language-css">h1 {
-  color: red;
+   color: red;
 }</code></pre>
-<p>然后将其添加到 <code>mkdocs.yml</code> 文件中：</p>
+<p>然后将其添加到 <code>mkdocs.yml</code>：</p>
 <pre class="highlight"><code class="language-yaml">extra_css:
   - style.css</code></pre>
-<p>进行这些更改后，当您运行 <code>mkdocs serve</code> 时，应该可以看到它们。如果已经在运行它，请查看是否自动捕获了 CSS 更改并更新了文档。</p>
+<p>在进行这些更改后，当您运行<code>mkdocs serve</code>时，它们应该会在文档中可见，如果已经运行它，则应该看到自动捕获了CSS更改并更新了文档。</p>
 <p>注意：
-任何额外的 CSS 或 JavaScript 文件都将在页面内容后添加到生成的 HTML 文档中。如果您想要包含 JavaScript 库，则可以使用主题 <a href="../configuration/#custom_dir">custom_dir</a> 来包含该标准库。</p>
-<h2 id="custom_dir">使用主题的 custom_dir<a class="headerlink" href="#custom_dir" title="Permanent link"></a></h2>
-<p><a href="../configuration/#custom_dir"><code>theme.custom_dir</code></a> 配置选项可用于指向一个包含覆盖父主题文件的文件目录。父主题将是在 <a href="../configuration/#name"><code>theme.name</code></a> 配置选项中定义的主题。在具有与父主题相同名称的文件的 <code>custom_dir</code> 中的任何文件都将替换父主题中相同名称的文件。<code>custom_dir</code> 中的任何其他文件都将添加到父主题中。<code>custom_dir</code> 的内容应该跟父主题的目录结构相同。您可以包含模板，JavaScript 文件，CSS 文件，图像，字体或包括主题中的任何其他媒体</p>
+任何额外的CSS或JavaScript文件都将在页面内容后添加到生成的HTML文档中。如果您要包含JavaScript库，可能最好使用主题<a href="../configuration/#custom_dir">custom_dir</a>。</p>
+<h2 id="custom_dir">使用主题custom_dir<a class="headerlink" href="#custom_dir" title="Permanent link"></a></h2>
+<p><code>theme.custom_dir</code>配置选项可用于指向一个文件目录，其中的文件覆盖父主题中的文件。父主题将是在<code>theme.name</code>配置选项中定义的主题。<code>custom_dir</code>中具有与父主题中同名的文件的任何文件都将替换父主题中同名的文件。<code>custom_dir</code>中的任何其他文件都将添加到父主题中。<code>custom_dir</code>的内容应该与父主题的目录结构相同。您可以包括主题中包含的模板，JavaScript文件，CSS文件，图像，字体或任何其他媒体。</p>
 <p>注意：
-要使用这个功能，<code>theme.name</code> 设置必须设置为已知的已安装主题。如果 <code>name</code> 设置为 <code>null</code>（或未定义），那么没有要覆盖的主题，<code>custom_dir</code> 的内容必须是一个完整的，独立的主题。有关详细信息，请参阅<a href="../../dev-guide/themes/">主题开发人员指南</a>。</p>
-<p>例如，<a href="../choosing-your-theme/#mkdocs">mkdocs</a> 主题（[浏览源代码]）包含以下目录结构（部分）：</p>
+为此正常工作，必须将 <code>theme.name</code> 设置为已知的已安装主题。如果<code>name</code>设置为<code>null</code>（或未定义），则没有主题可用于覆盖，<code>custom_dir</code>的内容必须是完整的，独立的主题。有关更多信息，请参阅<a href="../../dev-guide/themes/">主题开发人员指南</a>。</p>
+<p>例如，<a href="../choosing-your-theme/#mkdocs">mkdocs</a> 主题（<a href="https://github.com/mkdocs/mkdocs/tree/master/mkdocs/themes/mkdocs">浏览源代码</a>）包含以下目录结构（部分）：</p>
 <pre class="highlight"><code class="language-nohighlight">- css\
 - fonts\
 - img\
@@ -220,16 +220,16 @@
 - nav-sub.html
 - nav.html
 - toc.html</code></pre>
-<p>要覆盖该主题中包含的任何文件，请在 <code>docs_dir</code> 旁边创建一个名为 <code>custom_theme</code> 的新目录：</p>
+<p>要覆盖该主题中包含的任何文件，请在 <code>docs_dir</code> 旁边创建一个新目录：</p>
 <pre class="highlight"><code class="language-bash">mkdir custom_theme</code></pre>
-<p>然后将 <code>mkdocs.yml</code> 配置文件指向新目录：</p>
+<p>然后将您的 <code>mkdocs.yml</code> 配置文件指向新目录：</p>
 <pre class="highlight"><code class="language-yaml">theme:
   name: mkdocs
   custom_dir: custom_theme/</code></pre>
-<p>要覆盖 404 错误页面（“文件未找到”），请在 <code>custom_theme</code> 目录中添加一个名为 <code>404.html</code> 的新模板文件。有关模板中可以包含的内容，请查看<a href="../../dev-guide/themes/">主题开发人员指南</a>。</p>
-<p>要覆盖网站图标，请将一个新的图标文件添加到 <code>custom_theme/img/favicon.ico</code>。</p>
-<p>要包含 JavaScript 库，请将库复制到 <code>custom_theme/js/</code> 目录中。</p>
-<p>现在您的目录结构应如下所示：</p>
+<p>要覆盖404错误页面（“文件未找到”），请向 <code>custom_theme</code> 目录添加一个名为<code>404.html</code>的新模板文件。有关可以包含在模板中的内容的信息，请参阅<a href="../../dev-guide/themes/">主题开发人员指南</a>。</p>
+<p>要覆盖favicon，请在<code>custom_theme / img / favicon.ico</code>处添加新的图标文件。</p>
+<p>要包含JavaScript库，请将库复制到<code>custom_theme / js /</code>目录中。</p>
+<p>您的目录结构现在应如下所示：</p>
 <pre class="highlight"><code class="language-nohighlight">- docs/
   - index.html
 - custom_theme/
@@ -240,49 +240,48 @@
   - 404.html
 - config.yml</code></pre>
 <p>注意：
-父主题中包含的任何未包含在 <code>custom_dir</code> 中的文件仍将被使用。<code>custom_dir</code> 将仅覆盖/替换父主题中的文件。如果您想要删除文件或从头开始构建一个主题，则应该查看 <a href="../../dev-guide/themes/">主题开发人员指南</a>。</p>
+父主题中包含的任何文件（在<code>name</code>中定义）但未包含在<code>custom_dir</code>中的文件仍将被使用。<code>custom_dir</code>仅覆盖/替换父主题中的文件。如果您想要删除文件或从头构建主题，则应查看<a href="../../dev-guide/themes/">主题开发人员指南</a>。</p>
 <h3 id="_2">覆盖模板块<a class="headerlink" href="#_2" title="Permanent link"></a></h3>
-<p>内置主题在模板块内实现其许多部分，这些模板块可以单独在 <code>main.html</code> 模板中被覆盖。只需在 <code>custom_dir</code> 中创建一个 <code>main.html</code> 模板文件，并在其中定义替换块即可。只要 <code>main.html</code> 扩展了 <code>base.html</code>。例如，要更改 MkDocs 主题的标题，您的更换 <code>main.html</code> 模板将包含以下内容：</p>
+<p>内置主题实现了许多模板块内的部分，这些模板块可以单独在 <code>main.html</code>模板 中覆盖。只需在 <code>custom_dir</code> 中创建一个<code>main.html</code>模板文件，然后在该文件中定义替换块即可。只需要确保<code>main.html</code>扩展到 <code>base.html</code>。例如，要更改MkDocs主题的标题，您的替换<code>main.html</code>模板将包含以下内容：</p>
 <pre class="highlight"><code class="language-django">{% extends "base.html" %}
-
 {% block htmltitle %}
 &lt;title&gt;Custom title goes here&lt;/title&gt;
 {% endblock %}</code></pre>
-<p>在上面的示例中，您自定义的 <code>main.html</code> 文件中定义的 <code>htmltitle</code> 块将用于替换父级中定义的默认 <code>htmltitle</code> 块。您可以重新定义所有您想要的块，只要这些块在父级中定义即可。例如，您可以将 Google Analytics 脚本替换为不同服务的脚本或使用自己的搜索替换搜索功能。您将需要查看您正在使用的父主题，以确定可以覆盖的块。MkDocs 和 ReadTheDocs 主题提供以下块：</p>
+<p>在上面的示例中，定义在自定义的<code>main.html</code>文件中的<code>htmltitle</code>块将替换父模板中定义的默认<code>htmltitle</code>块。您可以重新定义任意数量的块，只要这些块在父项中定义即可。例如，您可以将Google Analytics脚本替换为不同服务的脚本或将搜索功能替换为自己的功能。您将需要查看您使用的父主题，以确定可用于覆盖哪些块。 MkDocs和ReadTheDocs主题提供以下块：</p>
 <ul>
-<li><code>site_meta</code>：包含文档 head 中的元标签。</li>
-<li><code>htmltitle</code>：包含文档 head 中的页面标题。</li>
+<li><code>site_meta</code>：包含文档头中的元标记。</li>
+<li><code>htmltitle</code>：包含文档头中的页面标题。</li>
 <li><code>styles</code>：包含样式表的链接标记。</li>
-<li><code>libs</code>：包含页面头部中包含的 JavaScript 库（jQuery 等）。</li>
-<li><code>scripts</code>：包含页面加载后应执行的 JavaScript 脚本。</li>
-<li><code>analytics</code>：包含数据分析脚本。</li>
-<li><code>extrahead</code>：位于 <code>&lt;head&gt;</code> 中的一个空块，用于插入自定义标签/脚本等。</li>
+<li><code>libs</code>：包含页面标题中包含的JavaScript库（jQuery等）的库。</li>
+<li><code>scripts</code>：包含页面加载后应执行的JavaScript脚本。</li>
+<li><code>analytics</code>：包含分析脚本。</li>
+<li><code>extrahead</code>：在<code>&lt;head&gt;</code>中插入自定义标签/脚本等的空块。</li>
 <li><code>site_name</code>：包含导航栏中的站点名称。</li>
-<li><code>site_nav</code>：包含导航栏中的网站导航。</li>
-<li><code>search_button</code>：在导航栏中包含搜索框。</li>
-<li><code>next_prev</code>：包含导航栏中的下一个和上一个按钮。</li>
+<li><code>site_nav</code>：包含导航栏中的站点导航。</li>
+<li><code>search_button</code>：包含导航栏中的搜索框。</li>
+<li><code>next_prev</code>：包含导航栏中的上一页和下一页按钮。</li>
 <li><code>repo</code>：包含导航栏中的存储库链接。</li>
 <li><code>content</code>：包含页面内容和目录。</li>
 <li><code>footer</code>：包含页面页脚。</li>
 </ul>
-<p>您可能需要查看源模板文件，以确保您的修改与站点的结构兼容。查看<a href="../../dev-guide/themes/#template-variables">模板变量</a>以获取可在自定义块中使用的变量列表。有关块的更完整说明，请查阅 <a href="https://jinja.palletsprojects.com/en/latest/templates/#template-inheritance">Jinja 文档</a>。</p>
-<h3 id="custom_dir_1">合并 custom_dir 和 模板块<a class="headerlink" href="#custom_dir_1" title="Permanent link"></a></h3>
-<p>将 JavaScript 库添加到 <code>custom_dir</code> 中将使其可用，但不会在 MkDocs 生成的页面中包含它。因此，需要从 HTML 中添加该库的链接。</p>
-<p>使用上面的目录结构（缩短）：</p>
+<p>您可能需要查看源模板文件，以确保您的修改与站点结构兼容。有关您可以在自定义块中使用的变量列表，请参阅 <a href="../../dev-guide/themes/#template-variables">模板变量</a>。</p>
+<h3 id="custom_dir_1">组合custom_dir和模板块<a class="headerlink" href="#custom_dir_1" title="Permanent link"></a></h3>
+<p>向<code>custom_dir</code>添加JavaScript库将使其可用，但不会将其包含在MkDocs生成的页面中。因此，需要在HTML中添加从库到链接。</p>
+<p>从上面的目录结构开始（截断）：</p>
 <pre class="highlight"><code class="language-nohighlight">- docs/
 - custom_theme/
   - js/
     - somelib.js
 - config.yml</code></pre>
-<p>需要从模板添加到 <code>custom_theme/js/somelib.js</code> 文件中的链接。由于 <code>somelib.js</code> 是 JavaScript 库，它会合理地放在 <code>libs</code> 块中。然而，一个新的 <code>libs</code> 块仅包含新脚本，将替换父模板中定义的块和任何链接到模板中的库的链接将被删除。为了避免破坏模板，可以使用带有 <code>super</code> 的 <a href="https://jinja.palletsprojects.com/en/latest/templates/#super-blocks">super 块</a>：</p>
+<p>需要将 <code>custom_theme/js/somelib.js</code> 文件的链接添加到模板中。由于 <code>somelib.js</code> 是JavaScript库，因此逻辑上应该放在 <code>libs</code> 块中。但是，仅包含新脚本的新<code>libs</code>块将替换在父模板中定义的块和任何链接到父模板中库的链接。为了避免破坏模板，可以使用超级块与块内的<code>超级函数</code>：</p>
 <pre class="highlight"><code class="language-django">{% extends "base.html" %}
 
 {% block libs %}
     {{ super() }}
     &lt;script src="{{ base_url }}/js/somelib.js"&gt;&lt;/script&gt;
 {% endblock %}</code></pre>
-<p>请注意，使用 <a href="../../dev-guide/themes/#base_url">base_url</a> 模板变量以确保链接始终是相对于当前页面的。</p>
-<p>现在生成的页面将包括模板提供的库的链接以及包含在 <code>custom_dir</code> 中的库的链接。任何包含在 <code>custom_dir</code> 中的其他 CSS 文件都需要执行相同的操作。</p></div>
+<p>请注意，<a href="../../dev-guide/themes/#base_url">base_url</a> 模板变量用于确保链接始终与当前页面相关。</p>
+<p>现在，生成的页面将包括对模板提供的库的链接以及包含在 <code>custom_dir</code> 中的库的链接。对于包含在 <code>custom_dir</code> 中的任何其他 CSS 文件，也会需要相同的操作。</p></div>
             </div>
         </div>
 

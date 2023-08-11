@@ -61,7 +61,7 @@
 </li>
                                     
 <li>
-    <a href="../../user-guide/writing-your-docs/" class="dropdown-item">编写文档</a>
+    <a href="../../user-guide/writing-your-docs/" class="dropdown-item">编写您的文档</a>
 </li>
                                     
 <li>
@@ -69,11 +69,11 @@
 </li>
                                     
 <li>
-    <a href="../../user-guide/customizing-your-theme/" class="dropdown-item">自定义主题</a>
+    <a href="../../user-guide/customizing-your-theme/" class="dropdown-item">自定义您的主题</a>
 </li>
                                     
 <li>
-    <a href="../../user-guide/localizing-your-theme/" class="dropdown-item">本地化主题</a>
+    <a href="../../user-guide/localizing-your-theme/" class="dropdown-item">本地化您的主题</a>
 </li>
                                     
 <li>
@@ -85,7 +85,7 @@
 </li>
                                     
 <li>
-    <a href="../../user-guide/deploying-your-docs/" class="dropdown-item">部署文档</a>
+    <a href="../../user-guide/deploying-your-docs/" class="dropdown-item">发布您的文档</a>
 </li>
                                 </ul>
                             </li>
@@ -184,18 +184,13 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="_1">开发主题<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>创建和分发自定义主题的指南。</p>
+<p>创建和发布自定义主题的指南。</p>
 <hr />
 <p>注意:
-如果你正在寻找现有的第三方主题，它们在[社区Wiki]页面和[MkDocs项目目录][catalog]中列出。如果你想分享你创建的主题，你应该在那里列出它。</p>
-<p>在创建新主题时，你可以按照本指南中的步骤从头开始创建，也可以下载 <code>mkdocs-basic-theme</code> 作为一个基本，但完整的主题，其中包含所有所需的样板文件。你可以在[ GitHub上][基本主题]找到此基本主题。它包含了详细的注释来描述不同的功能及其用法。</p>
-<p>[社区Wiki]：https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes
-[目录]：https://github.com/mkdocs/catalog#-theming
-[基本主题]：https://github.com/mkdocs/mkdocs-basic-theme</p>
+如果你正在寻找现有的第三方主题，它们在<a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes">社区wiki</a>页面和<a href="https://github.com/mkdocs/catalog#-theming">MkDocs项目目录</a>中列出。如果你想分享你创建的主题，应该在那里列出它。</p>
+<p>当创建一个新的主题时，你可以跟随这个指南中的步骤从头开始创建，或者你可以下载<code>mkdocs-basic-theme</code>作为一个基本的、完整的主题，其中包含了所有所需的样板文件。<strong>你可以在<a href="https://github.com/mkdocs/mkdocs-basic-theme">GitHub</a>上找到这个基础主题</strong>。它在代码中包含了对不同功能及其用法的详细注释。</p>
 <h2 id="_2">创建自定义主题<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<p>自定义主题所需的最少要求是 <code>main.html</code> [Jinja2
-template] 文件，它位于不是[docs_dir]的子目录中。在 <code>mkdocs.yml</code> 中，将 <a href="../../user-guide/configuration/#custom_dir"><code>theme.custom_dir</code></a>
-选项设置为包含 <code>main.html</code> 的目录路径。路径应该相对于配置文件。例如，给定这个示例项目布局：</p>
+<p>自定义主题所需的最少要求是一个称为 <code>main.html</code> 的[Jinja2 模板]文件，它位于文档目录[docs_dir]的子目录之外。在 <code>mkdocs.yml</code> 中，将[<code>theme.custom_dir</code>] 配置选项设置为包含 <code>main.html</code> 的目录的路径。路径应该是相对于配置文件而言的。例如，给定以下示例项目布局：</p>
 <pre class="highlight"><code class="language-text">mkdocs.yml
 docs/
     index.md
@@ -203,41 +198,38 @@ docs/
 custom_theme/
     main.html
     ...</code></pre>
-<p>... 你应该在 <code>mkdocs.yml</code> 中包含以下设置，以使用自定义主题目录：</p>
+<p>…你需要在 <code>mkdocs.yml</code> 中包含以下设置来使用自定义主题目录：</p>
 <pre class="highlight"><code class="language-yaml">theme:
   name: null
   custom_dir: 'custom_theme/'</code></pre>
 <blockquote>
 <p>注意：
-通常，在构建你自己的自定义主题时，主题.[name]
-配置设置应设为 <code>null</code>。然而，如果
-theme.<a href="../../user-guide/configuration/#custom_dir">custom_dir</a> 配置值与现有主题结合使用，则可以使用 theme.<a href="../../user-guide/configuration/#custom_dir">custom_dir</a> 来替换内置主题中的特定部分。例如，对于上面的布局，如果你设置
-<code>name: "mkdocs"</code>，则主题.<a href="../../user-guide/configuration/#custom_dir">custom_dir</a> 中的 <code>main.html</code> 文件将替换内置主题中同名的文件，但除此之外 <code>mkdocs</code> 主题将保持不变。如果你想对现有主题进行微调，这非常有用。</p>
-<p>关于更具体的信息，请参阅[自定义主题]。</p>
+通常，在构建你自己的自定义主题时，<code>theme.[name]</code> 配置设置将被设置为 <code>null</code>。但是，如果将 <code>theme.[custom_dir]</code> 配置值与现有主题一起使用，则可以使用 <code>theme.[custom_dir]</code> 来替换内置主题的特定部分。例如，对于以上布局，如果设置 <code>name: "mkdocs"</code>，那么主题中的 <code>main.html</code> 文件将替换 <code>mkdocs</code> 主题中相应的同名文件，但除此之外， <code>mkdocs</code> 主题保持不变。如果你想对现有主题进行小的调整，这一点非常有用。</p>
+<p>有关更具体的信息，请参见[自定义你的主题]。</p>
 </blockquote>
 <!-- -->
 <blockquote>
 <p>警告：
-主题的[配置]定义在 <code>mkdocs_theme.yml</code> 文件中载入并非来自 <code>theme.custom_dir</code>。当 <code>theme.custom_dir</code> 中存在整个主题，并且设置 <code>theme.name</code> 为 <code>null</code> 时，整个主题配置必须在 <code>mkdocs.yml</code> 文件中的 [theme] 配置选项中定义。</p>
-<p>然而，当主题 [打包] 用于分发并使用 <code>theme.name</code> 配置选项加载时，将需要一个 <code>mkdocs_theme.yml</code> 文件作为主题。</p>
+主题的 [配置] 在 <code>mkdocs_theme.yml</code> 文件中定义，而这个文件并不是从 <code>theme.custom_dir</code> 加载的。当整个主题存在于 <code>theme.custom_dir</code> 中，且 <code>theme.name</code> 设置为 <code>null</code> 时，主题的整个配置必须在 <code>mkdocs.yml</code> 文件中的 [theme] 配置选项中定义。然而，当一个主题被[## 支持主题本地化/翻译</p>
 </blockquote>
-<p>[自定义主题]：../user-guide/customizing-your-theme.md#using-the-theme-custom_dir</p>
-<p>[name## 支持主题本地化/翻译</p>
-<p>虽然内置主题提供了模板本地化/翻译的支持，但自定义主题和第三方主题可能选择不提供此功能。但无论如何，在“theme”配置选项的[<code>locale</code>]（#locale）设置始终存在，并被其他部分依赖。因此，建议所有第三方主题使用相同的设置来指定语言，而不考虑它们用于翻译的系统。这样，用户无论选择哪个主题，都会体验到一致的行为。</p>
-<p>翻译管理的方法取决于主题开发人员。但是，如果主题开发人员选择使用内置主题使用的相同机制，则以下部分概述如何启用并利用MkDocs使用的相同命令。</p>
+<p>虽然内置主题提供模板的[本地化/翻译]支持，但自定义主题和第三方主题可能选择不支持。无论如何，<code>theme</code>配置选项的 <a href="#locale"><code>locale</code></a> 设置始终存在，其他部分依赖于它。因此，建议所有第三方主题使用相同的设置来指定语言，而不管它们用于翻译的系统如何。这样一来，无论用户选择哪个主题，他们都会体验到一致的行为。</p>
+<p>管理翻译的方法由主题开发人员决定。但是，如果主题开发人员选择使用内置主题使用的相同机制，则下面的部分概述了如何启用和利用MkDocs使用的相同命令。</p>
+<p>[本地化/翻译]：../user-guide/localizing-your-theme.md</p>
 <h3 id="_3">使用本地化/翻译命令<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
-<p>警告：因为<strong><a href="https://babel.pocoo.org/en/latest/setup.html">pybabel</a>未默认安装</strong>，大多数用户不会安装pybabel，因此主题开发人员和/或翻译者应确保已安装必要的依赖关系（使用<code>pip install mkdocs [i18n]</code>），以便命令可供使用。</p>
-<p>翻译命令应从您的主题的工作树根目录调用。</p>
-<p>有关MkDocs用于翻译内置主题的工作流程的概述，请参见Contributing Guide的相应[部分]和[翻译指南]。</p>
-<p>[部分]：../about/contributing.md#submitting-changes-to-the-builtin-themes
-[翻译指南]：翻译.md</p>
+<p>警告：由于默认情况下未安装[pybabel]，大多数用户将不会安装pybabel，因此主题开发人员和/或翻译员应确保已安装必要的依赖项（使用<code>pip install mkdocs [i18n]</code>），以便命令可用于使用。</p>
+<p>应从主题工作树的根目录中调用翻译命令。</p>
+<p>有关MkDocs如何翻译内置主题的工作流概述，请参阅相应的[部分] 贡献指南 和 [翻译指南]。</p>
+<p>[pybabel]：https：//babel.pocoo.org/en/latest/setup.html
+[section]：../about/contributing.md#submitting-changes-to-the-builtin-themes
+[Translation Guide]：translations.md</p>
 <h3 id="_4">示例自定义主题本地化/翻译工作流程<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <blockquote>
-<p>注意：如果您的主题继承自已提供翻译目录的现有主题，则在MkDocs构建期间，您的主题的翻译将与父主题的翻译合并。
-这意味着您只需要专注于添加的翻译。但是，您仍将从父主题的翻译中获益。同时，您可以覆盖父主题的任何翻译！</p>
+<p>注意：如果您的主题继承自已提供翻译目录的现有主题，则在MkDocs构建期间，您的主题的翻译将与父级主题的翻译合并。
+这意味着您只需要关注添加的翻译。
+但是，您仍将从父主题的翻译中受益。同时，您还可以覆盖父主题的任何翻译！</p>
 </blockquote>
-<p>假设您正在自己的[mkdocs-basic-theme]分支上工作，并希望为其添加翻译。</p>
-<p>通过在您的HTML源中使用<code>{% trans％}</code>和<code>{% endtrans％}</code>将文本包装在模板中进行编辑：：</p>
+<p>假设您正在使用自己的[mkdocs-basic-theme] 的 fork 并希望向其中添加翻译。</p>
+<p>通过将HTML源中的文本包装在以下内容中的 <code>{% trans %}</code> 和 <code>{% endtrans %}</code>，编辑模板：</p>
 <pre class="highlight"><code class="language-diff">--- a/basic_theme/base.html
 +++ b/basic_theme/base.html
 @@ -88,7 +88,7 @@
@@ -245,18 +237,20 @@ theme.<a href="../../user-guide/configuration/#custom_dir">custom_dir</a> 配置
  &lt;body&gt;
 
 -  &lt;h1&gt;This is an example theme for MkDocs.&lt;/h1&gt;
-+  &lt;h1&gt;{% trans %}This is an example theme for MkDocs.{% endtrans %}&lt;/h1&gt;
++  &lt;h1&gt;{% trans %}This is an example theme for MkDocs. {% endtrans %}&lt;/h1&gt;
 
    &lt;p&gt;
      It is designed to be read by looking at the theme HTML which is heavily</code></pre>
-<p>然后，像往常一样遵循[Translation Guide]来运行您的翻译。</p>
-<h3 id="_5">打包翻译与主题<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
-<p>虽然由<code>extract_messages</code>命令创建的Portable Object Template（<code>pot</code>）文件和由<code>init_catalog</code>和<code>update_catalog</code>命令创建的Portable Object（<code>po</code>）文件适用于创建和编辑翻译，但它们不直接被MkDocs使用，也不需要在主题的打包版本中包含在内。当MkDocs使用翻译构建网站时，它仅使用指定语言环境的二进制<code>mo</code>文件（s）。因此，在[打包主题]时，请确保在“wheels”中包含它，使用<code>MANIFEST.in</code>文件或其他方式。</p>
-<p>然后，在构建Python程序包之前，您将希望通过为每个区域设置运行<code>compile_catalog</code>命令来确保每个区域设置的二进制<code>mo</code>文件是最新的。 MkDocs希望将二进制<code>mo</code>文件位于<code>locales/&lt;locale&gt;/LC_MESSAGES/messages.mo</code>，<code>compile_catalog</code>命令为您自动执行此操作。有关详细信息，请参见[测试主题翻译]。</p>
-<p>注：
-如我们的[Translation Guide]所述，MkDocs项目选择将<code>pot</code>和<code>po</code>文件包含在我们的代码存储库中，但不包括<code>mo</code>文件。这要求我们在打包新版本之前始终运行<code>compile_catalog</code>，而不管是否对翻译进行了任何更改。但是，您可以选择自己的代替工作流程主题。最少，您需要确保在每个版本中在正确的位置包括最新的<code>mo</code>文件。但是，如果选择这样做，您可以使用其他过程生成这些<code>mo</code>文件。</p>
-<p>[打包主题]：＃打包主题
-[测试主题翻译]：翻译.md#测试主题翻译</p></div>
+<p>然后，像往常一样遵循翻译指南即可。</p>
+<h3 id="_5">与主题一起打包翻译<a class="headerlink" href="#_5" title="Permanent link"></a></h3>
+<p>虽然<code>extract_messages</code>命令创建的<a href="pot file">可移植对象模板</a> 文件和<code>init_catalog</code>和<code>update_catalog</code>命令创建的[Portable Object (<code>po</code>) file]是用于创建和编辑翻译的有用的,但MkDocs没有直接使用它们，因此不需要在主题的打包版本中包含它们。当MkDocs使用翻译构建站点时，它只使用指定语言环境的二进制<code>mo</code>文件。因此，在[打包主题]时，请确保将其包含在"wheels"中，使用<code>MANIFEST.in</code>文件或其他方式。</p>
+<p>然后，在构建Python包之前，您将希望确保每个语言环境的二进制 <code>mo</code>文件都是最新的，方法是为每个语言环境运行<code>compile_catalog</code>命令。MkDocs期望二进制<code>mo</code>文件位于<code>locales/&lt;locale&gt;/LC_MESSAGES/messages.mo</code>，<code>compile_catalog</code>命令会自动完成此任务。有关详细信息，请参阅[测试主题翻译]。</p>
+<p>注意：
+如我们的[翻译指南]中所述，MkDocs项目选择在代码存储库中包括“pot”和“po”文件，但不包括<code>mo</code>文件。这需要我们始终在打包新版本之前运行<code>compile_catalog</code>，无论是否对翻译进行了任何更改。但是，您可以选择主题的替代工作流程。最低限度，您需要确保每个版本包括正确位置的最新的<code>mo</code>文件。但是，如果您选择这样做，可以使用不同的进程生成这些<code>mo</code>文件。。</p>
+<p>[可移植对象模板]：((<code>pot file</code>))
+[Portable Object (<code>po</code>) file]：((<code>po</code>))
+[打包主题]：#packing-themes
+[测试主题翻译]：translations.md#testing-theme-translations</p></div>
             </div>
         </div>
 

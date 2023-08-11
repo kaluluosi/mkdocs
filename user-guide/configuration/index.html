@@ -61,7 +61,7 @@
 </li>
                                     
 <li>
-    <a href="../writing-your-docs/" class="dropdown-item">编写文档</a>
+    <a href="../writing-your-docs/" class="dropdown-item">编写您的文档</a>
 </li>
                                     
 <li>
@@ -69,11 +69,11 @@
 </li>
                                     
 <li>
-    <a href="../customizing-your-theme/" class="dropdown-item">自定义主题</a>
+    <a href="../customizing-your-theme/" class="dropdown-item">自定义您的主题</a>
 </li>
                                     
 <li>
-    <a href="../localizing-your-theme/" class="dropdown-item">本地化主题</a>
+    <a href="../localizing-your-theme/" class="dropdown-item">本地化您的主题</a>
 </li>
                                     
 <li>
@@ -85,7 +85,7 @@
 </li>
                                     
 <li>
-    <a href="../deploying-your-docs/" class="dropdown-item">部署文档</a>
+    <a href="../deploying-your-docs/" class="dropdown-item">发布您的文档</a>
 </li>
                                 </ul>
                             </li>
@@ -180,7 +180,31 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">标准配置选项</a>
+            <li class="nav-item" data-level="2"><a href="#site_name_1" class="nav-link">site_name</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#site_url_1" class="nav-link">site_url</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pages" class="nav-link">pages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#nav" class="nav-link">nav</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#theme" class="nav-link">theme</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">插件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_11" class="nav-link">配置继承</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -192,332 +216,368 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="_1">配置<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>所有可用配置设置的指南。</p>
+<p>指南到所有可用的配置设置。</p>
 <hr />
 <h2 id="_2">介绍<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<p>项目设置默认使用名为 <code>mkdocs.yml</code> 的项目目录中的 YAML 配置文件进行配置。您可以指定另一个路径，方法是使用 <code>-f</code>/<code>--config-file</code> 参数（参见 <code>mkdocs build --help</code>）。</p>
-<p>至少，此配置文件必须包含 <code>site_name</code>。所有其他设置都是可选的。</p>
+<p>项目设置默认使用名为<code>mkdocs.yml</code>的项目目录中的YAML配置文件进行配置。您可以通过使用<code>-f</code>/<code>--config-file</code>选项指定另一个路径(参见 <code>mkdocs build --help</code>)来指定它。</p>
+<p>作为最小要求，此配置文件必须包含<code>sitename</code>。所有其他设置都是可选的。</p>
 <h2 id="_3">项目信息<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<h3 id="site_name"><code>site_name</code><a class="headerlink" href="#site_name" title="Permanent link"></a></h3>
-<p>这是一个 <strong>必需的设置</strong>，应是一个字符串，用作项目文档的主标题。例如：</p>
+<h3 id="site_name">site_name<a class="headerlink" href="#site_name" title="Permanent link"></a></h3>
+<p>这是一个<strong>必需的设置</strong>，应该是一个用作项目文档的主要标题的字符串。例如：</p>
 <pre class="highlight"><code class="language-yaml">site_name: Marshmallow Generator</code></pre>
-<p>在渲染主题时，此设置将作为 <code>site_name</code> 上下文变量传递。</p>
-<h3 id="site_url"><code>site_url</code><a class="headerlink" href="#site_url" title="Permanent link"></a></h3>
-<p>设置站点的规范化URL。这将在每个HTML页面的 <code>head</code> 部分添加具有 <code>canonical</code> URL 的 <code>link</code> 标记。如果MkDocs网站的 <code>root</code> 在域的子目录中，确保在该设置中包括该子目录（例如 <code>https://example.com/foo/</code>）。</p>
-<p>此设置还用于 <code>mkdocs serve</code>：服务器将挂载到 URL 的路径组件上，例如 <code>some/page.md</code> 将从 <code>http://127.0.0.1:8000/foo/some/page/</code> 提供，以模拟预期的远程布局。</p>
-<p><strong>默认值</strong>：<code>null</code></p>
-<h3 id="repo_url"><code>repo_url</code><a class="headerlink" href="#repo_url" title="Permanent link"></a></h3>
-<p>设置一个链接到您的存储库（GitHub、Bitbucket、GitLab 等）的URL，用于每个页面。</p>
+<p>在呈现主题时，此设置将作为<code>site_name</code>上下文变量传递。</p>
+<h3 id="site_url">site_url<a class="headerlink" href="#site_url" title="Permanent link"></a></h3>
+<p>设置站点的规范化URL。这将在每个HTML页面的<code>head</code>部分中添加具有<code>canonical</code> URL的<code>link</code>标记。如果MkDocs站点的“根”将在域的子目录内，则必须在设置中包括该子目录(<code>https://example.com/foo/</code> )。</p>
+<p>此设置还用于<code>mkdocs server</code>:服务器将装入从URL的路径组件中获取的路径，例如<code>some/page.md</code>将被服务于<code>http://127.0.0.1:8000/foo/some/page/</code>以模拟预期的远程布局。</p>
+<p><strong>default</strong>: <code>null</code></p>
+<h3 id="repo_url">repo_url<a class="headerlink" href="#repo_url" title="Permanent link"></a></h3>
+<p>当设置时，在每个页面上提供与您的存储库(GitHub、Bitbucket、GitLab等)的链接。</p>
 <pre class="highlight"><code class="language-yaml">repo_url: https://github.com/example/repository/</code></pre>
-<p><strong>默认值</strong>：<code>null</code></p>
-<h3 id="repo_name"><code>repo_name</code><a class="headerlink" href="#repo_name" title="Permanent link"></a></h3>
-<p>当设置时，在每个页面上为您的存储库提供链接的名称。</p>
-<p><strong>默认值</strong>：如果 <code>repo_url</code> 匹配这些域名，则为 “GitHub”、 “Bitbucket” 或 “GitLab”，否则为来自 <code>repo_url</code> 的主机名。</p>
-<h3 id="edit_uri"><code>edit_uri</code><a class="headerlink" href="#edit_uri" title="Permanent link"></a></h3>
-<p>当直接查看页面时从基本 <code>repo_url</code> 计算的文档目录的路径，考虑存储库主机的具体情况（例如 GitHub、Bitbucket 等等）、分支和文档目录本身。MkDocs 连接 <code>repo_url</code> 和 <code>edit_uri</code>，并将页面的输入路径附加到其后。</p>
-<p>当设置并且如果您的主题支持它时，将为您的源存储库中的页面提供直接链接。这使查找和编辑页面的源文件变得更加容易。如果未设置 <code>repo_url</code>，则忽略此选项。在某些主题上，设置此选项可能导致在存储库链接的位置使用编辑链接。其他主题可能显示两个链接。</p>
-<p><code>edit_uri</code>支持查询 (<code>?</code>) 和片段 (<code>#</code>) 字符。对于使用查询或片段访问文件的存储库主机，可能会设置 <code>edit_uri</code> 如下（请注意URI中的 <code>?</code> 和 <code>#</code> …）。</p>
-<pre class="highlight"><code class="language-yaml"># 查询字符串示例
+<p><strong>default</strong>: <code>null</code></p>
+<h3 id="repo_name">repo_name<a class="headerlink" href="#repo_name" title="Permanent link"></a></h3>
+<p>当设置时，在每个页面上提供与您的存储库链接的名称。</p>
+<p><strong>default</strong>: <code>'GitHub'</code>，<code>'Bitbucket'</code>或<code>'GitLab'</code>，如果<code>repo_url</code>与这些域匹配，则为主机名，否则为<code>repo_url</code>。</p>
+<h3 id="edit_uri">edit_uri<a class="headerlink" href="#edit_uri" title="Permanent link"></a></h3>
+<p>当直接查看页面时从基本<code>repo_url</code>到文档目录的路径，考虑到存储库主机的特殊情况(例如 GitHub、Bitbucket 等)、分支和文档目录本身。MkDocs将连接<code>repo_url</code>和<code>edit_uri</code>，并附加页面的输入路径。</p>
+<p>当设置时，并且如果您的主题支持它，则提供直接链接到您的源存储库中的页面。这使得更容易找到和编辑页面的源。如果未设置<code>repo_url</code>，则忽略此选项。在某些主题上，设置此选项可能导致使用编辑链接而不是存储库链接。其他主题可能会同时显示两个链接。</p>
+<p><code>edit_uri</code>支持查询('?' )和片段('#') 字符。对于使用查询或片段访问文件的存储库主机，<code>edit_uri</code>可以设置如下。(注意 URI 中的 <code>?</code> 和 <code>#</code>。)</p>
+<pre class="highlight"><code class="language-yaml"># Query string example
 edit_uri: '?query=root/path/docs/'</code></pre>
-<pre class="highlight"><code class="language-yaml"># 路径片段示例
+<pre class="highlight"><code class="language-yaml"># Hash fragment example
 edit_uri: '#root/path/docs/'</code></pre>
-<p>对于其他存储库主机，请简单地指定到文档目录的相对路径。</p>
-<pre class="highlight"><code class="language-yaml"># 查询字符串示例
+<p>对于其他存储库主机，只需指定到文档目录的相对路径即可。</p>
+<pre class="highlight"><code class="language-yaml"># Query string example
 edit_uri: root/path/docs/</code></pre>
 <p>例如，具有此配置：</p>
 <pre class="highlight"><code class="language-yaml">repo_url: https://example.com/project/repo
 edit_uri: blob/main/docs/</code></pre>
-<p>意味着名为 'foo/bar.md' 的页面的编辑链接将带到：<a href="https://example.com/project/repo/blob/main/docs/foo/bar.md">https://example.com/project/repo/blob/main/docs/foo/bar.md</a></p>
-<p><code>edit_uri</code> 实际上可以只是绝对 URL 而不一定是相对于 <code>repo_url</code> 的路径，因此可以实现相同的结果：</p>
+<p>意味着名为'foo/bar.md'的页面将其编辑链接导向: </p>
+<p><a href="https://example.com/project/repo/blob/main/docs/foo/bar.md">https://example.com/project/repo/blob/main/docs/foo/bar.md</a></p>
+<p><code>edit_uri</code>实际上可以是绝对 URL，而不一定是相对于<code>repo_url</code>的URL，因此可以实现同样的结果：</p>
 <pre class="highlight"><code class="language-yaml">edit_uri: https://example.com/project/repo/blob/main/docs/</code></pre>
-<p>要获得更大的灵活性，请参见下面的 <a href="#edit_uri_template">edit_uri_template</a>。</p>
+<p>请参阅 <a href="#edit_uri_template">edit_uri_template</a> 以获得更大的灵活性。</p>
 <blockquote>
-<p>注意：
-在一些已知的主机上（特别是 GitHub、Bitbucket 和 GitLab），<code>edit_uri</code>是从 'repo_url' <repo_url> 中派生出来，无需手动设置。只需定义一个 <code>repo_url</code> 将自动填充 <code>edit_uri</code> 配置设置。</p>
-<p>例如，对于托管在 GitHub 或 GitLab 上的存储库，<code>edit_uri</code> 会自动设置为 <code>edit/master/docs/</code> （请注意 <code>edit</code> 路径和 <code>master</code> 分支）。</p>
-<p>对于名为 Bitbucket 的存储库，等效的 <code>edit_uri</code> 将自动设置为 <code>src/default/docs/</code>（请注意 <code>src</code> 路径和 <code>default</code> 分支）。</p>
-<p>要使用与默认 URI 不同的 URI（例如不同的分支），只需将 <code>edit_uri</code> 设置为所需的字符串。如果您不想在页面上显示任何 “编辑 URL 链接”，请将 <code>edit_uri</code> 设置为空字符串以禁用自动设置。</p>
+<p>注意：</p>
+<p>在一些已知的主机(具体来说是GitHub、Bitbucket和GitLab)，<code>edit_uri</code>是从'repo_url'派生的，无需手动设置。只需定义一个<code>repo_url</code>就会自动填充<code>edit_uri</code>配置设置。</p>
+<p>例如，对于托管在GitHub或GitLab上的存储库，<code>edit_uri</code>将自动设置为<code>edit/master/docs/</code> (注意<code>edit</code>路径和<code>master</code> 分支)。</p>
+<p>对于托管在Bitbucket上的存储库，等效的<code>edit_uri</code>将自动设置为<code>src/default/docs/</code>(注意<code>src</code>路径和<code>default</code>分支)。</p>
+<p>要使用与默认值(例如不同的分支)不同的URI，只需将<code>edit_uri</code>设置为您想要的字符串即可。如果不想在页面上显示任何“编辑URL链接”，则将<code>edit_uri</code>设置为空字符串以禁用自动设置。</p>
 </blockquote>
-<p>警告：在 GitHub 和 GitLab 上，使用默认的 "编辑" 路径（<code>edit/master/docs/</code>）将示例在在线编辑器中打开页面。这个功能需要用户拥有并登录到 GitHub/GitLab 账户。否则，用户将被重定向到登录/注册页面。或者，使用 "blob" 路径（`blob/master/docs# MkDocs配置文件指南</p>
-<p>欢迎来到MkDocs的配置文件指南。使用此指南，你可以了解与MkDocs构建文档站点有关的所有配置选项和设置。本指南作为官方文档的一部分，记录了MkDocs在处理配置文件和其他设置时所采用的标准。</p>
-<h2 id="_4">标准配置选项<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
-<p>MkDocs预定义了许多配置选项，以确保运行MkDocs时可以使用关键选项的默认值。本节中提供了完整的，预定义的配置选项清单，以及用于自定义配置选项的相关说明和建议。</p>
-<p>以下是MkDocs中可用的标准配置选项的清单：</p>
-<h3 id="site_name_1"><code>site_name</code><a class="headerlink" href="#site_name_1" title="Permanent link"></a></h3>
-<p>用于指定站点的名称，通常出现在每个页面的标题栏中。它可以是一个字符串，也可以是多国语言的语言文件，类似于<a href="../../dev-guide/themes/">MkDocs主题</a>。以下是一个基本示例：</p>
-<pre class="highlight"><code class="language-yaml">site_name: My Docs</code></pre>
-<p>以下是使用语言文件的示例：</p>
-<pre class="highlight"><code class="language-yaml">site_name: !lang my_docs</code></pre>
-<p>在上面的示例中，<code>my_docs</code>是一个语言文件，应该放置在主题语言目录的根目录中。</p>
-<h3 id="site_description"><code>site_description</code><a class="headerlink" href="#site_description" title="Permanent link"></a></h3>
-<p>用于指定站点的描述，通常会出现在页面的元描述标记中（如果定义的话）。它既可以是字符串，也可以是HTML。以下是一个基本示例：</p>
-<pre class="highlight"><code class="language-yaml">site_description: My documentation site</code></pre>
-<p>在上面的示例中，值是一个字符串。如果你想显示有样式的富文本，可以定义HTML：</p>
-<pre class="highlight"><code class="language-yaml">site_description: &lt;em&gt;My&lt;/em&gt; documentation site</code></pre>
-<h3 id="site_author"><code>site_author</code><a class="headerlink" href="#site_author" title="Permanent link"></a></h3>
-<p>用于指定站点的作者（或列出所有作者，以及每个页面的单个作者）。例如：</p>
-<pre class="highlight"><code class="language-yaml">site_author: John Doe</code></pre>
-<p>或者，对于多个作者的列表：</p>
-<pre class="highlight"><code class="language-yaml">site_author:
-  - John Doe
-  - Jane Smith</code></pre>
-<p>或者，对于每个页面的单个作者定义：</p>
+<p>*注意：在 GitHub 和 GitLab 上，默认的“编辑”路径(<code>edit/master/docs/</code>)会打开在线编辑器。此功能要求用户具有并登录到 GitHub/GitLab 帐户。否则，用户将被重定向到一个登录/注册页面。或者，使用“blob”路径(<code>blob/master/docs/</code>)来打开只读视# 配置选项</p>
+<p>与MkDocs一起使用的配置文件是一个标准的YAML文件。他们用来控制你的站点是如何生成和呈现的。这个部分列举了可用的配置选项，并说明了它们的含义。</p>
+<p>大多数配置选项都可以按照默认值工作。然而，你最好至少定义 <code>site_name</code> 和 <code>pages</code> 选项，如下所述。</p>
+<h2 id="site_name_1">site_name<a class="headerlink" href="#site_name_1" title="Permanent link"></a></h2>
+<p>类似于网站的标题。通常，它会在每个页面的标题标签中使用。除了界面之外，还用于生成站点的默认元描述标签。</p>
+<pre class="highlight"><code class="language-yaml">site_name: 'MkLorum - A Dummy Project'</code></pre>
+<h2 id="site_url_1">site_url<a class="headerlink" href="#site_url_1" title="Permanent link"></a></h2>
+<p>你的站点的网址。这将被用于生成Canonical URL标签并允许搜索引擎和其他工具正确索引站点的页面。</p>
+<blockquote>
+<p>注意：尽管这是强制要求的选项，但可以使用<code>mkdocs serve</code>开发服务器启动站点，而不必定义此选项。</p>
+</blockquote>
+<pre class="highlight"><code class="language-yaml">site_url: https://example.com/my-docs/</code></pre>
+<p>注意尾斜线的存在。使用尾部斜线保证易于维护和真正的网络路径相同。</p>
+<h2 id="pages">pages<a class="headerlink" href="#pages" title="Permanent link"></a></h2>
+<p>pages是一个有序列表，在此列表中定义的页面将被编译到您的站点中。我们建议您使用此选项指定目录树上的所有文件。如果您只编写单个文件，则该文件名可能会议出你的预期,仅适用于单页项目。</p>
+<p><code>pages</code>支持简单的<code>filename</code>字符串语法和高度可配置选项<code>dict</code>语法。请注意，在文件名字符串特定场景下，顶层文件夹的特殊的<code>.</code>和<code>*</code>字符，但是在使用字典语法时，这些字符将被解释为普通字符。您可以将基本的文件名字符串语法与易于定制的字典语法结合使用，例如，为文件夹结构指定文件名称，并使用字典选项来指定每个页面的标题和元数据。</p>
+<p><code>pages</code>中任何一个字段的标题和元数据都可以由<code>mkdocs.yml</code>中全局定义的<code>extra</code>字段中的任何内容继承。格式化的页面文档字符串必须是一个由8个空格或两个tab字符缩进的字符串。以下是<code>pages</code>的示例配置：</p>
 <pre class="highlight"><code class="language-yaml">pages:
-  - Home: index.md
-  - About: about.md
-    author: John Doe</code></pre>
-<p>在上面的例子中，<code>About</code>页面的作者将是<code>John Doe</code>。</p>
-<h3 id="site_url_1"><code>site_url</code><a class="headerlink" href="#site_url_1" title="Permanent link"></a></h3>
-<p>用于指定站点的URL。它用于<code>sitemap.xml</code>和<code>robots.txt</code>文件中。例如：</p>
-<pre class="highlight"><code class="language-yaml">site_url: https://example.com</code></pre>
-<p>如果没有指定端口，则可以省略这个值的http/https前缀：</p>
-<pre class="highlight"><code class="language-yaml">site_url: example.com</code></pre>
-<p>并且，如果将<code>site_url</code>设为''（空字符串），则会使用MkDocs在本地服务器上访问时自动识别的值（如果已检测到），这个值不能倍用于生成<code>sitemap.xml</code>文件。</p>
-<p>当你在本地开发站点时，可以采用相对URL代替完整URL：</p>
-<pre class="highlight"><code class="language-yaml">site_url: ''</code></pre>
-<p>在这种情况下，MkDocs在生成的URL中使用相对URL。</p>
-<h3 id="repo_url_1"><code>repo_url</code><a class="headerlink" href="#repo_url_1" title="Permanent link"></a></h3>
-<p>将此设置为repo的URL。如果设置了这个选项，MkDocs将在每个页面中包含一个<code>Edit</code>链接。例如：</p>
-<pre class="highlight"><code class="language-yaml">repo_url: https://github.com/user/repo/</code></pre>
-<p>Edit链接将指向具有基础URL的组合：<code>{repo_url}/edit/{branch}/{filename}</code>。如果不指定仓库的分支，请将它留空。如果想链接到页面所在分支的Github Pages站点, 请添加"blob/master"作为repo_url的路径, 参见:</p>
-<pre class="highlight"><code class="language-yaml">repo_url: https://github.com/user/repo/blob/master</code></pre>
-<p>这将导致页面的URL修改为：<code>https://github.com/user/repo/blob/master/{filename}</code>。在GitHub的发布页面中为您的用户提供一个界面，以便贡献和提取GitHub项目。</p>
-<h3 id="repo_name_1"><code>repo_name</code><a class="headerlink" href="#repo_name_1" title="Permanent link"></a></h3>
-<p>用于指定库名称，将在一些主题的选项卡或页脚中使用。例如：</p>
-<pre class="highlight"><code class="language-yaml">repo_name: my-docs</code></pre>
-<h3 id="edit_uri_1"><code>edit_uri</code><a class="headerlink" href="#edit_uri_1" title="Permanent link"></a></h3>
-<p>用于指定页面的编辑URL模板。它被用于使用其他源管理器的用户。模板中的<code>{filename}</code>部分将被替换为当前页面的文件名。例如：</p>
-<pre class="highlight"><code class="language-yaml">edit_uri: "https://github.com/user/repo/edit/branch/docs/{filename}.md"</code></pre>
-<h3 id="docs_dir"><code>docs_dir</code><a class="headerlink" href="#docs_dir" title="Permanent link"></a></h3>
-<p>指定文档源文件的文件夹。如果你在文档编写时使用标准的文件夹结构，这将很有用。例如：</p>
-<pre class="highlight"><code class="language-yaml">docs_dir: docs</code></pre>
-<p>如果您的文档在站点同级别下，建议留空。通常MkDocs会自动发现文件夹结构。</p>
-<h3 id="site_dir"><code>site_dir</code><a class="headerlink" href="#site_dir" title="Permanent link"></a></h3>
-<p>用于指定存储生成文档的目标路径。默认情况下，文档将放置在<code>site</code>文件夹中。例如:</p>
-<pre class="highlight"><code class="language-yml">site_dir: ../build/docs</code></pre>
-<p>在上面的例子中，生成的文件放置在<code>../build/docs</code>中。</p>
-<h3 id="theme"><code>theme</code><a class="headerlink" href="#theme" title="Permanent link"></a></h3>
-<p>用于指定主题。此配置选项可以是字符串或字典。如果是字符串，则表示主题名称（模板网站上可用的名称）。如果是字典，它将解析为包含以下键值对的字典：</p>
+    - 'Home': 'index.md'
+    - 'Introducing MkDocs':
+        - 'Introduction': 'intro.md'
+        - 'Features': 'features.md'
+        - 'Contribute': 'contributing.md'
+    - 'Installing MkDocs':
+        - 'Installation': 'install.md'
+        - 'Windows': 'windows.md'
+        - 'macOS': 'macos.md'
+        - 'Linux': 'linux.md'
+    - 'Commands':
+        - 'New': 'new.md'
+        - 'Build': 'build.md'
+        - 'Serve': 'serve.md'
+    - 'Customizing'
+        - 'Configuration': 'config.md'
+        - 'Custom Themes': 'custom-themes.md'
+        - 'Extensions': 'extensions.md'
+    - 'About':
+        - 'License': 'license.md'
+        - 'Release Notes': 'release-notes.md'</code></pre>
+<h2 id="nav">nav<a class="headerlink" href="#nav" title="Permanent link"></a></h2>
+<p><code>nav</code>是一个顶级选项，用于完全控制导航条的树结构。<code>nav</code>的值是一个有序的层次结构列表，可以通过简单的字符串语法或高度可配置的字典语法指定。</p>
+<p>以下是一个使用字符串语法的示例<code>nav</code>配置示例：</p>
+<pre class="highlight"><code class="language-yaml">nav:
+    - 'Home': 'index.md'
+    - 'User Guide':
+        - 'Writing your docs': 'writing-your-docs.md'
+        - 'Styling your docs': 'customizing-your-theme.md'
+        - 'MKDocs Configuration': 'mkdocs.yml'
+        - 'Commands': 'commands.md'
+    - 'About MKDocs':
+        - 'License': 'LICENSE'
+        - 'Release Notes': 'release-notes.md'</code></pre>
+<p>以下是一个使用字典语法的示例<code>nav</code>配置示例：</p>
+<pre class="highlight"><code class="language-yaml">nav:
+    - Home: index.md
+    - section1:
+        - page1:
+            - "Page One - Subpage A": page1/subpage-a.md
+            - "Page One - Subpage B": page1/subpage-b.md
+        - Some Page: some-page.md
+    - section2:
+        - page2: page2.md
+        - Another Page:
+            url: another-page.md
+    - custom site name/title:
+        - page 3: page3.md</code></pre>
+<p>这种例子<code>nav</code>给出了字典语法的一些方面。</p>
 <ul>
-<li><code>name</code> (required): 主题名称。</li>
-<li><code>custom_dir</code>: 主题要求的自定义文件目录。</li>
-<li><code>dirs</code>: 自定义子目录路径。</li>
-<li><code>static_templates</code>: 如果设置为<code>true</code>，则在主题目录中首先查找静态模板。</li>
-<li><code>locale</code>: 指定选定语言主题的位置。</li>
+<li>当页面只有文件名时，可以将它们用字符串语法指定</li>
+<li>当页面需要名称和url时，必须采用字典语法。</li>
+<li>如果想给列表节点指定名称而不是提取节点名称或文件名，那么必须使用字典语法。</li>
 </ul>
-<p>以下是一个基本示例：</p>
-<pre class="highlight"><code class="language-yaml">theme: readthedocs</code></pre>
-<p>以下是字典格式的示例：</p>
+<h2 id="theme">theme<a class="headerlink" href="#theme" title="Permanent link"></a></h2>
+<p>您所选择的Mkdocs主题。如果主题有配置选项，提供一个字典。以下是一个具有默认值的字典<code>theme</code>配置示例。</p>
 <pre class="highlight"><code class="language-yaml">theme:
-  name: material
-  custom_dir: mymaterial
-  dirs:
-    assets: assets
-    templates: _templates</code></pre>
-<p>如果要使用本地主题，则可以将<code>theme_dir</code>选项指向该主题的路径. 注意这里不包括主题名称。</p>
-<pre class="highlight"><code class="language-yaml">theme_dir: ../my-material-theme
-theme:
-  name: material</code></pre>
-<p>除了内置主题之外，你还可以创建自己的主题。<a href="../../dev-guide/themes/">这里</a>提供了有关如何创建你自己的主题的详细信息。</p>
-<p>注：<code>default</code>主题不需要定义，因为它是默认的主题，这个主题可以在<a href="../choosing-your-theme/">选择你的主题</a>中进一步了解。</p>
-<h3 id="theme_color"><code>theme_color</code><a class="headerlink" href="#theme_color" title="Permanent link"></a></h3>
-<p>的主题颜色。在移动设备上，Chrome和Firefox将在浏览器的地址栏中显示这种颜色。如果用户将站点添加到主屏幕，则可用于提供应用程序的样式。例如:</p>
-<pre class="highlight"><code class="language-yaml">theme_color: pink</code></pre>
-<h3 id="logo"><code>logo</code><a class="headerlink" href="#logo" title="Permanent link"></a></h3>
-<p>用于指定站点的标志文件或图像文件路径。默认情况下，在所有页面的左上角将始终显示站点名称。如果配置为文件路径，则使用指定的文件表示默认情况下会显示出来的站点名称。例如：</p>
-<pre class="highlight"><code class="language-yaml">logo: img/my_logo.png</code></pre>
-<p>上面的示例中，<code>my_logo.png</code>是存储在<code>/docs/img/</code>目录中的图像文件。</p>
-<h3 id="favicon"><code>favicon</code><a class="headerlink" href="#favicon" title="Permanent link"></a></h3>
-<p>用于指定站点的favicon文件路径。如果指定了favicon，MkDocs会自动生成<code>favicon.ico</code>，并在每个页面的页面头部覆盖默认favicon。例如：</p>
-<pre class="highlight"><code class="language-yaml">favicon: img/favicon.png</code></pre>
-<p>在上面的示例中，favicon的图像文件应该存储在<code>/docs/img/</code>中。</p>
-<h3 id="extra_css"><code>extra_css</code><a class="headerlink" href="#extra_css" title="Permanent link"></a></h3>
-<p>用于指定一个CSS文件，该文件将被注入到每个页面的页面头部中。例如：</p>
-<pre class="highlight"><code class="language-yaml">extra_css: css/my_custom_style.css</code></pre>
-<p>在上面的示例中，<code>my_custom_style.css</code>是一个存储在<code>/docs/css/</code>目录中的自定义CSS文件。</p>
-<h3 id="extra_javascript"><code>extra_javascript</code><a class="headerlink" href="#extra_javascript" title="Permanent link"></a></h3>
-<p>用于指定包含任意JavaScript代码的JavaScript文件或URL。它将被注入到每个页面的页面底部。例如：</p>
-<pre class="highlight"><code class="language-yaml">extra_javascript: js/my_custom_script.js</code></pre>
-<p>在上面的示例中，<code>my_custom_script.js</code>是一个存储在<code>/docs/js/</code>目录中的自定义JavaScript文件。</p>
-<h3 id="markdown_extensions"><code>markdown_extensions</code><a class="headerlink" href="#markdown_extensions" title="Permanent link"></a></h3>
-<p>用于指定Markdown扩展。除了标准的Markdown，Python Markdown提供了许多扩展，而MkDocs可以使用<a href="https://python-markdown.github.io/extensions/">常见的扩展</a>和<a href="https://facelessuser.github.io/pymdown-extensions/">pymdownx扩展</a>。此外，Python Markdown Wiki中还有更多<a href="https://github.com/Python-Markdown/markdown/wiki/Third-Party-Extensions">扩展</a>供选择。以下是一个具有多个扩展的完整示例：</p>
+    name: 'mkdocs'
+    custom_dir: null
+    css: null
+    extra:
+        google_analytics:
+            - 'UA-00000000-1'</code></pre>
+<p>有关如何选择和使用Mkdocs主题的详细信息，请参见 <a href="../choosing-your-theme/">选择您的主题</a>。</p>
+<h3 id="_4">快速设置<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
+<p>有时，个别属性与基本主题风格无关。出于这个原因，每个Mkdocs主题都有一个捷径列表上的属性<code>theme.common</code>。</p>
+<p>这样，一些属性可以在每个主题上简单地指定一次，以确保在（可能）使用不同的主题时拥有一致的体验。以下是一个具有默认值的字典<code>theme.common</code>配置示例：</p>
+<pre class="highlight"><code class="language-yaml">theme:
+  name: readthedocs
+  custom_dir: null
+  logo: null
+  styles:
+    - null
+  favicon: null
+  google_analytics: null
+  include_search_page: null
+  search_index_only: null
+  search_disable_footer: null
+  extra:
+    github_repo: null
+    twitter_username: null
+    canonical_url: null
+    ga_ua: null
+    donation_text: null
+    markdown_extensions:
+      - admonition
+      - codehilite
+      - pymdownx.details</code></pre>
+<h3 id="theme_dir">theme_dir<a class="headerlink" href="#theme_dir" title="Permanent link"></a></h3>
+<p>一个路径，指向包含自定义主题模板和静态文件的目录。您可以设置整个主题或覆盖特定'templates' / 'static' / 'custom_css' / 'custom_js'文件的路径。</p>
+<pre class="highlight"><code class="language-yaml">theme_dir: null            # 无自定义主题
+theme_dir: my_theme        # 包含完整的主题的目录
+theme_dir:
+    templates: my_templates
+    static: my_static
+    custom_css: my/custom.css
+    custom_js: my/custom.js</code></pre>
+<h3 id="extra_css">extra_css<a class="headerlink" href="#extra_css" title="Permanent link"></a></h3>
+<p>CSS文件的路径或URL，将被添加到每个页面中。在优化您的CSS之前，请务必使用<a href="caching.md">Mkdocs缓存</a>以提高性能。</p>
+<pre class="highlight"><code class="language-yaml">extra_css:
+    - css/extra.css
+    - https://example.com/font.css
+    - '//cdn.domain.com/extra.css'</code></pre>
+<p>请注意，从默认主题中删除的不同导航或页脚元素可以使用来删除。</p>
+<h3 id="highlightjs">highlightjs<a class="headerlink" href="#highlightjs" title="Permanent link"></a></h3>
+<p>选择默认的语法高亮库。MkDocs支持使用Pygments或Highlight.js。默认情况下，选择Highlight.js，如果不能按预期运行，建议尝试它是否与Pygments一起运行。</p>
+<pre class="highlight"><code class="language-yaml">highlightjs: true</code></pre>
+<p>pygments主题可以通过<a href="https://pygments.org/docs/styles/#creating-own-styles">YAML缩写名称</a>或通过Pygments风格的CSS文件名来指定。</p>
+<pre class="highlight"><code class="language-yaml">highlightjs:
+    style: monokai</code></pre>
+<p>pygments还允许指定具有额外选项的样式。</p>
+<pre class="highlight"><code class="language-yaml">highlightjs:
+    style:
+        name: monokai
+        background: '#f00'</code></pre>
+<h3 id="markdown_extensions">markdown_extensions<a class="headerlink" href="#markdown_extensions" title="Permanent link"></a></h3>
+<p>MkDocs使用Python Markdown [pymkd]和扩展[pymdk-extensions]来解析markdown，并且需要将标准Markdown语法扩展到mkdocs。</p>
 <pre class="highlight"><code class="language-yaml">markdown_extensions:
-  - footnote
-  - codehilite:
-      linenums: true
-  - extra
-  - smarty:
-      curly_dashes: true</code></pre>
-<h3 id="plugins"><code>plugins</code><a class="headerlink" href="#plugins" title="Permanent link"></a></h3>
-<p>用于指定<a href="../../dev-guide/plugins/">MkDocs插件</a>。插件可用于添加额外的功能，如搜索，自定义选项卡和自定义CSS文件等等。在此处指定的每个插件的特定配置详细信息将取决于该插件。</p>
-<p>参见<a href="https://github.com/mkdocs/catalog">可用插件目录</a>。</p>
-<p>以下是一个具有多个插件的完整示例：</p>
-<pre class="highlight"><code class="language-yaml">plugins:
-  - search
-  - mkdocs-minify-plugin</code></pre>
-<h3 id="nav"><code>nav</code><a class="headerlink" href="#nav" title="Permanent link"></a></h3>
-<p>用于定义站点的导航结构和页面。在基础形式中，这是一个页面名称和标题的字典，或者是一个页面名称和一个子字典的组合。子字典可用于表示单个页面的配置。例如：</p>
-<pre class="highlight"><code class="language-yaml">nav:
-  - Home: index.md
-  - User Guide:
-    - Writing your docs: writing-your-docs.md
-    - Configuring pages: configuring-pages.md
-    - Customizing your theme: customizing-your-theme.md</code></pre>
-<p>在上面的例子中，<code>User Guide</code>被视为一个包含子页面的页面。子页面的下拉选项是定义该页面的字典的第二个部分。在上面的示例中，<code>User Guide</code>字典包含三个键值对，因为它定义了该页面及其子页面。在此示例中，每个页面定义为一个Markdown文件的路径。</p>
-<p>每个页面都可以有可选的元数据。支持的元数据字段是：</p>
-<ul>
-<li><code>title</code>: 页面的标题，如果未定义则使用页面的文件名。</li>
-<li><code>description</code>: 页面的描述，如果未定义则使用在页面中找到的文本的一部分。</li>
-<li><code>keywords</code>: 页面的关键字。</li>
-<li><code>hide</code>: 将页面从导航栏中隐藏。</li>
-</ul>
-<p>以下是一个完整的具有元数据的示例：</p>
-<pre class="highlight"><code class="language-yaml">nav:
-  - Home: index.md
-  - About: about.md
-    title: About us
-    description: Learn more about who we are and what we do.
-    keywords: [about, us]
-    hide: true</code></pre>
-<p>如果你没有提供导航结构，则MkDocs将使用查找指定文件夹中的所有Markdown文件并在导航中包含每个文件的标题。有关自动生成的导航结构的更多信息，请参见<a href="building-the-site.md#building-your-pages">构建页面</a>。</p>
-<h3 id="exclude"><code>exclude</code><a class="headerlink" href="#exclude" title="Permanent link"></a></h3>
-<p>用于指定应从生成的站点中排除的文件和文件夹。例如：</p>
-<pre class="highlight"><code class="language-yaml">exclude:
-  - SECRET_NOTE.txt
-  - secret_folder</code></pre>
-<p>在上面的例子中，<code>SECRET_NOTE.txt</code>文件和<code>secret_folder</code>文件夹都将在构建站点时排除。</p>
-<p>请注意，在默认情况下，与构建需要的文件数量相比，对于不属于站点内容的文件，排除不提高构建性能。如果在设置中指定了除了Markdown之外的其他文件类型，则必须将它们包含在内。</p>
-<p>默认情况下，README和index文件什么时候将被忽略。如果您想要包含一个README文件或文件名为’index’的Markdown文件，您可以使用此选项防止该文件被排除。</p>
-<p>例如，如果不想要您的README文件被排除，则可以：</p>
-<pre class="highlight"><code class="language-yaml">exclude: ['!README.md']</code></pre>
-<h3 id="include"><code>include</code><a class="headerlink" href="#include" title="Permanent link"></a></h3>
-<p>和排除选项的作用相反，允许您只包含明确指定要生成的文件和文件夹。在大型文档库中使用时，它可能会加速生成<code>.md</code>文件到<code>.html</code>文件形式的转换。其中一种情况是，当只有一个列表标准时，选项的排除部分可能更容易维护，而选项的包含部分则更难维护。例如：</p>
-<pre class="highlight"><code class="language-yaml">include:
-  - api
-  - api/my_module.md</code></pre>
-<p>在上面的示例中，<code>api</code>文件夹和<code>api/my_module.md</code>文件将在构建站点时包含。</p>
-<h3 id="extra"><code>extra</code><a class="headerlink" href="#extra" title="Permanent link"></a></h3>
-<p>用于添加自定义键值。这对于存储MkDocs无法或不提供的其他元数据或元数据非常有用。这可以是一个字符串或一个包含键值对的字典。例如：</p>
-<pre class="highlight"><code class="language-yaml">extra:
-  website: https://example.com
-  owner: John Doe</code></pre>
-<p>在上面的例子中，<code>website</code>和<code>owner</code>是任意的自定义键。</p>
-<h3 id="markdown_css"><code>markdown_css</code><a class="headerlink" href="#markdown_css" title="Permanent link"></a></h3>
-<p>用于指定用于Markdown渲染的CSS文件。默认情况下，这个选项是<code>markdown.css</code>并且是在主题目录中定义的。如果你想使用不同的CSS文件，则需要使用这个选项来指定另一个文件。例如：</p>
-<pre class="highlight"><code class="language-yaml">markdown_css: css/my_custom_markdown.css</code></pre>
-<h3 id="strict"><code>strict</code><a class="headerlink" href="#strict" title="Permanent link"></a></h3>
-<p>用于停止在发现错误时生成站点。例如：</p>
-<pre class="highlight"><code class="language-yaml">strict: true</code></pre>
-<h3 id="use_directory_urls"><code>use_directory_urls</code><a class="headerlink" href="#use_directory_urls" title="Permanent link"></a></h3>
-<p>将这个选项设置为<code>true</code>，将使用MkDocs的高级路由功能将文件URL更改为不带.htm的目录样式。例如：</p>
-<pre class="highlight"><code class="language-yaml">use_directory_urls: true</code></pre>
-<p>如果选择此选项，则将不再通过<code>.htm</code>文件扩展来访问任何文件。而是，像这样访问它们：</p>
-<pre class="highlight"><code>http://localhost:8000/about/</code></pre>
-<p>在上面的示例中，您可以通过路径<code>/about/</code>访问<code>about.md</code>文件的内容。</p>
-<h3 id="use_directory_index"><code>use_directory_index</code><a class="headerlink" href="#use_directory_index" title="Permanent link"></a></h3>
-<p>请开启这个选项以在使用目录URL时自动包含名为<code>index</code>的Markdown文件。例如：</p>
-<pre class="highlight"><code class="language-yaml">use_directory_urls: true
-use_directory_index: true</code></pre>
-<p>在上面的示例中，<code>about/index.md</code>可以通过路径<code>/about/</code>来访问。</p>
-<h3 id="markdown"><code>markdown</code><a class="headerlink" href="#markdown" title="Permanent link"></a></h3>
-<p>用于配置Python Markdown的选项。此选项使用一个字典来传递配置。下面是一些示例：</p>
-<pre class="highlight"><code class="language-yaml">markdown:
-  extension_configs:
-    pymdownx.magiclink:
-      repo_url_shortener: true</code></pre>
-<p>在上面的示例中，<code>pymdownx.magiclink</code>是Markdown扩展之一，<code>repo_url_shortener: true</code>是将在扩展上使用的配置。</p>
-<h3 id="extra_files"><code>extra_files</code><a class="headerlink" href="#extra_files" title="Permanent link"></a></h3>
-<p>指定一个不属于您文档和主题的目录（此选项用于记录<code>.nojekyll</code>文件或其他文件）或文件图标。例如，在设置IGG披露徽标：</p>
-<pre class="highlight"><code class="language-yaml">extra_files:
-  - igg-badge.png</code></pre>
-<p><code>.nojekyll</code>文件将防止在您的GitHub Pages上运行站点时从另一个文件夹开头忽略文件夹或文件。</p>
-<pre class="highlight"><code class="language-yaml">extra_files:
-  - .nojekyll</code></pre>
-<p>注：如果你想隐藏<code>.nojekyll</code>文件，可以设置<code>.githubfile</code>并使用<code>.gitignore</code>来隐藏目录或文件。</p>
-<p>更多有关<code>.nojekyll</code>文件相关信息：</p>
-<ul>
-<li><a href="https://blog.csdn.net/Roteleader/article/details/105191101">GitHub pages下的<code>.nojekyll</code></a></li>
-<li><a href="https://segmentfault.com/a/1190000016684221">让 GitHub Pages 保留文件和目录名中的下划线</a></li>
-</ul>
-<h3 id="toc"><code>toc</code><a class="headerlink" href="#toc" title="Permanent link"></a></h3>
-<p>如果禁用章节标题链接中的锚定，则使用该选项。通常，单击标题后将链接移到文档的特定部分。例如：</p>
-<pre class="highlight"><code class="language-yaml">toc:
-  toc_depth: 2
-  permalink: true</code></pre>
-<p>在上面的示例中，<code>toc_depth</code>控制到目录的级别。使用这个选项可以控制web页面上呈现的Markdown到C目录的深度。默认值为<code>2</code>。</p>
-<p>当<code>permalink</code>为<code>true</code>时，这个选项添加了一个蓝色的链接，用户可以点击它，使一个永久链接到当前标题在目录中生成。</p>
-<h3 id="markdown_engine"><code>markdown_engine</code><a class="headerlink" href="#markdown_engine" title="Permanent link"></a></h3>
-<p>设置使用的Markdown处理器。默认情况下，MkDocs使用Python Markdown：<code>pymd</code>。您可以设置为其他处理程序，例如CommonMark：<code>commonmark</code>或Python Markdown的扩展版：<code>misaka</code>。例如：</p>
-<pre class="highlight"><code class="language-yaml">markdown_engine: commonmark</code></pre>
-<h3 id="markdown_extensions_1"><code>markdown_extensions</code><a class="headerlink" href="#markdown_extensions_1" title="Permanent link"></a></h3>
-<p>你可以自定义要为站点构建的Markdown扩展。默认情况下，MkDocs已经包括了<a href="https://facelessuser.github.io/pymdown-extensions/">pymdownx扩展</a>。您可以指定包含哪些扩展及其参数。以下是一个完整的示例：</p>
-<pre class="highlight"><code class="language-yaml">markdown_extensions:
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite
-  - pymdownx.superfences:
-      custom_fences:
-        - {
-            name: "console",
-            class: "console",
-            format: "!!python/name:pymdownx.superfences.fence_div_format"
-          }</code></pre>
-<h3 id="markdown_extensions_configs"><code>markdown_extensions_configs</code><a class="headerlink" href="#markdown_extensions_configs" title="Permanent link"></a></h3>
-<p>如果您有多个选项可以为一个Markdown扩展进行配置，则可以使用此设置为它们分别配置参数。以下是一个示例：</p>
-<pre class="highlight"><code class="language-yaml">markdown_extensions:
-  - pymdownx.details
+    - pymdownx.superfences
+    - pymdownx.details
+    - pymdownx.tilde</code></pre>
+<p>大多数通过[pymdk-extensions]提供，建议适量使用以避免MkDocs构建的性能下降。</p>
+<p>使用字符串名称而不是对象。在一些情况下，对象也可以工作。有关详细信息，请参见[pymdk-extensions]。</p>
+<p><em>注：更改此选项后，必须重建搜索索引</em></p>
+<h3 id="markdown_extensions_configs">markdown_extensions_configs<a class="headerlink" href="#markdown_extensions_configs" title="Permanent link"></a></h3>
+<p>这个选项允许你向markdown扩展传递从字典映射类名到配置对象的一列表。这个选项中的字典被解释为一个<code>{class_name: config_dict}</code>键值对的列表。</p>
+<pre class="highlight"><code class="language-yaml">markdown_extensions_configs:
+  - pymdownx.magiclink:
+      repo_url_shortener: True
 
-markdown_extension_configs:
-  pymdownx.details:
-    block_expander: "&gt;"</code></pre>
-<p>在上面的示例中，只传递<code>pymdownx.details</code>扩展名，默认情况下没有参数。但是，通过使用<code>markdown_extensions_configs</code>，将设置该扩展内部的子选项之一：<code>block_expander</code>。</p>
-<h3 id="exclude_file"><code>exclude_file</code><a class="headerlink" href="#exclude_file" title="Permanent link"></a></h3>
-<p>用于指定yaml文件，其中包含应该在构建站点时排除的文件和文件夹。</p>
-<pre class="highlight"><code class="language-yaml">exclude_file: exclude.yaml</code></pre>
-<p>在上面的示例中，<code>exclude.yaml</code>文件包含排除的文件和文件夹清单。</p>
-<h3 id="language"><code>language</code><a class="headerlink" href="#language" title="Permanent link"></a></h3>
-<p>用于指定语言设置。此选项表示由<a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">iso 639-1</a>定义的语言代码字符串或语言文件。这将更改日期和时间的格式，生成正确的元HTML Lang标记，生成日期的合适格式等。例如：</p>
-<pre class="highlight"><code class="language-yaml">language: zh</code></pre>
-<p>或：</p>
-<pre class="highlight"><code class="language-yaml">language: !lang es</code></pre>
-<p>在上面的第二个例子中，使用<code>!lang</code>的例子是一个文件名为<code>lang/es.yaml</code>的文件，其中包含日历、日期等的语言设置。</p>
-<h3 id="metadata"><code>metadata</code><a class="headerlink" href="#metadata" title="Permanent link"></a></h3>
-<p>此选项可用于设置页面相关的如发布日期、修改日期、作者等元数据。数据添加到页面的元数据：<code>&lt;meta&gt;</code>标签和HTML注释中。通常在主题中修改和使用这些值，以及将它们添加到feed.xml中。</p>
-<p>以下是一个完整的示例，说明如何在一个页面上使用元数据：</p>
-<pre class="highlight"><code class="language-yaml">pages:
-- Some Section:
-  - index.md:
-      title: Some Section
-  - page.md:
-      title: A Subpage
-      published: 2014-03-17
-      modified: 2015-08-11T13:32:37+00:00
-      author: John Smith &lt;john@example.com&gt;
-      description: A short description of the content on the page.</code></pre>
-<p>默认情况下，元数据转换为HTML注释并放在页面的顶部。如果你想将它们作为<code>&lt;meta&gt;</code>标签添加到<code>&lt;head&gt;</code>中，你的主题应该告诉你如何这样做。例如，在使用<code>mkdocs-moonstone</code>主题时，可以在<code>extra.javascript</code>中指定名为<code>window.MKDOCS_METADATA</code>的元对象：</p>
-<pre class="highlight"><code class="language-yaml">extra_javascript:
-  - !javascript |
-      window.MKDOCS_METADATA = {{ metadata|tojson|safe }};
-      console.log("Metadata", window.MKDOCS_METADATA);</code></pre>
-<p>在上面的示例中，使用<code>!javascript</code>是为了防止单引号的使用。如果没有使用<code>!javascript</code>，则需要转义引号。</p>
-<p>它还被交付到一个指定的feed.xml文件中，如果存在。</p>
-<h3 id="search"><code>search</code><a class="headerlink" href="#search" title="Permanent link"></a></h3>
-<p>用于启用搜索。此选项指定了许多选项，这些选项由<a href="https://lunrjs.com/">Lunr.js搜索库</a>使用。以下是一个完整的示例：</p>
+  - pymdownx.extra:
+      link_attrs:
+        rel: ['nofollow', 'external']
+        target: '_blank'</code></pre>
+<h3 id="mdx_configs">mdx_configs<a class="headerlink" href="#mdx_configs" title="Permanent link"></a></h3>
+<p>此选项允许向mkdocs的Python Markdown扩展传递从扩展明细到配置映射的字典。使用此选项，可以自定义使用标准markdown库进行语法解析的私有特性。</p>
+<pre class="highlight"><code class="language-yaml">mdx_configs:
+    footnotes:
+        BACKLINK_LABEL: '↩'</code></pre>
+<h3 id="extra">extra<a class="headerlink" href="#extra" title="Permanent link"></a></h3>
+<p>在主题模板中具有不同格式的meta选项。有关详细信息可以在主题的文档中找到。在上面的示例中，<code>readthedocs</code>主题使用该<code>extra</code>字段来提供一个值以<code>include_search_page</code>选项。</p>
+<pre class="highlight"><code class="language-yaml">theme:
+    name: 'readthedocs'
+    custom_dir: null
+    css: null
+    extra:
+        google_analytics: 'UA-00000000-1'</code></pre>
+<p>在上面的示例中，Google Analytics跟踪仪将在生成的页面上激活。</p>
+<h3 id="search">search<a class="headerlink" href="#search" title="Permanent link"></a></h3>
+<p>一个包含各种选项的字典，用于控制是否启用搜索，搜索框的选项，搜索过程中每个条目要索引的内容以及用于生成搜索索引的Lunr.js包的配置。搜索选项大而强大，下面对一些高级选项进行了描述。请参见<a href="#search-options">搜索选项</a>进行配置。</p>
 <pre class="highlight"><code class="language-yaml">search:
-  lang: zh
-  # The minimum length of a search query.
-  min_search_length: 1
-  # A list of modes to search on (leave blank for all).
-  search_modes:
-    - Loose
-  # A list of characters that split the search query into tokens.
-  separator: '[\s\-\.]+'
-  prebuild_index: False
-  indexing: 'full'</code></pre>
-<p>此外还有一些其他可用选项。</p>
-<h3 id="min_search_length"><code>min_search_length</code><a class="headerlink" href="#min_search_length" title="Permanent link"></a></h3>
-<p>用于定义搜索查询的最小长度的整数值。默认情况下，忽略搜索长度小于3个字符的搜索结果。但是，对于一些使用情况（例如，关于消息队列的文档可能会生成对“MQ”的搜索），希望设置一个比较短的限制。例如：</p>
-<p>```yaml</p></div>
+    index_only: false
+    lang: ['en']
+    min_search_length: 3
+    per_page: 10
+    search_title_only: false
+    separator: '[\s\-\.]+'</code></pre>
+<p>注意：在搜索中使用非默认的选择性功能如图像涉及到旧版的Lunr.js和未维护的额外插件。此执行不推荐，且很少支持。</p>
+<h3 id="security">security<a class="headerlink" href="#security" title="Permanent link"></a></h3>
+<p>此选项为使用MkDocs留下的后门提供额外的安全配置，目前只有一个选项。默认情况下，仅允许在本地(127.0.0.1/localhost)的回送地址上运行<code>mkdocs serve</code>，以防止任何人都发现你的站点。</p>
+<pre class="highlight"><code class="language-yaml">security:
+    localhost_only: true</code></pre>
+<blockquote>
+<p>注意：使用<code>0.0.0.0</code>或任何其他不慎放弃的IP地址启动的服务器的安全性完全由操作系统和网络架构决定。请仅在本地开发环境中使用这种方法。</p>
+</blockquote>
+<h2 id="_5">插件<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>MkDocs插件是为MkDocs实现定义自己的自定义功能的Python包。请参见<a href="../../dev-guide/plugins/">插件</a>了解有关编写自己的插件的更多信息。</p>
+<p>MkDocs包括一些使用常用功能的插件，以及所有其他插件都支持。默认插件位于名为“mkdocs_internal”的包中。以下列出并描述了MkDocs支持的所有默认插件和选项。</p>
+<h3 id="_6"><a href="../plugins/search/">搜索插件</a><a class="headerlink" href="#_6" title="Permanent link"></a></h3>
+<p>搜索插件为MkDocs生成了一个搜索索引，允许通过站点搜索页面并在返回的结果上轻松导航。此外，一些与搜索相关的选项可以在主配置文件中进行配置。</p>
+<pre class="highlight"><code class="language-yaml">plugins:
+    - search</code></pre>
+<h4 id="_7">搜索选项<a class="headerlink" href="#_7" title="Permanent link"></a></h4>
+<p>当启用搜索插件时，可以通过搜索配置选项来自定义搜索行为。以下是搜索选项的详细列表：</p>
+<h5 id="index_only"><strong>index_only</strong><a class="headerlink" href="#index_only" title="Permanent link"></a></h5>
+<p>一个布尔选项，用于根据需要决定搜索项中包含哪些页面。</p>
+<p>如果设置了<code>index_only</code>，则只索引位于search_index目录中的页面。这个目录是通过搜索配置来定义的。</p>
+<pre class="highlight"><code class="language-yaml">plugins:
+  - search:
+      index_only: true</code></pre>
+<p><strong>default</strong>: <code>True</code></p>
+<h5 id="search_title_only"><strong>search_title_only</strong><a class="headerlink" href="#search_title_only" title="Permanent link"></a></h5>
+<p>一个布尔选项，用于确定MkDocs搜索是否仅在页面标题中搜索内容。</p>
+<pre class="highlight"><code class="language-yaml">plugins:
+  - search:
+      search_title_only: true</code></pre>
+<p>默认情况下，MkDocs会在页面标题、段落和标题级别的文本中查找搜索词。在大多数情况下，将所有文本包括在搜索中会导致更佳的搜索结果。但是，在特定的用例下，搜索标题和页脚注释之类的内容可能更重要。</p>
+<p><strong>default</strong>: <code>False</code></p>
+<h5 id="separator"><strong>separator</strong><a class="headerlink" href="#separator" title="Permanent link"></a></h5>
+<p>一个正则表达式，用于定义单词之间的分隔符。在生成搜索索引时，MkDocs使用此分隔符将单词从页面文本中提取到搜索索引中。您也可以根据需要提供一个正则表达式字符串。</p>
+<pre class="highlight"><code class="language-yaml">plugins:
+  - search:
+      separator: '[\s\-\.]+'</code></pre>
+<p><strong>default</strong>: <code>'[\s\-]+'</code></p>
+<h5 id="min_search_length"><strong>min_search_length</strong><a class="headerlink" href="#min_search_length" title="Permanent link"></a></h5>
+<p>一个整数值，用于定义搜索查询的最小长度。默认情况下，忽略长度小于3个字符的搜索结果，因为使用较短的搜索术语的搜索结果质量较低。但是，对于某些用例（例如关于可以生成对'MQ'进行搜索的消息队列的文档），最好设置“较短”的限制。</p>
+<pre class="highlight"><code class="language-yaml">plugins:
+  - search:
+      min_search_length: 2</code></pre>
+<p><strong>default</strong>: 3</p>
+<h5 id="lang"><strong>lang</strong><a class="headerlink" href="#lang" title="Permanent link"></a></h5>
+<p>使用它们的[ISO 639-1]语言代码，A包含要在构建搜索索引时使用的语言列表。使用[Lunr Languages]，支持以下语言：</p>
+<ul>
+<li>ar: 阿拉伯语</li>
+<li>da: 丹麦语</li>
+<li>nl: 荷兰语</li>
+<li>en: 英语</li>
+<li>fi: 芬兰语</li>
+<li>fr: 法语</li>
+<li>de: 德语</li>
+<li>hu: 匈牙利语</li>
+<li>it: 意大利语</li>
+<li>ja: 日语</li>
+<li>no: 挪威语</li>
+<li>pt: 葡萄牙语</li>
+<li>ro: 罗马尼亚语</li>
+<li>ru: 俄语</li>
+<li>es: 西班牙语</li>
+<li>sv: 瑞典语</li>
+<li>th: 泰语</li>
+<li>tr: 土耳其语</li>
+<li>vi: 越南语</li>
+</ul>
+<p>可以[贡献更多的语言]。</p>
+<p>警告：
+虽然搜索支持同时使用多种语言，但最好不要添加其他语言，除非你真的需要它们。每个附加语言都会增加带宽需求并使用更多的浏览器资源。通常，最好将每个MkDocs实例保留在单个语言上。</p>
+<p>注意：
+Lunr Languages目前不包括对汉语或其他亚洲语言的支持。但是，一些用户报告了使用Japanese所产生的不错的结果。</p>
+<p><strong>default</strong>: 如果设置，则为<code>theme.locale</code>的值，否则为<code>[en]</code>。</p>
+<h5 id="prebuild_index"><strong>prebuild_index</strong><a class="headerlink" href="#prebuild_index" title="Permanent link"></a></h5>
+<p>可选地生成所有页面的预构建索引，这提供了一些大型站点的性能改进。在启用之前，请确认您正在使用一个明确支持使用预构建索引的主题（内置主题）。设置为<code>true</code>启用。</p>
+<p>警告：
+此选项要求安装[Node.js]并且在系统路径上使用<code>node命令。如果</code>node' 的调用由于任何原因而失败，则会发出警告并且继续无中断地构建。当构建时使用<code>--strict</code>标志会导致此类失败引发错误而不是警告。</p>
+<p>请注意：
+在较小的站点上，不推荐使用预构建索引，因为它会显著增加带宽需求，对您的用户几乎没有感知到的提高性能。但是，对于较大的站点（数百页），带宽增加相对较小，您的用户将注意到搜索性能的显著提高。</p>
+<p><strong>default</strong>: <code>False</code></p>
+<h5 id="indexing"><strong>indexing</strong><a class="headerlink" href="#indexing" title="Permanent link"></a></h5>
+<p>配置搜索索引器在构建索引时将使用什么策略的选项。如果您的项目规模很大且索引占用了大量磁盘空间，则此属性特别有用。</p>
+<pre class="highlight"><code class="language-yaml">plugins:
+  - search:
+      indexing: 'full'</code></pre>
+<h6 id="_8">选项<a class="headerlink" href="#_8" title="Permanent link"></a></h6>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>full</td>
+<td>索引页面的标题，范围标题和完整文本。</td>
+</tr>
+<tr>
+<td>sections</td>
+<td>索引页面的标题和范围标题。</td>
+</tr>
+<tr>
+<td>titles</td>
+<td>仅索引页面的标题。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>default</strong>: <code>full</code></p>
+<h3 id="yaml">特殊的YAML标记<a class="headerlink" href="#yaml" title="Permanent link"></a></h3>
+<h3 id="_9">环境变量<a class="headerlink" href="#_9" title="Permanent link"></a></h3>
+<p>在大多数情况下，配置选项的值是直接在配置文件中设置的。但是，作为一种选择，配置选项的值可以设置为环境变量的值，使用<code>!ENV</code>标记。例如，要将<code>site_name</code>选项的值设置为变量<code>SITE_NAME</code>的值，YAML文件可能包含以下内容：</p>
+<pre class="highlight"><code class="language-yaml">site_name: !ENV SITE_NAME</code></pre>
+<p>如果未定义环境变量，则会为配置设置分配一个空值（或Python中的“None”）。可以定义默认值作为列表中的最后一个值。如下所示：</p>
+<pre class="highlight"><code class="language-yaml">site_name: !ENV [SITE_NAME, 'My default site name']</code></pre>
+<p>也可以使用多个后备变量。注意，最后一个值不是环境变量，但必须是没有定义的默认值。</p>
+<pre class="highlight"><code class="language-yaml">site_name: !ENV [SITE_NAME, OTHER_NAME, 'My default site name']</code></pre>
+<p>简单类型在环境变量中定义，如字符串，布尔值，整数，浮点，日期戳和空值会像在YAML文件中定义一样解析，这意味着该值将被转换为适当的类型。但是，复杂类型（如列表和键/值对）无法在单个环境变量中定义。</p>
+<p>有关详细信息，请参见[pyyaml_env_tag]项目。</p>
+<h3 id="_10">相对于当前文件或站点的路径<a class="headerlink" href="#_10" title="Permanent link"></a></h3>
+<p>NEW：<strong>1.5版中的新功能。</strong></p>
+<p>某些Markdown扩展程序可以从当前正在处理的Markdown文件的路径或仅限于当前站点的根路径受益。为此，可以在配置文件的大多数上下文内使用特殊标记<code>!relative</code>，尽管已知的使用案例仅在使用[markdown_extensions]中。 示例可能的值是：</p>
+<pre class="highlight"><code class="language-yaml">- !relative  # 相对于当前Markdown文件的目录
+- !relative $docs_dir  # docs_dir的路径
+- !relative $config_dir  # 包含主mkdocs.yml的目录的路径
+- !relative $config_dir/some/child/dir  # 子目录的一些子目录根目录</code></pre>
+<p>（在这里，<code>$docs_dir</code>和<code>$config_dir</code>目前是<em>唯一</em>认可的特殊前缀名称。）</p>
+<p>例子：</p>
+<pre class="highlight"><code class="language-yaml">markdown_extensions:
+  - pymdownx.snippets:
+      base_path: !relative  # 相对于当前Markdown文件</code></pre>
+<p>这允许[pymdownx.snippets]扩展从当前Markdown文件相对包括文件，否则它就不知道。</p>
+<blockquote>
+<p>注意：甚至对于默认情况，任何扩展的基本路径都是<em>当前工作目录</em>，尽管假设它是<em>mkdocs.yml</em>的<em>目录</em>。因此，即使您不希望这些路径间关系是相对的，以改进默认行为，也应始终使用此成语：</p>
+<pre class="highlight"><code class="language-yaml">markdown_extensions:
+  - pymdownx.snippets:
+      base_path: !relative $config_dir  # 相对于具有mkdocs.yml的根目录</code></pre>
+</blockquote>
+<h2 id="_11">配置继承<a class="headerlink" href="#_11" title="Permanent link"></a></h2>
+<p>通常，单个文件将保存整个站点的配置。然而，一些组织可能会维护多个站点，它们在所有站点之间共享通用配置。而不是为每个站点单独维护配置，可以将通用配置选项定义为父配置文件，每个站点的主配置文件都会继承该父配置文件。</p>
+<p>要定义配置文件的父级，请将<code>INHERIT</code>（全部大写）键设置为父文件的路径。该路径必须相对于主文件</p></div>
             </div>
         </div>
 

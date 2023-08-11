@@ -8,7 +8,7 @@
         <meta name="author" content="MkDocs Team">
         <link rel="canonical" href="https://www.mkdocs.org/user-guide/localizing-your-theme/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>本地化主题 - MkDocs</title>
+        <title>本地化您的主题 - MkDocs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -61,7 +61,7 @@
 </li>
                                     
 <li>
-    <a href="../writing-your-docs/" class="dropdown-item">编写文档</a>
+    <a href="../writing-your-docs/" class="dropdown-item">编写您的文档</a>
 </li>
                                     
 <li>
@@ -69,11 +69,11 @@
 </li>
                                     
 <li>
-    <a href="../customizing-your-theme/" class="dropdown-item">自定义主题</a>
+    <a href="../customizing-your-theme/" class="dropdown-item">自定义您的主题</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">本地化主题</a>
+    <a href="./" class="dropdown-item active">本地化您的主题</a>
 </li>
                                     
 <li>
@@ -85,7 +85,7 @@
 </li>
                                     
 <li>
-    <a href="../deploying-your-docs/" class="dropdown-item">部署文档</a>
+    <a href="../deploying-your-docs/" class="dropdown-item">发布您的文档</a>
 </li>
                                 </ul>
                             </li>
@@ -170,7 +170,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">本地化您的主题</a>
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">主题本地化</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">安装</a>
               <ul class="nav flex-column">
@@ -180,7 +180,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">使用方法</a>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">使用说明</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -195,32 +195,31 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">本地化您的主题<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
-<p>在您喜欢的语言下展示您的主题。</p>
+<h1 id="_1">主题本地化<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<p>在你喜欢的语言中显示你的主题。</p>
 <hr />
-<p>注：
-主题本地化只翻译主题本身的文本元素（如“下一页”和“上一页”链接），而不是您的文档的实际内容。
-如果您希望创建多语言文档，您需要将此处描述的主题本地化与第三方国际化/本地化插件相结合。</p>
+<p>注意：
+主题本地化仅翻译主题本身的文本元素（如“下一页”和“上一页”链接），而不是你文档的实际内容。如果你想创建多语言文档，你需要将本地化主题与第三方国际化/本地化插件结合使用。</p>
 <h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
-<p>要使主题本地化工作，您必须使用支持它的主题，并通过安装<code>mkdocs[i18n]</code>启用<code>i18n</code>（国际化）支持：</p>
+<p>为使主题本地化正常工作，必须使用支持主题本地化的主题并安装 <code>mkdocs[i18n]</code> 以启用i18n（国际化）支持：</p>
 <pre class="highlight"><code class="language-bash">pip install mkdocs[i18n]</code></pre>
 <h2 id="_3">支持的语言环境<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
-<p>在大多数情况下，语言环境由您的语言的<a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO-639-1</a>（2字母）缩写来指定。然而，语言环境还可能包括领土（或区域或国家）代码。语言和领土必须用下划线分隔。例如，英语的一些可能的语言环境包括<code>en</code>，<code>en_AU</code>，<code>en_GB</code>和<code>en_US</code>。</p>
-<p>有关主题支持的语言环境列表，请参阅该主题的文档。</p>
+<p>在大多数情况下，你的语言环境是根据你的语言的<a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO-639-1</a>（2字母）缩写来指定的。但是，语言环境也可能包括一个地域（或区域或县）代码。必须用下划线分隔语言和地域。例如，英语的一些可能的语言环境包括 <code>en</code>, <code>en_AU</code>, <code>en_GB</code> 和 <code>en_US</code>。</p>
+<p>有关你正在使用的主题支持的语言环境列表，请参见该主题的文档。</p>
 <ul>
 <li><a href="../choosing-your-theme/#mkdocs-locale">mkdocs</a></li>
 <li><a href="../choosing-your-theme/#readthedocs-locale">readthedocs</a></li>
 </ul>
 <p>警告：
-如果您配置了主题尚不支持的语言环境，则MkDocs将退回到主题的默认语言环境。</p>
-<h2 id="_4">使用方法<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
-<p>为了指定MkDocs应该使用的本地环境，请将<a href="../configuration/#theme">theme</a>配置选项的<a href="../configuration/#locale">locale</a>参数设置为相应的代码。</p>
-<p>例如，要在法语下构建<code>mkdocs</code>主题，您可以在您的<code>mkdocs.yml</code>配置文件中使用以下内容：</p>
+如果你配置一个主题尚不支持的语言环境，MkDocs 将回退到主题的默认语言环境。</p>
+<h2 id="_4">使用说明<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<p>为指定MkDocs应使用的语言环境，请将 <a href="../configuration/#theme">theme</a> 配置选项的 <a href="../configuration/#locale">locale</a> 参数设置为适当的代码。</p>
+<p>例如，要在法语中构建 <code>mkdocs</code> 主题，你将在 <code>mkdocs.yml</code> 配置文件中使用以下内容：</p>
 <pre class="highlight"><code class="language-yaml">theme:
   name: mkdocs
   locale: fr</code></pre>
 <h2 id="_5">贡献主题翻译<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
-<p>如果某个主题尚未翻译为您的语言，请随时使用<a href="../../dev-guide/translations/">翻译指南</a>进行翻译。</p></div>
+<p>如果主题尚未翻译成你的语言，请使用 <a href="../../dev-guide/translations/">翻译指南</a>（Translation Guide）贡献翻译。</p></div>
             </div>
         </div>
 
